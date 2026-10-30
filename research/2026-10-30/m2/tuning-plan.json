@@ -1,0 +1,189 @@
+{
+  "name": "tuning-v1",
+  "phases": [
+    {
+      "name": "cert3-selftest",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--self-test",
+        "--cpu-threads",
+        "2",
+        "--no-notify",
+        "--no-dashboard"
+      ],
+      "cwd": "@ROOT/upstream-cert3",
+      "timeout": 180
+    },
+    {
+      "name": "cert3-control-a",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--benchmark",
+        "--benchmark-seconds",
+        "120",
+        "--m",
+        "8192",
+        "--n",
+        "8192",
+        "--cpu-threads",
+        "2",
+        "--no-notify",
+        "--no-dashboard"
+      ],
+      "cwd": "@ROOT/upstream-cert3",
+      "timeout": 200
+    },
+    {
+      "name": "auto-control-a",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "8192",
+        "--n",
+        "16384",
+        "--region-rows",
+        "512"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "n32768",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "8192",
+        "--n",
+        "32768",
+        "--region-rows",
+        "512"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "n65536",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "8192",
+        "--n",
+        "65536",
+        "--region-rows",
+        "512"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "max-shape",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "16384",
+        "--n",
+        "65536",
+        "--region-rows",
+        "512"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "region256",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "8192",
+        "--n",
+        "16384",
+        "--region-rows",
+        "256"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "region1024",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "8192",
+        "--n",
+        "16384",
+        "--region-rows",
+        "1024"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "auto-control-b",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "45",
+        "--m",
+        "8192",
+        "--n",
+        "16384",
+        "--region-rows",
+        "512"
+      ],
+      "timeout": 100
+    },
+    {
+      "name": "cert3-control-b",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--benchmark",
+        "--benchmark-seconds",
+        "120",
+        "--m",
+        "8192",
+        "--n",
+        "8192",
+        "--cpu-threads",
+        "2",
+        "--no-notify",
+        "--no-dashboard"
+      ],
+      "cwd": "@ROOT/upstream-cert3",
+      "timeout": 200
+    }
+  ],
+  "path_placeholder_note": "@PY is the tested release virtual environment; @ROOT holds separate checkouts; see README."
+}

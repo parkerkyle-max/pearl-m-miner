@@ -1,0 +1,101 @@
+{
+  "name": "confirmation-v1",
+  "phases": [
+    {
+      "name": "production-shape-gate",
+      "args": [
+        "@PY",
+        "@RELEASE/tools/prefix_s_miner/check_sparse_native.py",
+        "--miner-root",
+        "@RELEASE",
+        "--factory-root",
+        "@RELEASE/tools/prefix_sparse_host",
+        "--method",
+        "s",
+        "--library",
+        "@RELEASE/tools/prefix_s_miner/libprefix.dylib",
+        "--shader",
+        "@RELEASE/tools/prefix_s_miner/prefix.metal",
+        "--m",
+        "8192",
+        "--n",
+        "16384",
+        "--full-export-only"
+      ],
+      "timeout": 240
+    },
+    {
+      "name": "private-scan-gate",
+      "args": [
+        "@PY",
+        "@RELEASE/research/2026-10-30/ceiling/check_private_scan.py",
+        "--source",
+        "@RELEASE",
+        "--library",
+        "@RELEASE/tools/prefix_s_miner/libprefix.dylib",
+        "--shader",
+        "@RELEASE/tools/prefix_s_miner/prefix.metal"
+      ],
+      "timeout": 120
+    },
+    {
+      "name": "cert3-matched-300",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--benchmark",
+        "--benchmark-seconds",
+        "300",
+        "--m",
+        "8192",
+        "--n",
+        "16384",
+        "--region-rows",
+        "512",
+        "--cpu-threads",
+        "2",
+        "--no-notify",
+        "--no-dashboard"
+      ],
+      "timeout": 380,
+      "cwd": "@ROOT/upstream-cert3"
+    },
+    {
+      "name": "auto-300",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "300"
+      ],
+      "timeout": 380
+    },
+    {
+      "name": "peak-float-300",
+      "args": [
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak",
+        "--mode",
+        "float",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak.metal",
+        "--groups",
+        "512",
+        "--simdgroups",
+        "4",
+        "--chains",
+        "4",
+        "--warmup",
+        "10",
+        "--seconds",
+        "300",
+        "--output",
+        "@OUT/peak-float-300.json"
+      ],
+      "timeout": 380
+    }
+  ],
+  "path_placeholder_note": "@PY is the tested release virtual environment; @ROOT holds separate checkouts; see README."
+}

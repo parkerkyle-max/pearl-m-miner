@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
   <title id="title">Pearl M-Miner — Metal GPU mining for Apple Silicon</title>
-  <desc id="desc">An open source experimental Pearl miner. Measured on M1 Max, with transparent optional developer support.</desc>
+  <desc id="desc">An open source experimental Pearl miner. Measured on M1 Max and a 10-core M2, with transparent optional developer support.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111b35"/><stop offset="1" stop-color="#080b15"/></linearGradient>
     <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#46dce4"/><stop offset=".55" stop-color="#8c80ff"/><stop offset="1" stop-color="#e5bc64"/></linearGradient>
@@ -23,5 +23,5 @@
     <path d="M55 225V120l60 70 60-70v105" opacity=".55"/>
   </g>
   <text x="1115" y="403" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#a8b6cf">EXPERIMENTAL</text>
-  <text x="70" y="482" font-family="Arial,sans-serif" font-size="14" fill="#7c8fae">M1 Max measured. Other M-series devices are experimental targets. No income guarantee.</text>
+  <text x="70" y="482" font-family="Arial,sans-serif" font-size="14" fill="#7c8fae">M1 Max and 10-core M2 measured. Other devices need qualification. No income guarantee.</text>
 </svg>

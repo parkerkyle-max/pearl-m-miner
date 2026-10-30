@@ -1,0 +1,61 @@
+name: Mac compatibility or benchmark result
+description: Share a reproducible device result, including failed builds or self-tests.
+title: "[Device] Chip / GPU cores / macOS"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Device reports help qualify M-series configurations we do not own.
+        Build failures and failed self-tests are useful results too; do not bypass a failed correctness gate.
+        Please remove payout identities, local usernames/IPs and unrelated process lists.
+        Never post wallet seeds, private keys, passwords or authentication tokens.
+  - type: input
+    id: hardware
+    attributes:
+      label: Chip, GPU-core count and unified memory
+      placeholder: "Apple M2 / 10 GPU cores / 24 GiB"
+    validations:
+      required: true
+  - type: input
+    id: software
+    attributes:
+      label: macOS, miner release or commit, Python and SDK versions
+      placeholder: "macOS 27.0 / v0.1.0-alpha.3 / arm64 Python 3.12 / SDK 27.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Furthest completed step
+      options:
+        - Build failed
+        - Build passed; self-test failed
+        - Self-test passed; benchmark not run
+        - Offline benchmark completed
+        - Pool connected; no accepted share yet
+        - Pool accepted at least one locally verified share
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Commands and sanitized results
+      description: Include exact dimensions, CPU helpers, warmup and measured duration. Distinguish local TH/s from pool shares. A failed step needs its error, not a performance estimate.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Test conditions, power and pool details
+      description: State AC/battery, low-power mode, other GPU workloads, temperature behavior and power source (outlet meter, software or unmeasured). For a pool test, give the pool name, duration and accepted/rejected counts without your account or address.
+      placeholder: "AC; no competing GPU workload; outlet power unmeasured; benchmark only, no pool test."
+    validations:
+      required: true
+  - type: checkboxes
+    id: publication
+    attributes:
+      label: Public evidence
+      options:
+        - label: I reviewed the report for secrets and personal identifiers and understand it will be public.
+          required: true

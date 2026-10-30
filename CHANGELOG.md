@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-30 — M2 qualification and documentation supplement
+
+- Builds the unchanged Alpha 3 source on a 10-core-GPU M2 / 24 GiB / macOS 27.0 and records source-bound proof gates and bounded same-pool trials.
+- Adds matched 300-second M2 evidence: 1.4652 TH/s versus 0.4061 TH/s for upstream 0.2.4 + cert3 compatibility, preserving its GPU kernels (3.61× local throughput). Power is software telemetry; no paid-income or outlet-efficiency claim.
+- Retains the existing 32-row kernel and M2 defaults after recording shape, dispatch and kernel alternatives. No new runtime speedup or universal M2 support is claimed.
+- Records the initial full-duty live thermal stop and repeats the equal-duration pool comparison at 80% intensity. The 95°C threshold belongs to the external lab supervisor; the release's OS thermal-pressure policy is unchanged.
+- Publishes the control patch, source hashes, sanitized logs, power samples and arithmetic-ceiling limits. The Alpha 3 release tag and computation source remain unchanged.
+- Updates English, Chinese, Japanese and Korean READMEs/pages; adds a dedicated M2 page, static FAQ/support/privacy pages, accurate social previews, sitemap and AI-readable evidence links. Search indexing and rankings remain external outcomes.
+
+
 ## 0.1.0a3 — M1 Max optimization, public discovery and four languages
 
 - Separates local protocol TH/s, share results, job freshness and native stage counters in bounded 30-second telemetry.

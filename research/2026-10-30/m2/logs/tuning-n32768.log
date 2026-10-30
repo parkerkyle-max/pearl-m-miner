@@ -1,0 +1,15 @@
+[12:02:31] benchmark: offline synthetic cert3 job — no pool, no wallet, no network
+[12:02:31] prefix GPU engine: Apple M2; M=8192 N=32768; prepare_method=s; actual-input GPU guard; immutable snapshots; synchronous regions
+[12:02:31] warmup 9s, then 45s measured at intensity 100
+BENCHMARK_JSON {"measure_start_monotonic": 210161.364823, "measure_start_unix_ns": 1793376160211272000, "measure_end_monotonic": 210206.442962375, "measured_tiles": 123469824, "measured_seconds": 45.07813937499304, "tiles_per_second": 2739017.7525493545, "difficulty_factor": 524288, "equivalent_hashes_per_second": 1436034139448.596, "warmup_seconds_requested": 9.0, "scope": "offline returned scans including grid preparation; no pool proof or network"}
+[12:03:25] measured 2.739M tiles/s over 45s on Apple M2 (AC)
+
+paste-ready for the community hardware table
+(https://github.com/parkerkyle-max/pearl-m-miner — benchmark reports issue):
+
+| chip | macOS | tiles/s | intensity | power | version | date |
+| ---- | ----- | ------- | --------- | ----- | ------- | ---- |
+| Apple M2 | 27.0 | 2.739M | 100 | AC | 0.1.0a3 | 2026-10-30 |
+
+PREFIX_FACTORY_STATS [{"grids": 73, "prepare_seconds": 0.13176146100158803, "discarded_ready": 0}]
+PREFIX_ENGINE_STATS {"engines": [{"prepares": 72, "prepare_wall_s": 0.8479521240000001, "upload_s": 0.05231649900000001, "guard_gpu_s": 0.4940182500286028, "scans": 568, "gpu_s": 53.00666533346521, "scan_wall_s": 53.22829096199996, "completed_tiles": 148897792, "valid_returned_tiles": 148897792, "stale_discarded_tiles": 0, "overflow_hits": 0, "stale_grid_loads": 0, "duplicate_commitment_loads": 0, "sparse_prepares": 72, "legacy_prepares": 0, "csr_prepares": 0, "s_prepares": 72, "device": "Apple M2"}], "close_errors": []}

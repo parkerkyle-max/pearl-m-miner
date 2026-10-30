@@ -1,5 +1,7 @@
 # Performance: three different baselines
 
+For the new matched 10-core M2 comparison, see [the M2 report](M2_VALIDATION_20261030.md). The historical M1 results below retain their original measurement scopes.
+
 All numbers below were measured on **one Apple M1 Max, 32-core GPU, 64 GiB unified memory, macOS 26.6.1, on AC power**. They describe the research backend that became Pearl M-Miner. Release packaging, fee routing and longer runs are separate validation steps.
 
 ![Historical context and recent optimization results](../assets/performance.svg)

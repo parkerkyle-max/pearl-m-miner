@@ -1,0 +1,185 @@
+{
+  "name": "baseline-v1",
+  "phases": [
+    {
+      "name": "upstream-build",
+      "args": [
+        "sh",
+        "packaging/build_macos.sh"
+      ],
+      "cwd": "@UPSTREAM",
+      "timeout": 120
+    },
+    {
+      "name": "upstream-selftest",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--self-test",
+        "--no-notify",
+        "--no-dashboard"
+      ],
+      "cwd": "@UPSTREAM",
+      "timeout": 180
+    },
+    {
+      "name": "idle",
+      "seconds": 20
+    },
+    {
+      "name": "upstream-a",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--benchmark",
+        "--benchmark-seconds",
+        "120",
+        "--cpu-threads",
+        "2",
+        "--no-dashboard",
+        "--no-notify",
+        "--m",
+        "8192",
+        "--n",
+        "8192"
+      ],
+      "cwd": "@UPSTREAM",
+      "timeout": 220
+    },
+    {
+      "name": "ours-matched",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "120",
+        "--m",
+        "8192",
+        "--n",
+        "8192"
+      ],
+      "cwd": "@RELEASE",
+      "timeout": 220
+    },
+    {
+      "name": "ours-auto",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "120",
+        "--m",
+        "8192",
+        "--n",
+        "16384"
+      ],
+      "cwd": "@RELEASE",
+      "timeout": 220
+    },
+    {
+      "name": "upstream-b",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_metal_miner.miner",
+        "--benchmark",
+        "--benchmark-seconds",
+        "120",
+        "--cpu-threads",
+        "2",
+        "--no-dashboard",
+        "--no-notify",
+        "--m",
+        "8192",
+        "--n",
+        "8192"
+      ],
+      "cwd": "@UPSTREAM",
+      "timeout": 220
+    },
+    {
+      "name": "peak-build",
+      "args": [
+        "sh",
+        "research/2026-10-30/ceiling/peak/build.sh"
+      ],
+      "timeout": 120
+    },
+    {
+      "name": "peak-half",
+      "args": [
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak",
+        "--mode",
+        "half",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak.metal",
+        "--groups",
+        "512",
+        "--simdgroups",
+        "4",
+        "--chains",
+        "4",
+        "--warmup",
+        "10",
+        "--seconds",
+        "60",
+        "--output",
+        "@OUT/peak-half.json"
+      ],
+      "timeout": 140
+    },
+    {
+      "name": "peak-float",
+      "args": [
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak",
+        "--mode",
+        "float",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak.metal",
+        "--groups",
+        "512",
+        "--simdgroups",
+        "4",
+        "--chains",
+        "4",
+        "--warmup",
+        "10",
+        "--seconds",
+        "60",
+        "--output",
+        "@OUT/peak-float.json"
+      ],
+      "timeout": 140
+    },
+    {
+      "name": "peak-mpp",
+      "args": [
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak",
+        "--mode",
+        "mpp",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/peak/peak.metal",
+        "--groups",
+        "64",
+        "--simdgroups",
+        "4",
+        "--chains",
+        "1",
+        "--warmup",
+        "10",
+        "--seconds",
+        "60",
+        "--output",
+        "@OUT/peak-mpp.json"
+      ],
+      "timeout": 140
+    }
+  ],
+  "path_placeholder_note": "@PY is the tested release virtual environment; @ROOT holds separate checkouts; see README."
+}

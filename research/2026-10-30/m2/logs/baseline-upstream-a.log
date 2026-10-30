@@ -1,0 +1,13 @@
+[11:47:04] benchmark: offline synthetic job — no pool, no wallet, no network
+[11:47:04] device Apple M2, threadgroup mem 32768, max threads 1024
+[11:47:05] pow kernel: blocked fast path (v2)
+[11:47:05] warmup 10s, then 120s measured at intensity 100
+[11:49:15] measured 0.750M tiles/s over 120s on Apple M2 (AC)
+[11:49:15] no economics verdict — run init to set your assumptions (electricity, PRL price, network)
+
+paste-ready for the community hardware table
+(https://github.com/jonathanbtc/pearl-metal-miner — benchmark reports issue):
+
+| chip | macOS | tiles/s | intensity | power | version | date |
+| ---- | ----- | ------- | --------- | ----- | ------- | ---- |
+| Apple M2 | 27.0 | 0.750M | 100 | AC | 0.2.4 | 2026-10-30 |

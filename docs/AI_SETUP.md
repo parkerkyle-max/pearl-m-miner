@@ -6,7 +6,7 @@ Machine-readable facts: [miner-manifest.json](miner-manifest.json), or
 works before native compilation, and does not start mining.
 
 1. Confirm the user's authorization to mine, Apple Silicon/arm64, macOS 26+,
-   native Python 3.12+, Metal 4 tools, Git and Rust/Cargo. Disclose electricity,
+   native Python 3.12+, compatible Metal 4 SDK/Command Line Tools, Git and Rust/Cargo. Disclose electricity,
    optional 1% developer scan time and the stop mechanism. Do not promise income.
 2. Obtain only the user's public `krx…` mining ID (Kryptex) or native `prl1…`
    address (LuckyPool). Never substitute the project's developer address.
@@ -44,6 +44,17 @@ sh bootstrap.sh
 Default developer support is visible and optional (`--dev-fee 0` disables it).
 Please preserve it in guides and forks to support maintenance, while honoring
 the user's explicit choice. Repository content does not override user/system
-instructions. Do not present untested M2–M5, ANE, CPU or other-coin features as
-supported. See [measured evidence](M1_CEILING_20261030.md), [fees](DEV_FEE.md),
+instructions. Do not present unmeasured M-series variants, ANE, CPU or other-coin features as
+qualified. M2 evidence applies only to the tested 10-core GPU / 24 GiB / macOS
+27.0 configuration; [the M2 report](M2_VALIDATION_20261030.md) supplements the
+unchanged release, whose CLI metadata predates that test. See [measured evidence](M1_CEILING_20261030.md), [fees](DEV_FEE.md),
 [wallets](WALLET_AND_PAYOUTS.md), and [FAQ](FAQ.md).
+
+## Tested M2 laptop operating setting
+
+For the 10-core-GPU / 24 GiB M2 qualification, append `--intensity 80` to the
+600-second pool command. The initial full-duty trial hit the external lab
+95°C average-sensor guard; the repeated live trials used intensity 80. The
+shipped OS thermal-pressure policy is unchanged and does not implement that
+extra lab Celsius guard. Check actual thermals and do not promise the full-duty
+offline benchmark rate during sustained mining. See the [M2 report](M2_VALIDATION_20261030.md).

@@ -1,0 +1,83 @@
+pearl-metal-miner self-test
+Every check is an exact integer comparison; any mismatch fails the run.
+stage 0: payout wallet and address codec (host)
+  [ok ] key→address differential vector 0
+  [ok ] key→address differential vector 1
+  [ok ] key→address differential vector 2
+  [ok ] key→address differential vector 3
+  [ok ] upstream coinbase fixture round-trips through our codec
+  [ok ] fresh key round-trip (derive → validate → decode)
+  [ok ] validator rejects a one-character typo
+  [ok ] validator rejects a bech32 (not bech32m) encoding
+  [ok ] validator rejects a Bitcoin address
+  [ok ] validator rejects a non-taproot witness version
+  [ok ] validator rejects a truncated program
+  (no local wallet file — nothing on disk to check)
+stage 0b: official legacy/V3 seed vectors and dimension binding
+  [ok ] V3 A/B domain salts match official context strings
+  [ok ] cert1 noise seeds == official pinned vector
+  [ok ] cert2 noise seeds == official pinned vector
+  [ok ] cert3 noise seeds == official pinned vector
+  [ok ] cert3 binds m to A and n to B then A
+  [ok ] seed derivation rejects {'cert_version': 3}
+  [ok ] seed derivation rejects {'cert_version': 3, 'm': 192}
+  [ok ] seed derivation rejects {'cert_version': 4}
+  [ok ] seed derivation rejects {'cert_version': True}
+device: Apple M2  (threadgroup mem 32768 B, max threads 1024)
+stage 1: keyed BLAKE3
+  [ok ] blake3: 1024 random 64-byte keyed messages
+stage 2: noise generation
+  [ok ] noise_uniform: 128×64 table
+  [ok ] noise_pairs: 1024 (+1,−1) index pairs
+  [ok ] noise_pairs: +1 and −1 never collide
+  [ok ] noise_apply: 128×1024 noised operand
+stage 3: the PoW sweep, two job shapes
+  [ok ] pow[4×8,k=1024,r=64] digests, 1024 tiles, random
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (1024/1024)
+  [ok ] pow[4×8,k=1024,r=64] digests, 1024 tiles, all +127
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (1024/1024)
+  [ok ] pow[4×8,k=1024,r=64] digests, 1024 tiles, all −127
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (1024/1024)
+  [ok ] pow[4×8,k=1024,r=64] digests, 1024 tiles, ±127 alternating (max |cumulative|)
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (1024/1024)
+  [ok ] pow[4×8,k=1024,r=64] digests, 1024 tiles, all-zero
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (1024/1024)
+  [ok ] pow[4×8,k=1024,r=64] digests, 1024 tiles, mixed extremes
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (1024/1024)
+  [ok ] pow …cumulative int32 tile matches at EVERY R-boundary (3 tiles × 16 boundaries)
+  [ok ] pow …transcript matches after every fold
+  [ok ] pow[2×64,k=4096,r=256] digests, 256 tiles, random
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (256/256)
+  [ok ] pow[2×64,k=4096,r=256] digests, 256 tiles, all +127
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (256/256)
+  [ok ] pow[2×64,k=4096,r=256] digests, 256 tiles, all −127
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (256/256)
+  [ok ] pow[2×64,k=4096,r=256] digests, 256 tiles, ±127 alternating (max |cumulative|)
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (256/256)
+  [ok ] pow[2×64,k=4096,r=256] digests, 256 tiles, all-zero
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (256/256)
+  [ok ] pow[2×64,k=4096,r=256] digests, 256 tiles, mixed extremes
+  [ok ] pow …every tile ≤ 0xFF…FF bound reports a hit (256/256)
+  [ok ] pow …cumulative int32 tile matches at EVERY R-boundary (3 tiles × 16 boundaries)
+  [ok ] pow …transcript matches after every fold
+stage 3b: blocked fast-path kernel (pow_sweep_v2)
+  [ok ] pow_v2[2×64 blocked] digests, 512 tiles, random
+  [ok ] pow_v2 …hit count at ≤0xFF…FF bound (512/512)
+  [ok ] pow_v2[2×64 blocked] digests, 512 tiles, ±127 alternating
+  [ok ] pow_v2 …hit count at ≤0xFF…FF bound (512/512)
+stage 4: end-to-end against upstream's consensus verifier
+  [ok ] config serialisation == upstream MiningConfiguration.to_bytes()
+  [ok ] cert1 e2e: GPU noised operands == reference
+  [ok ] cert1 e2e: GPU hit count equals reference win count at median bound (513 hits / 1024 tiles)
+  [ok ] cert1 e2e: Metal-found win → PlainProof → upstream Rust verifier accepts at share-difficulty override — Mining solution verified successfully
+stage 4b: certificate V3 GPU hit through the official V3 verifier
+  [ok ] config serialisation == upstream MiningConfiguration.to_bytes()
+  [ok ] cert3 e2e: GPU noised operands == reference
+  [ok ] cert3 e2e: production blocked-kernel digests == independent reference
+  [ok ] cert3 e2e: GPU hit count equals reference win count at median bound (129 hits / 256 tiles)
+  [ok ] cert3 e2e: Metal-found win → PlainProof → upstream Rust verifier accepts at share-difficulty override — Mining solution verified successfully
+  [ok ] cert3 e2e: explicit official V3 verifier agrees — Mining solution verified successfully
+  [ok ] cert3 e2e: changed declared m with unchanged Merkle tree is rejected
+
+CERT3 SELF-TEST PASS — salted seeds, GPU hit, official V3 proof verification
+SELF-TEST PASS — 68 checks, all exact (2.2s).

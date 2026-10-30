@@ -1,0 +1,119 @@
+{
+  "captured_utc": "2026-10-30T16:44:17.529637+00:00",
+  "scope": "read-only source and build identity",
+  "sources": {
+    "release": {
+      "head": "4e01cf91ae492d4ce9b262d32a80774ec941e0fc",
+      "tracked_changes": [],
+      "sha256": {
+        "pearl_m_miner/cli.py": "f51f80dbf710615ea72c3f31edd3e8a4cad1380ccf481ac94a1642e7f7698130",
+        "pearl_m_miner/worker.py": "f9e8ff83717ba46deba4580130d7694d5ea21f0f6bc223a4cc4c7b5539f0392b",
+        "pearl_m_miner/devfee.py": "740e1d27685b4bca3b74dac9a63bb22b53e9550aad7eac43b00e8c505a8f0cdc",
+        "pearl_metal_miner/miner.py": "e4a270374dff1cec10133aad4e3d39457c386d222503f953ad404d70f752e093",
+        "pearl_metal_miner/benchmark.py": "8fb922bec209df6eb74807de06b9d1fbfc594fd208d2aa3f5c56d08f397a13db",
+        "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+        "tools/prefix_s_miner/libprefix.dylib": "d8962d09709d2ad4f542a54fce1c0c8ccc217c6e3dc497f845295770a67b684d",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "build/libpearlmetal.dylib": "742127bb7f945a8891623d2b00064f907c3780c0af05b44a32c933e64b6c9b5d"
+      }
+    },
+    "upstream": {
+      "head": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+      "tracked_changes": [],
+      "sha256": {
+        "pearl_metal_miner/miner.py": "a59f4e62ea2548597515954585ede07f5d7134304aa3b7f6debeb3c6a702cd29",
+        "pearl_metal_miner/benchmark.py": "73a09bc9b59008bebd225a9208d1dd13bffa2b50c9c846a8af6f60a33024711a",
+        "build/libpearlmetal.dylib": "c5240d7e3f77b49ed2822035fd13e99b58c3b3fe42d1ba79d112bd10a6ce4505"
+      }
+    },
+    "upstream-cert3": {
+      "head": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+      "tracked_changes": [
+        "pearl_metal_miner/benchmark.py",
+        "pearl_metal_miner/host.py",
+        "pearl_metal_miner/miner.py",
+        "pearl_metal_miner/reference.py",
+        "pearl_metal_miner/selftest.py",
+        "pearl_metal_miner/stratum/dialect.py",
+        "pearl_metal_miner/stratum/luckypool.py"
+      ],
+      "sha256": {
+        "pearl_metal_miner/miner.py": "e85de6f74b9e96b44f54113ff15c15fb5f23a2e68dfc02be957ce676db6c9641",
+        "pearl_metal_miner/benchmark.py": "920e9569dba56b7cfd751c626a5e4b7d426b85703210e068b905bc7e5158e803",
+        "build/libpearlmetal.dylib": "c5240d7e3f77b49ed2822035fd13e99b58c3b3fe42d1ba79d112bd10a6ce4505"
+      }
+    }
+  },
+  "build_provenance": {
+    "schema": "pearl-m-source-build-v1",
+    "pearl_commit": "3c84be9fb4b2b279967ad3f9f74e67fb8c9cce30",
+    "python": "3.12.2",
+    "macos": "27.0",
+    "sdk": "27.0",
+    "versions": {
+      "numpy": "2.5.4",
+      "blake3": "1.0.11",
+      "maturin": "1.16.0"
+    },
+    "sha256": {
+      "build/libpearlmetal.dylib": "742127bb7f945a8891623d2b00064f907c3780c0af05b44a32c933e64b6c9b5d",
+      "tools/prefix_s_miner/libprefix.dylib": "d8962d09709d2ad4f542a54fce1c0c8ccc217c6e3dc497f845295770a67b684d",
+      "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+      "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+      "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+      "tools/prefix_sparse_host/zero_b_factory.py": "942eb91277b6bb0d44c1593136f1dc59985e9e082f7921499d4e5dab038e7fe3",
+      "tools/merkle_overlay/overlay_probe.py": "6b896db1e7c26c34aa07cb8fdf36b74476675a490c078086c143a849bc604c7a",
+      "tools/merkle_overlay/build/libm1merkleprobe_c.dylib": "4b735de961bc8faf7a641e83f91bb1185f0728f1d19193a6c36d92b32659ce92"
+    }
+  },
+  "release_offline_gate": {
+    "schema": "pearl-m-offline-gate-v1",
+    "identity": {
+      "platform": "macOS 27.0",
+      "chip": "Apple M2",
+      "machine": "arm64",
+      "sha256": {
+        "build/libpearlmetal.dylib": "742127bb7f945a8891623d2b00064f907c3780c0af05b44a32c933e64b6c9b5d",
+        "tools/prefix_s_miner/libprefix.dylib": "d8962d09709d2ad4f542a54fce1c0c8ccc217c6e3dc497f845295770a67b684d",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "tools/prefix_sparse_host/zero_b_factory.py": "942eb91277b6bb0d44c1593136f1dc59985e9e082f7921499d4e5dab038e7fe3",
+        "tools/prefix_sparse_host/build/libprefixsparse.dylib": "d938c7c2da676d0b1922969313b96efcd2da70e54bb701db093878cb4bcbe33d",
+        "tools/merkle_overlay/overlay_probe.py": "6b896db1e7c26c34aa07cb8fdf36b74476675a490c078086c143a849bc604c7a",
+        "tools/merkle_overlay/build/libm1merkleprobe_c.dylib": "4b735de961bc8faf7a641e83f91bb1185f0728f1d19193a6c36d92b32659ce92",
+        "pearl_metal_miner/host.py": "9dd041dab9294d6069fde2dfac42bc8f4768d146977b47b4d0afb8e840de4aca",
+        "pearl_metal_miner/reference.py": "428424662e375d6bd948667c25d6db4303003bb776699b7dc2139f8368da45e8",
+        "pearl_metal_miner/metal_capi.py": "1063eb286406be159e64a2c2078b42c8be34223de45cfeac11346a96b979bfd4",
+        "tools/prefix_s_miner/check_sparse_native.py": "469a571e811b9343db3e8f9fd1bc59b8e2522c2637221df44519b07c2244241b",
+        "PINNED_PEARL_COMMIT.txt": "e47174bedf6222a8feba310a05c24f085bfe42fba83f25bd30f3ac08c6dae40e"
+      }
+    },
+    "official_proof_checks": 28,
+    "completed_utc": "2026-10-30T15:46:14.249699+00:00",
+    "scope": "offline arithmetic/proof correctness; not pool acceptance or income"
+  },
+  "proof_checkout_commit": "3c84be9fb4b2b279967ad3f9f74e67fb8c9cce30",
+  "proof_extension_sha256": {
+    "pearl_mining/pearl_mining.abi3.so": "b842b0b80692ae878d3cb963dd5961905a85772543c3edd5f6a6cdf3f5be374f"
+  },
+  "cert3_receipt": {
+    "upstream_commit": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+    "native_source_sha256": {
+      "csrc/metal/pearl_metal.h": "d265b828cbe4d51a99551f7e9623a140c9d3ecaa47d4c99e872527e6cf933bc7",
+      "csrc/metal/kernels_embedded.h": "b3377f00db9150f1fc8a202860831ac56bc2ccf429350e6c3aa5ee3cd6c7f05d",
+      "csrc/metal/pearl_metal.mm": "af9bcae3b11ca1e859b51209b546b3b01e5691a0751ed02262b437107819d1b0",
+      "csrc/metal/kernels/pearl_kernels.metal": "f44e98b8a0e66176375d60d9c52998d1a1adb413dc4a16031d65b2155b70d1f8"
+    },
+    "patched_files_sha256": {
+      "pearl_metal_miner/miner.py": "e85de6f74b9e96b44f54113ff15c15fb5f23a2e68dfc02be957ce676db6c9641",
+      "pearl_metal_miner/benchmark.py": "920e9569dba56b7cfd751c626a5e4b7d426b85703210e068b905bc7e5158e803",
+      "pearl_metal_miner/stratum/luckypool.py": "b1392d7a6bd458c4adfebad840287efcc3150386ef36a9f918ff09f9e93a907d",
+      "pearl_metal_miner/stratum/dialect.py": "4acac5f96b72814cad55c9b645e4df42ab7b4cd3b5ac4968ecc63074fe6a67cf",
+      "pearl_metal_miner/reference.py": "47c69856184fd617c3aea3129255b5d3fb71872c8a8f5cb9e5613ebe74d79bc5",
+      "pearl_metal_miner/host.py": "81c13a1a94872b15c05914596ce013836d60127d1d8c5f4c9de73ff2795d9aa4",
+      "pearl_metal_miner/selftest.py": "08fca24f1cbd7fb05e9082e505961f9c98f5236270c1a14b34f35ec1f498bd75"
+    },
+    "scope": "cert3 seed/proof/session compatibility and benchmark JSON; upstream GPU kernels unchanged"
+  }
+}

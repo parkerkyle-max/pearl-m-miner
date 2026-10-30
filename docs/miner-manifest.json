@@ -13,12 +13,13 @@
     "os": "macOS 26+",
     "architecture": "arm64",
     "python": "3.12+",
-    "toolchain": "Metal 4 Command Line Tools, Git, Rust/Cargo"
+    "toolchain": "compatible Metal 4 SDK/Command Line Tools, Git, Rust/Cargo"
   },
   "measured_hardware": [
-    "Apple M1 Max, 32 GPU cores, 64 GiB"
+    "Apple M1 Max, 32 GPU cores, 64 GiB",
+    "Apple M2, 10 GPU cores, 24 GiB, macOS 27.0"
   ],
-  "other_m_series": "experimental; local self-test and pool validation required",
+  "other_m_series": "unmeasured configurations remain experimental; local self-test and pool validation required",
   "cpu_mining": false,
   "ane_mining": false,
   "multi_coin": false,
@@ -59,7 +60,28 @@
     "starts_mining": false,
     "network_access": false,
     "requires_wallet_secret": false,
-    "installs_autostart": false
+    "installs_autostart": false,
+    "scope": "offline info command; not a description of the mine or bootstrap commands"
   },
-  "income_guarantee": false
+  "income_guarantee": false,
+  "m2_operating_note": {
+    "device": "10-core GPU / 24 GiB M2 / macOS 27.0",
+    "offline_benchmark_intensity_percent": 100,
+    "repeated_live_test_intensity_percent": 80,
+    "initial_full_duty_trial": "stopped at the external lab 95 C average-sensor guard after about 119 seconds; 2 accepted, 0 rejected",
+    "recommendation": "begin bounded mining with --intensity 80; do not treat full-duty offline rate as a sustained live rate",
+    "new_runtime_default": false
+  },
+  "evidence_updated": "2026-10-30",
+  "source_tag": "v0.1.0-alpha.3",
+  "qualification_note": "M2 evidence is a later supplement to the unchanged release; the immutable CLI info metadata predates this test.",
+  "measurement_reports": [
+    "https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M1_CEILING_20261030.md",
+    "https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M2_VALIDATION_20261030.md"
+  ],
+  "network_activity": {
+    "bootstrap": "downloads documented source/build dependencies",
+    "mine": "selected pool and, when enabled, disclosed developer pool",
+    "benchmark": "offline synthetic work; earns no coins"
+  }
 }

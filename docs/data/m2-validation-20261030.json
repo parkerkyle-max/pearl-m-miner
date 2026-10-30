@@ -1,0 +1,2226 @@
+{
+  "schema": "pearl-m2-validation-v1",
+  "captured_utc": "2026-10-30T16:54:23.220761+00:00",
+  "hardware": {
+    "device": "Apple M2",
+    "gpu_cores": 10,
+    "memory_gib": 24,
+    "model": "Mac14,7",
+    "macos": "27.0",
+    "source_tag": "v0.1.0-alpha.3",
+    "source_commit": "4e01cf91ae492d4ce9b262d32a80774ec941e0fc",
+    "upstream_version": "0.2.4",
+    "upstream_commit": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+    "proof_commit": "3c84be9fb4b2b279967ad3f9f74e67fb8c9cce30",
+    "python": "3.12",
+    "power": "AC",
+    "wall_power_meter": null,
+    "software_power_tool": "macmon 0.10.0",
+    "unrelated_apps_stopped": false,
+    "autostart_installed": false
+  },
+  "records": [
+    {
+      "plan": "baseline-v1",
+      "name": "upstream-build",
+      "phase_started_utc": "2026-10-30T15:46:40.735320+00:00",
+      "phase_ended_utc": "2026-10-30T15:46:41.344228+00:00",
+      "phase_seconds": 0.608919167,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "private_log_sha256": "8e6bcd35e66102dde0487235e62aa454ea2f617cf8709c6d7e39425e4c951cb3"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "upstream-selftest",
+      "phase_started_utc": "2026-10-30T15:46:41.344789+00:00",
+      "phase_ended_utc": "2026-10-30T15:46:44.405428+00:00",
+      "phase_seconds": 3.0606750419999997,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 2,
+        "mean_sys_w": 9.866775512695312,
+        "mean_gpu_w": 0.05220008362084627,
+        "mean_gpu_active_ratio": 0.06489413883537054,
+        "mean_gpu_mhz": 574,
+        "max_gpu_average_c": 49.12533187866211,
+        "max_cpu_average_c": 54.54132843017578,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "8d930a4ee38fd9828fa957fc676bb29c8fbf8a54640aefcf71bbfa4245a3b207"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "idle",
+      "phase_started_utc": "2026-10-30T15:46:44.407234+00:00",
+      "phase_ended_utc": "2026-10-30T15:47:04.819797+00:00",
+      "phase_seconds": 20.412500125,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 20,
+        "mean_sys_w": 5.3303255319595335,
+        "mean_gpu_w": 0.019239688571542502,
+        "mean_gpu_active_ratio": 0.025496860127896072,
+        "mean_gpu_mhz": 482.65,
+        "max_gpu_average_c": 48.781307220458984,
+        "max_cpu_average_c": 51.5202751159668,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      }
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "upstream-a",
+      "phase_started_utc": "2026-10-30T15:47:04.820195+00:00",
+      "phase_ended_utc": "2026-10-30T15:49:15.776537+00:00",
+      "phase_seconds": 130.955923458,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "local_ths": 0.393216,
+      "rate_scope": "upstream rounded console rate; unmodified cert2 synthetic fixture",
+      "rounded_tiles_per_second": 750000.0,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 130,
+        "mean_sys_w": 19.736600435697117,
+        "mean_gpu_w": 10.397524151435265,
+        "mean_gpu_active_ratio": 0.9764727560373453,
+        "mean_gpu_mhz": 1396.1461538461538,
+        "max_gpu_average_c": 73.35137939453125,
+        "max_cpu_average_c": 72.04698181152344,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "ae7af19cb1b0090bc66fefe57013e7fcbb450cb4401a09de750acce4c25498a6"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "ours-matched",
+      "phase_started_utc": "2026-10-30T15:49:15.780395+00:00",
+      "phase_ended_utc": "2026-10-30T15:51:26.401122+00:00",
+      "phase_seconds": 130.62031504200002,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 209367.188376458,
+        "measure_start_unix_ns": 1793375366032025000,
+        "measure_end_monotonic": 209487.207915875,
+        "measured_tiles": 324403200,
+        "measured_seconds": 120.01953941700049,
+        "tiles_per_second": 2702919.8876766316,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1417108462070.2058,
+        "warmup_seconds_requested": 10.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.417108462070206,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 119,
+        "mean_sys_w": 25.063740946665533,
+        "mean_gpu_w": 12.646510548952246,
+        "mean_gpu_active_ratio": 0.999263084736191,
+        "mean_gpu_mhz": 1397.90756302521,
+        "max_gpu_average_c": 88.81136322021484,
+        "max_cpu_average_c": 83.1539306640625,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "24f8acfcc48de9686b0a868109e8ec05ab414110e553101d8fc3b6ddac19348e"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "ours-auto",
+      "phase_started_utc": "2026-10-30T15:51:26.406443+00:00",
+      "phase_ended_utc": "2026-10-30T15:53:36.852005+00:00",
+      "phase_seconds": 130.44512975000004,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 209497.835312583,
+        "measure_start_unix_ns": 1793375496679421000,
+        "measure_end_monotonic": 209617.881027416,
+        "measured_tiles": 335151104,
+        "measured_seconds": 120.04571483301697,
+        "tiles_per_second": 2791862.2873477293,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1463739894908.9663,
+        "warmup_seconds_requested": 10.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.4637398949089664,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 118,
+        "mean_sys_w": 25.782260700807733,
+        "mean_gpu_w": 13.032374551740743,
+        "mean_gpu_active_ratio": 0.9994046627464941,
+        "mean_gpu_mhz": 1397.9322033898304,
+        "max_gpu_average_c": 92.40291595458984,
+        "max_cpu_average_c": 85.85800170898438,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "1523ed815f88e0544980596d9ce68b73ad1556f41835631b71bf89e36c96c952"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "upstream-b",
+      "phase_started_utc": "2026-10-30T15:53:36.856470+00:00",
+      "phase_ended_utc": "2026-10-30T15:55:47.892216+00:00",
+      "phase_seconds": 131.03529879200005,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "local_ths": 0.386924544,
+      "rate_scope": "upstream rounded console rate; unmodified cert2 synthetic fixture",
+      "rounded_tiles_per_second": 738000.0,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 129,
+        "mean_sys_w": 20.765578144280486,
+        "mean_gpu_w": 10.826384888138882,
+        "mean_gpu_active_ratio": 0.9828411003415899,
+        "mean_gpu_mhz": 1396.4806201550387,
+        "max_gpu_average_c": 89.21115112304688,
+        "max_cpu_average_c": 85.56566619873047,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "bc30675ee511bccfc9a3e786f9373c503cd73585f183acca4fe76336be628f0b"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "peak-build",
+      "phase_started_utc": "2026-10-30T15:55:47.893950+00:00",
+      "phase_ended_utc": "2026-10-30T15:55:48.946008+00:00",
+      "phase_seconds": 1.0520783750000646,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "private_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "peak-half",
+      "phase_started_utc": "2026-10-30T15:55:48.947786+00:00",
+      "phase_ended_utc": "2026-10-30T15:57:00.576984+00:00",
+      "phase_seconds": 71.62896954200005,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "arithmetic": {
+        "mode": "half",
+        "measured_seconds": 60.016776167,
+        "gpu_tflops": 3.168725804305323,
+        "wall_tflops": 3.1109771336630745,
+        "measure_start_unix_ns": 1793375760399650000,
+        "measure_end_unix_ns": 1793375820416638000,
+        "max_observed_gpu_dispatch_ms": 28.220125008374453,
+        "correctness_checks": [
+          {
+            "fixture": "runtime_small_integers",
+            "gpu_seconds": 8.883333066478372e-05,
+            "all_exact": true,
+            "iterations": 7,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "63x63_product3969",
+            "gpu_seconds": 5.750000127591193e-05,
+            "all_exact": true,
+            "iterations": 3,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "127x127_product16129",
+            "gpu_seconds": 0.0006654999742750078,
+            "all_exact": true,
+            "iterations": 130,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "mixed_sign127",
+            "gpu_seconds": 0.0004912500153295696,
+            "all_exact": true,
+            "iterations": 130,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "exact_2pow24_boundary",
+            "gpu_seconds": 0.002264875016408041,
+            "all_exact": true,
+            "iterations": 512,
+            "outputs_checked": 524288
+          }
+        ],
+        "correctness_scope": "tested integer fixtures with conservative absolute-sum bounds <=2^24; not proof for every legal Pearl input",
+        "completed_macs": 93355409145856,
+        "flops_per_mac": 2,
+        "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "executable_sha256": "a3472eff4ee34aea13d7881b5facd3dcd5c5bf1e26bb927324b0c92b5756d90f"
+      },
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 59,
+        "mean_sys_w": 17.494897616111626,
+        "mean_gpu_w": 8.465449721126234,
+        "mean_gpu_active_ratio": 0.998548037925009,
+        "mean_gpu_mhz": 1397.8983050847457,
+        "max_gpu_average_c": 80.23391723632812,
+        "max_cpu_average_c": 76.93592834472656,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "cb1bb6ca6f66b6f293d783e6d44ad953e521da5947777443d449a2cf4874940a"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "peak-float",
+      "phase_started_utc": "2026-10-30T15:57:00.579327+00:00",
+      "phase_ended_utc": "2026-10-30T15:58:11.654444+00:00",
+      "phase_seconds": 71.07491549999997,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "arithmetic": {
+        "mode": "float",
+        "measured_seconds": 60.008745292,
+        "gpu_tflops": 3.314201242178176,
+        "wall_tflops": 3.2511027101830243,
+        "measure_start_unix_ns": 1793375831274101000,
+        "measure_end_unix_ns": 1793375891283058000,
+        "max_observed_gpu_dispatch_ms": 27.035624982090667,
+        "correctness_checks": [
+          {
+            "fixture": "runtime_small_integers",
+            "gpu_seconds": 9.058331488631666e-05,
+            "all_exact": true,
+            "iterations": 7,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "63x63_product3969",
+            "gpu_seconds": 5.787500413134694e-05,
+            "all_exact": true,
+            "iterations": 3,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "127x127_product16129",
+            "gpu_seconds": 0.0010647499875631183,
+            "all_exact": true,
+            "iterations": 130,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "mixed_sign127",
+            "gpu_seconds": 0.00106487498851493,
+            "all_exact": true,
+            "iterations": 130,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "exact_2pow24_boundary",
+            "gpu_seconds": 0.003264625003794208,
+            "all_exact": true,
+            "iterations": 512,
+            "outputs_checked": 524288
+          }
+        ],
+        "correctness_scope": "tested integer fixtures with conservative absolute-sum bounds <=2^24; not proof for every legal Pearl input",
+        "completed_macs": 97547297226752,
+        "flops_per_mac": 2,
+        "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "executable_sha256": "a3472eff4ee34aea13d7881b5facd3dcd5c5bf1e26bb927324b0c92b5756d90f"
+      },
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 59,
+        "mean_sys_w": 17.988632848707297,
+        "mean_gpu_w": 9.304270485700187,
+        "mean_gpu_active_ratio": 0.9972503094349877,
+        "mean_gpu_mhz": 1397.8813559322034,
+        "max_gpu_average_c": 77.95502471923828,
+        "max_cpu_average_c": 74.56871795654297,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "eed2890a3412844892f4aee61e8b206af8382849a47fbde350b35e403b08eb46"
+    },
+    {
+      "plan": "baseline-v1",
+      "name": "peak-mpp",
+      "phase_started_utc": "2026-10-30T15:58:11.659682+00:00",
+      "phase_ended_utc": "2026-10-30T15:59:22.667954+00:00",
+      "phase_seconds": 71.00806654199994,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "arithmetic": {
+        "mode": "mpp",
+        "measured_seconds": 60.0039125,
+        "gpu_tflops": 2.6188595566391406,
+        "wall_tflops": 2.5825385976236133,
+        "measure_start_unix_ns": 1793375902265602000,
+        "measure_end_unix_ns": 1793375962269726000,
+        "max_observed_gpu_dispatch_ms": 30.85612499853596,
+        "correctness_checks": [
+          {
+            "fixture": "runtime_small_integers",
+            "gpu_seconds": 0.0006427083280868828,
+            "all_exact": true,
+            "iterations": 7,
+            "outputs_checked": 262144
+          },
+          {
+            "fixture": "63x63_product3969",
+            "gpu_seconds": 0.0003191250143572688,
+            "all_exact": true,
+            "iterations": 3,
+            "outputs_checked": 262144
+          },
+          {
+            "fixture": "127x127_product16129",
+            "gpu_seconds": 0.0007184999994933605,
+            "all_exact": true,
+            "iterations": 8,
+            "outputs_checked": 262144
+          },
+          {
+            "fixture": "mixed_sign127",
+            "gpu_seconds": 0.0007225000008475035,
+            "all_exact": true,
+            "iterations": 8,
+            "outputs_checked": 262144
+          },
+          {
+            "fixture": "exact_2pow24_boundary",
+            "gpu_seconds": 0.0026102499978151172,
+            "all_exact": true,
+            "iterations": 32,
+            "outputs_checked": 262144
+          }
+        ],
+        "correctness_scope": "tested integer fixtures with conservative absolute-sum bounds <=2^24; not proof for every legal Pearl input",
+        "completed_macs": 77481210019840,
+        "flops_per_mac": 2,
+        "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "executable_sha256": "a3472eff4ee34aea13d7881b5facd3dcd5c5bf1e26bb927324b0c92b5756d90f"
+      },
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 59,
+        "mean_sys_w": 18.584051099874205,
+        "mean_gpu_w": 10.103482602006299,
+        "mean_gpu_active_ratio": 0.9991370692091474,
+        "mean_gpu_mhz": 1397.8983050847457,
+        "max_gpu_average_c": 79.05721282958984,
+        "max_cpu_average_c": 74.67450714111328,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "371a4723a300e20ae38820785a5fc4851b127d2956f1e42e7f4c8d0e5d18e502"
+    },
+    {
+      "plan": "confirmation-v1",
+      "name": "production-shape-gate",
+      "phase_started_utc": "2026-10-30T16:14:27.121540+00:00",
+      "phase_ended_utc": "2026-10-30T16:14:27.651743+00:00",
+      "phase_seconds": 0.5302266249782406,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "correctness": [
+        {
+          "gate": "SPARSE_FULL_EXPORT_PASS",
+          "result": {
+            "records": [
+              {
+                "label": "generation1",
+                "all_x_elements": 33554432,
+                "prepare": {
+                  "wall_seconds": 0.032645583,
+                  "upload_seconds": 0.000524709,
+                  "guard_gpu_seconds": 0.01883987500332296,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000163708,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              }
+            ],
+            "official_proof_checks": 4
+          }
+        }
+      ],
+      "private_log_sha256": "b1123cf450a21bad38e220ff65edf762a8c12ea6d389e3182fd0443aa7ee3338"
+    },
+    {
+      "plan": "confirmation-v1",
+      "name": "private-scan-gate",
+      "phase_started_utc": "2026-10-30T16:14:27.652999+00:00",
+      "phase_ended_utc": "2026-10-30T16:14:28.201775+00:00",
+      "phase_seconds": 0.5488210420007817,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "correctness": [
+        {
+          "gate": "PRIVATE_SCAN_GATE_PASSED",
+          "independent_checks": 512,
+          "scope": "transcript/digest/target; alternating export modes"
+        }
+      ],
+      "private_log_sha256": "11966472acbf7db1294bb4aa881b6412940e688ad16a2307367ee9242c88c7b9"
+    },
+    {
+      "plan": "confirmation-v1",
+      "name": "cert3-matched-300",
+      "phase_started_utc": "2026-10-30T16:14:28.203464+00:00",
+      "phase_ended_utc": "2026-10-30T16:19:39.248424+00:00",
+      "phase_seconds": 311.04359112499515,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_unix_ns": 1793376878816713000,
+        "measured_seconds": 300.0040697910008,
+        "measured_tiles": 232390656,
+        "tiles_per_second": 774625.0114603312,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 406126598008.5141
+      },
+      "local_ths": 0.4061265980085141,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 297,
+        "mean_sys_w": 20.57546239910704,
+        "mean_gpu_w": 11.035268317970765,
+        "mean_gpu_active_ratio": 0.9964577818559075,
+        "mean_gpu_mhz": 1397.1784511784513,
+        "max_gpu_average_c": 82.92903900146484,
+        "max_cpu_average_c": 81.15779113769531,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "8f7358ae9cd9abd7b68419b5e325b683bce5eb2d7fd6e6a8642efe9abeb25a58"
+    },
+    {
+      "plan": "confirmation-v1",
+      "name": "auto-300",
+      "phase_started_utc": "2026-10-30T16:19:39.250873+00:00",
+      "phase_ended_utc": "2026-10-30T16:24:49.687239+00:00",
+      "phase_seconds": 310.4350225829985,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 211190.64734425,
+        "measure_start_unix_ns": 1793377189501867000,
+        "measure_end_monotonic": 211490.668085958,
+        "measured_tiles": 838467584,
+        "measured_seconds": 300.0207417079946,
+        "tiles_per_second": 2794698.7239171187,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1465227004565.0583,
+        "warmup_seconds_requested": 10.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.4652270045650584,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 297,
+        "mean_sys_w": 26.106901759651773,
+        "mean_gpu_w": 13.033792026917942,
+        "mean_gpu_active_ratio": 0.9993131638375998,
+        "mean_gpu_mhz": 1397.9292929292928,
+        "max_gpu_average_c": 92.25104522705078,
+        "max_cpu_average_c": 86.07247161865234,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "10f187971251d929cf9260f8ffc596c39432af7d2e013dd2b55f6c60e64368b7"
+    },
+    {
+      "plan": "confirmation-v1",
+      "name": "peak-float-300",
+      "phase_started_utc": "2026-10-30T16:24:49.692670+00:00",
+      "phase_ended_utc": "2026-10-30T16:30:00.916684+00:00",
+      "phase_seconds": 311.21740954200504,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "arithmetic": {
+        "mode": "float",
+        "measured_seconds": 300.016853833,
+        "gpu_tflops": 3.320769725680826,
+        "wall_tflops": 3.257120214085903,
+        "measure_start_unix_ns": 1793377500366074000,
+        "measure_end_unix_ns": 1793377800389538000,
+        "max_observed_gpu_dispatch_ms": 26.905916689429432,
+        "correctness_checks": [
+          {
+            "fixture": "runtime_small_integers",
+            "gpu_seconds": 9.050001972354949e-05,
+            "all_exact": true,
+            "iterations": 7,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "63x63_product3969",
+            "gpu_seconds": 5.937498644925654e-05,
+            "all_exact": true,
+            "iterations": 3,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "127x127_product16129",
+            "gpu_seconds": 0.0010628750023897737,
+            "all_exact": true,
+            "iterations": 130,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "mixed_sign127",
+            "gpu_seconds": 0.0010705416789278388,
+            "all_exact": true,
+            "iterations": 130,
+            "outputs_checked": 524288
+          },
+          {
+            "fixture": "exact_2pow24_boundary",
+            "gpu_seconds": 0.004080916667589918,
+            "all_exact": true,
+            "iterations": 512,
+            "outputs_checked": 524288
+          }
+        ],
+        "correctness_scope": "tested integer fixtures with conservative absolute-sum bounds <=2^24; not proof for every legal Pearl input",
+        "completed_macs": 488595479592960,
+        "flops_per_mac": 2,
+        "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "executable_sha256": "a3472eff4ee34aea13d7881b5facd3dcd5c5bf1e26bb927324b0c92b5756d90f"
+      },
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 297,
+        "mean_sys_w": 17.849222106162948,
+        "mean_gpu_w": 9.242470513289224,
+        "mean_gpu_active_ratio": 0.9974397342614453,
+        "mean_gpu_mhz": 1397.885521885522,
+        "max_gpu_average_c": 81.92694091796875,
+        "max_cpu_average_c": 76.96013641357422,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "3eea32ba8d71e15096cc21a54341611001688ac21f8b92b098b4c062099a8a4d"
+    },
+    {
+      "plan": "kernel-v1",
+      "name": "pair16-gate",
+      "phase_started_utc": "2026-10-30T16:10:10.398349+00:00",
+      "phase_ended_utc": "2026-10-30T16:10:11.439668+00:00",
+      "phase_seconds": 1.041342667012941,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "correctness": [
+        {
+          "gate": "SPARSE_NATIVE_GATES_PASSED",
+          "result": {
+            "records": [
+              {
+                "label": "generation1",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.002872667,
+                  "upload_seconds": 0.000223917,
+                  "guard_gpu_seconds": 0.00039941666182130575,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000123708,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 4.2e-08
+                }
+              },
+              {
+                "label": "generation2-cache-hit",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001244333,
+                  "upload_seconds": 0.000226708,
+                  "guard_gpu_seconds": 0.0003986666561104357,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000128167,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "generation1-after-source-mutation-and-generation2",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.002872667,
+                  "upload_seconds": 0.000223917,
+                  "guard_gpu_seconds": 0.00039941666182130575,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000123708,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 4.2e-08
+                }
+              },
+              {
+                "label": "opposite-QB-cache-replacement",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001217834,
+                  "upload_seconds": 0.000244958,
+                  "guard_gpu_seconds": 0.0004008333198726177,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000112667,
+                  "qb_validation_seconds": 2.458e-06,
+                  "scratch_wait_seconds": 4.1e-08
+                }
+              },
+              {
+                "label": "generation2-after-CSR-replacement",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001244333,
+                  "upload_seconds": 0.000226708,
+                  "guard_gpu_seconds": 0.0003986666561104357,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000128167,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "debug-generation-after-production-scratch-reuse",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001244333,
+                  "upload_seconds": 0.000226708,
+                  "guard_gpu_seconds": 0.0003986666561104357,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000128167,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "full-leaf-tail-last-index",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001236083,
+                  "upload_seconds": 0.000248167,
+                  "guard_gpu_seconds": 0.0003028750070370734,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000159375,
+                  "qb_validation_seconds": 2.458e-06,
+                  "scratch_wait_seconds": 4.2e-08
+                }
+              },
+              {
+                "label": "safe-after-rejections",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001216667,
+                  "upload_seconds": 0.000216625,
+                  "guard_gpu_seconds": 0.0004000000189989805,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000127041,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "after-context-close",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001216667,
+                  "upload_seconds": 0.000216625,
+                  "guard_gpu_seconds": 0.0004000000189989805,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000127041,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              }
+            ],
+            "method": "s",
+            "production_debug_refused": true,
+            "legacy_path_preserved": true,
+            "source_snapshot_and_CSR_cache_lifetime": true,
+            "official_proof_checks": 28,
+            "pool_claim": false
+          }
+        }
+      ],
+      "private_log_sha256": "59c67f6032e1853d7263c68804c17aaf6963e2b9298bfa32aba75b97220631f1"
+    },
+    {
+      "plan": "kernel-v1",
+      "name": "pair16-bench",
+      "phase_started_utc": "2026-10-30T16:10:11.441470+00:00",
+      "phase_ended_utc": "2026-10-30T16:10:11.996243+00:00",
+      "phase_seconds": 0.5548186250089202,
+      "status": "failed",
+      "valid_for_comparison": false,
+      "error": "RuntimeError: child failed 1",
+      "private_log_sha256": "517514158953110942e35ca3186992c3619420666bf4f32379ca630ada9fda91"
+    },
+    {
+      "plan": "kernel-retry-v2",
+      "name": "pair16-gate",
+      "phase_started_utc": "2026-10-30T16:10:45.592319+00:00",
+      "phase_ended_utc": "2026-10-30T16:10:46.624365+00:00",
+      "phase_seconds": 1.0320860409992747,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "correctness": [
+        {
+          "gate": "SPARSE_NATIVE_GATES_PASSED",
+          "result": {
+            "records": [
+              {
+                "label": "generation1",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.002834125,
+                  "upload_seconds": 0.000217375,
+                  "guard_gpu_seconds": 0.00039891665801405907,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000120208,
+                  "qb_validation_seconds": 2.458e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "generation2-cache-hit",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001229583,
+                  "upload_seconds": 0.000225417,
+                  "guard_gpu_seconds": 0.00041787500958889723,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000130166,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "generation1-after-source-mutation-and-generation2",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.002834125,
+                  "upload_seconds": 0.000217375,
+                  "guard_gpu_seconds": 0.00039891665801405907,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000120208,
+                  "qb_validation_seconds": 2.458e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "opposite-QB-cache-replacement",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001244,
+                  "upload_seconds": 0.00020575,
+                  "guard_gpu_seconds": 0.0004073333111591637,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000134667,
+                  "qb_validation_seconds": 2.5e-06,
+                  "scratch_wait_seconds": 4.2e-08
+                }
+              },
+              {
+                "label": "generation2-after-CSR-replacement",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001229583,
+                  "upload_seconds": 0.000225417,
+                  "guard_gpu_seconds": 0.00041787500958889723,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000130166,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "debug-generation-after-production-scratch-reuse",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001229583,
+                  "upload_seconds": 0.000225417,
+                  "guard_gpu_seconds": 0.00041787500958889723,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000130166,
+                  "qb_validation_seconds": 2.542e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "full-leaf-tail-last-index",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001355125,
+                  "upload_seconds": 0.000242208,
+                  "guard_gpu_seconds": 0.00040262500988319516,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000152542,
+                  "qb_validation_seconds": 2.417e-06,
+                  "scratch_wait_seconds": 4.2e-08
+                }
+              },
+              {
+                "label": "safe-after-rejections",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001162416,
+                  "upload_seconds": 0.000196333,
+                  "guard_gpu_seconds": 0.00040675001218914986,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000131,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 4.1e-08
+                }
+              },
+              {
+                "label": "after-context-close",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001162416,
+                  "upload_seconds": 0.000196333,
+                  "guard_gpu_seconds": 0.00040675001218914986,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000131,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 4.1e-08
+                }
+              }
+            ],
+            "method": "s",
+            "production_debug_refused": true,
+            "legacy_path_preserved": true,
+            "source_snapshot_and_CSR_cache_lifetime": true,
+            "official_proof_checks": 28,
+            "pool_claim": false
+          }
+        }
+      ],
+      "private_log_sha256": "91d248c6fb5213e43cfa90f417d647c9d593f20298b85aff54b36f34618af861"
+    },
+    {
+      "plan": "kernel-retry-v2",
+      "name": "pair16-bench",
+      "phase_started_utc": "2026-10-30T16:10:46.626603+00:00",
+      "phase_ended_utc": "2026-10-30T16:11:57.203818+00:00",
+      "phase_seconds": 70.57696158302133,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210658.0418105,
+        "measure_start_unix_ns": 1793376656893978000,
+        "measure_end_monotonic": 210718.064390166,
+        "measured_tiles": 160694272,
+        "measured_seconds": 60.02257966599427,
+        "tiles_per_second": 2677230.3505482483,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1403639746028.24,
+        "warmup_seconds_requested": 10.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.40363974602824,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 59,
+        "mean_sys_w": 27.21614304235426,
+        "mean_gpu_w": 14.341614674713652,
+        "mean_gpu_active_ratio": 0.9995244014061103,
+        "mean_gpu_mhz": 1397.9322033898304,
+        "max_gpu_average_c": 94.13077545166016,
+        "max_cpu_average_c": 87.34629821777344,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "6edd8b3a2686eff859095a31cc845b26fb98efbb95a9f1a335f51e16da8d9273"
+    },
+    {
+      "plan": "kernel-retry-v2",
+      "name": "pair64-gate",
+      "phase_started_utc": "2026-10-30T16:11:57.206985+00:00",
+      "phase_ended_utc": "2026-10-30T16:11:58.276635+00:00",
+      "phase_seconds": 1.0696872500120662,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "correctness": [
+        {
+          "gate": "SPARSE_NATIVE_GATES_PASSED",
+          "result": {
+            "records": [
+              {
+                "label": "generation1",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.002893084,
+                  "upload_seconds": 0.000224458,
+                  "guard_gpu_seconds": 0.00039862500852905214,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000136584,
+                  "qb_validation_seconds": 2.541e-06,
+                  "scratch_wait_seconds": 4.1e-08
+                }
+              },
+              {
+                "label": "generation2-cache-hit",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001242334,
+                  "upload_seconds": 0.000240166,
+                  "guard_gpu_seconds": 0.0004008333489764482,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000130167,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "generation1-after-source-mutation-and-generation2",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.002893084,
+                  "upload_seconds": 0.000224458,
+                  "guard_gpu_seconds": 0.00039862500852905214,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000136584,
+                  "qb_validation_seconds": 2.541e-06,
+                  "scratch_wait_seconds": 4.1e-08
+                }
+              },
+              {
+                "label": "opposite-QB-cache-replacement",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001245917,
+                  "upload_seconds": 0.000243375,
+                  "guard_gpu_seconds": 0.0004030000127386302,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.0001105,
+                  "qb_validation_seconds": 2.458e-06,
+                  "scratch_wait_seconds": 4.1e-08
+                }
+              },
+              {
+                "label": "generation2-after-CSR-replacement",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001242334,
+                  "upload_seconds": 0.000240166,
+                  "guard_gpu_seconds": 0.0004008333489764482,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000130167,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "debug-generation-after-production-scratch-reuse",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001242334,
+                  "upload_seconds": 0.000240166,
+                  "guard_gpu_seconds": 0.0004008333489764482,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000130167,
+                  "qb_validation_seconds": 2.459e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "full-leaf-tail-last-index",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.001135541,
+                  "upload_seconds": 0.000235625,
+                  "guard_gpu_seconds": 0.00019512500148266554,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000153167,
+                  "qb_validation_seconds": 2.458e-06,
+                  "scratch_wait_seconds": 4.2e-08
+                }
+              },
+              {
+                "label": "safe-after-rejections",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.00118575,
+                  "upload_seconds": 0.000208541,
+                  "guard_gpu_seconds": 0.0004064166860189289,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000115792,
+                  "qb_validation_seconds": 2.5e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              },
+              {
+                "label": "after-context-close",
+                "all_x_elements": 524288,
+                "prepare": {
+                  "wall_seconds": 0.00118575,
+                  "upload_seconds": 0.000208541,
+                  "guard_gpu_seconds": 0.0004064166860189289,
+                  "guard_flags": 0,
+                  "reserved": 0
+                },
+                "method": "s",
+                "native_kind": 2,
+                "s_extension": {
+                  "version": 1,
+                  "method": 2,
+                  "scratch_reused": 0,
+                  "s_bytes": 2097152,
+                  "correction_bytes": 16384,
+                  "build_seconds": 0.000115792,
+                  "qb_validation_seconds": 2.5e-06,
+                  "scratch_wait_seconds": 0.0
+                }
+              }
+            ],
+            "method": "s",
+            "production_debug_refused": true,
+            "legacy_path_preserved": true,
+            "source_snapshot_and_CSR_cache_lifetime": true,
+            "official_proof_checks": 28,
+            "pool_claim": false
+          }
+        }
+      ],
+      "private_log_sha256": "a2f12ed37a20bbe87d59582bbfadea055ae875a5e36072737ba4369de6d6cc9c"
+    },
+    {
+      "plan": "kernel-retry-v2",
+      "name": "pair64-bench",
+      "phase_started_utc": "2026-10-30T16:11:58.278623+00:00",
+      "phase_ended_utc": "2026-10-30T16:13:08.885138+00:00",
+      "phase_seconds": 70.60626179198152,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210729.72118625,
+        "measure_start_unix_ns": 1793376728573661000,
+        "measure_end_monotonic": 210789.767348833,
+        "measured_tiles": 149946368,
+        "measured_seconds": 60.04616258299211,
+        "tiles_per_second": 2497184.8582788846,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1309244054977.3198,
+        "warmup_seconds_requested": 10.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.3092440549773199,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 59,
+        "mean_sys_w": 25.701170517226398,
+        "mean_gpu_w": 11.41411260831154,
+        "mean_gpu_active_ratio": 0.999396068564916,
+        "mean_gpu_mhz": 1397.8983050847457,
+        "max_gpu_average_c": 94.23516845703125,
+        "max_cpu_average_c": 88.19834899902344,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "a87f743af3804662f7570d10957ddc78ac09bf53f105611ab14fb52544e6958a"
+    },
+    {
+      "plan": "kernel-retry-v2",
+      "name": "pair32-control",
+      "phase_started_utc": "2026-10-30T16:13:08.888470+00:00",
+      "phase_ended_utc": "2026-10-30T16:14:19.490479+00:00",
+      "phase_seconds": 70.60175875001005,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210800.271881333,
+        "measure_start_unix_ns": 1793376799124671000,
+        "measure_end_monotonic": 210860.277938583,
+        "measured_tiles": 167772160,
+        "measured_seconds": 60.00605724999332,
+        "tiles_per_second": 2795920.406852238,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1465867518267.746,
+        "warmup_seconds_requested": 10.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.465867518267746,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 59,
+        "mean_sys_w": 26.43501466007556,
+        "mean_gpu_w": 13.141795966584803,
+        "mean_gpu_active_ratio": 0.9995649709539899,
+        "mean_gpu_mhz": 1397.949152542373,
+        "max_gpu_average_c": 94.11637115478516,
+        "max_cpu_average_c": 87.68383026123047,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "6c7b238ba65028b29a25cf9af7bcee2983aaf54417e66d606229aef5aa461e19"
+    },
+    {
+      "plan": "live-v1",
+      "name": "pearl-m-live",
+      "phase_started_utc": "2026-10-30T16:30:02.412997+00:00",
+      "phase_ended_utc": "2026-10-30T16:32:01.184237+00:00",
+      "phase_seconds": 118.77056766601163,
+      "status": "failed",
+      "valid_for_comparison": false,
+      "error": "RuntimeError: 95 C average sensor guard",
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 117,
+        "mean_sys_w": 25.343237359299618,
+        "mean_gpu_w": 12.862624139867277,
+        "mean_gpu_active_ratio": 0.9897431479050562,
+        "mean_gpu_mhz": 1396.4017094017095,
+        "max_gpu_average_c": 95.14954376220703,
+        "max_cpu_average_c": 87.54242706298828,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "pool": {
+        "accepted": 2,
+        "rejected": 0,
+        "local_verify_failures": 0,
+        "scope": "bounded miner log observations; not paid revenue or precise pool hashrate"
+      },
+      "private_log_sha256": "3b76c8d38f96dbb75b11de5837a1362dd52a9b66633449206684848538c0d710"
+    },
+    {
+      "plan": "live80-v2",
+      "name": "cooldown",
+      "phase_started_utc": "2026-10-30T16:33:19.400305+00:00",
+      "phase_ended_utc": "2026-10-30T16:34:04.589216+00:00",
+      "phase_seconds": 45.18866341598914,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 44,
+        "mean_sys_w": 4.69330743226138,
+        "mean_gpu_w": 0.018311389806595715,
+        "mean_gpu_active_ratio": 0.024164424701170487,
+        "mean_gpu_mhz": 445,
+        "max_gpu_average_c": 55.973873138427734,
+        "max_cpu_average_c": 58.15642166137695,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      }
+    },
+    {
+      "plan": "live80-v2",
+      "name": "pearl-m-live",
+      "phase_started_utc": "2026-10-30T16:34:04.590086+00:00",
+      "phase_ended_utc": "2026-10-30T16:44:05.027678+00:00",
+      "phase_seconds": 600.434183040983,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 593,
+        "mean_sys_w": 19.9506808099216,
+        "mean_gpu_w": 9.29201101372254,
+        "mean_gpu_active_ratio": 0.7835909540295399,
+        "mean_gpu_mhz": 1392.9679595278246,
+        "max_gpu_average_c": 85.0753402709961,
+        "max_cpu_average_c": 81.03861236572266,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "pool": {
+        "accepted": 3,
+        "rejected": 0,
+        "local_verify_failures": 0,
+        "scope": "bounded miner log observations; not paid revenue or precise pool hashrate"
+      },
+      "private_log_sha256": "c96042be0702a6ff1150ebf0576119db9f1ce69725fae41ec0e91a8828aef4d5"
+    },
+    {
+      "plan": "live80-v2",
+      "name": "metal-control-live",
+      "phase_started_utc": "2026-10-30T16:44:05.039185+00:00",
+      "phase_ended_utc": "2026-10-30T16:54:05.414894+00:00",
+      "phase_seconds": 600.3632507500006,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 593,
+        "mean_sys_w": 16.374623644412267,
+        "mean_gpu_w": 8.311085234202984,
+        "mean_gpu_active_ratio": 0.7771648725409934,
+        "mean_gpu_mhz": 1393.7217537942665,
+        "max_gpu_average_c": 80.1181411743164,
+        "max_cpu_average_c": 78.25684356689453,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "pool": {
+        "accepted": 1,
+        "rejected": 0,
+        "local_verify_failures": 0,
+        "scope": "bounded miner log observations; not paid revenue or precise pool hashrate"
+      },
+      "private_log_sha256": "90cb1da9e7e657c793bbf35a8fa98288cf409b849b60515847813ef1aade5897"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "cert3-selftest",
+      "phase_started_utc": "2026-10-30T15:59:23.171003+00:00",
+      "phase_ended_utc": "2026-10-30T15:59:25.744668+00:00",
+      "phase_seconds": 2.5737025830021594,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "software_telemetry": {
+        "scope": "whole phase, including warmup/setup; not matched-window energy",
+        "sample_count": 2,
+        "mean_sys_w": 11.008641719818115,
+        "mean_gpu_w": 0.09636387415230274,
+        "mean_gpu_active_ratio": 0.08447027765214443,
+        "mean_gpu_mhz": 701,
+        "max_gpu_average_c": 71.52225494384766,
+        "max_cpu_average_c": 73.67162322998047,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "99ec61873e2c908dff85b8cf4c4e0397a3d4a6adcdf50c29f5096a598ae3a8f6"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "cert3-control-a",
+      "phase_started_utc": "2026-10-30T15:59:25.746426+00:00",
+      "phase_ended_utc": "2026-10-30T16:01:36.211534+00:00",
+      "phase_seconds": 130.4646725000057,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_unix_ns": 1793375976177064000,
+        "measured_seconds": 120.01029750000453,
+        "measured_tiles": 88571904,
+        "tiles_per_second": 738035.8672971097,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 386943348793.46704
+      },
+      "local_ths": 0.38694334879346703,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 118,
+        "mean_sys_w": 20.588427559804106,
+        "mean_gpu_w": 10.74227805865013,
+        "mean_gpu_active_ratio": 0.9838899187112259,
+        "mean_gpu_mhz": 1397.042372881356,
+        "max_gpu_average_c": 81.9300537109375,
+        "max_cpu_average_c": 79.8687515258789,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "dae8f19e269f44acb2d27daba47a3877aaa2cfd5beee5526ce1fdf4060f950c4"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "auto-control-a",
+      "phase_started_utc": "2026-10-30T16:01:36.212218+00:00",
+      "phase_ended_utc": "2026-10-30T16:02:30.892210+00:00",
+      "phase_seconds": 54.67984095797874,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210106.596130666,
+        "measure_start_unix_ns": 1793376105442386000,
+        "measure_end_monotonic": 210151.629043666,
+        "measured_tiles": 121110528,
+        "measured_seconds": 45.032913000002736,
+        "tiles_per_second": 2689378.055556669,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1410008641991.6948,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.4100086419916948,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 26.053878263993695,
+        "mean_gpu_w": 12.948558742349798,
+        "mean_gpu_active_ratio": 0.9997842379591682,
+        "mean_gpu_mhz": 1397.9545454545455,
+        "max_gpu_average_c": 91.64020538330078,
+        "max_cpu_average_c": 84.3953857421875,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "da8358c977c0f18ec4242a1878841d5874abe6410f4ce82b1f14bc7a3bc9ba13"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "n32768",
+      "phase_started_utc": "2026-10-30T16:02:30.894839+00:00",
+      "phase_ended_utc": "2026-10-30T16:03:25.627006+00:00",
+      "phase_seconds": 54.72970704201725,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210161.364823,
+        "measure_start_unix_ns": 1793376160211272000,
+        "measure_end_monotonic": 210206.442962375,
+        "measured_tiles": 123469824,
+        "measured_seconds": 45.07813937499304,
+        "tiles_per_second": 2739017.7525493545,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1436034139448.596,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.436034139448596,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 26.71729954806241,
+        "mean_gpu_w": 13.185311100699685,
+        "mean_gpu_active_ratio": 0.9995624057271264,
+        "mean_gpu_mhz": 1397.9318181818182,
+        "max_gpu_average_c": 94.54203033447266,
+        "max_cpu_average_c": 87.32280731201172,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "4efbdca6fd0ff7066fc73db37c6a170be0f3d3e73dbd57329b04815cad41601a"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "n65536",
+      "phase_started_utc": "2026-10-30T16:03:25.629704+00:00",
+      "phase_ended_utc": "2026-10-30T16:04:20.375280+00:00",
+      "phase_seconds": 54.74419229198247,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210216.229980666,
+        "measure_start_unix_ns": 1793376215079505000,
+        "measure_end_monotonic": 210261.246616166,
+        "measured_tiles": 125304832,
+        "measured_seconds": 45.016635500011034,
+        "tiles_per_second": 2783522.815692641,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1459367609993.8633,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.4593676099938633,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 26.864928635683928,
+        "mean_gpu_w": 13.285845431414517,
+        "mean_gpu_active_ratio": 0.9998886964537881,
+        "mean_gpu_mhz": 1397.9318181818182,
+        "max_gpu_average_c": 94.60818481445312,
+        "max_cpu_average_c": 89.14134979248047,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "26d896494641bffbfce5616ad55e9839b73603574b225b04b549aeb408427791"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "max-shape",
+      "phase_started_utc": "2026-10-30T16:04:20.379498+00:00",
+      "phase_ended_utc": "2026-10-30T16:05:15.115464+00:00",
+      "phase_seconds": 54.73570204200223,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210271.0241525,
+        "measure_start_unix_ns": 1793376269874569000,
+        "measure_end_monotonic": 210316.1985925,
+        "measured_tiles": 125304832,
+        "measured_seconds": 45.174440000002505,
+        "tiles_per_second": 2773799.3431682396,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1454269710030.99,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.45426971003099,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 26.715754899111662,
+        "mean_gpu_w": 13.25559436191212,
+        "mean_gpu_active_ratio": 0.9985802986405112,
+        "mean_gpu_mhz": 1397.659090909091,
+        "max_gpu_average_c": 93.7587890625,
+        "max_cpu_average_c": 86.95697021484375,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "2f6775784abe2085167ed68146e2dcd36a6b60ded17aadd3f9c229a76a58ac65"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "region256",
+      "phase_started_utc": "2026-10-30T16:05:15.116348+00:00",
+      "phase_ended_utc": "2026-10-30T16:06:09.833039+00:00",
+      "phase_seconds": 54.71648879101849,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210325.530218,
+        "measure_start_unix_ns": 1793376324380896000,
+        "measure_end_monotonic": 210370.54086225,
+        "measured_tiles": 120127488,
+        "measured_seconds": 45.0106442499964,
+        "tiles_per_second": 2668868.442157648,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1399255697801.949,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.399255697801949,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 24.513198505748402,
+        "mean_gpu_w": 12.90786134112965,
+        "mean_gpu_active_ratio": 0.9992751614613966,
+        "mean_gpu_mhz": 1397.9318181818182,
+        "max_gpu_average_c": 91.56939697265625,
+        "max_cpu_average_c": 85.18550872802734,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "b41cd8cdb510c91c2a7e49f9119df28b5b598e22b82e826a7436b9097c9d0c72"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "region1024",
+      "phase_started_utc": "2026-10-30T16:06:09.837182+00:00",
+      "phase_ended_utc": "2026-10-30T16:07:04.523764+00:00",
+      "phase_seconds": 54.68639591700048,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210380.29798475,
+        "measure_start_unix_ns": 1793376379148908000,
+        "measure_end_monotonic": 210425.30777675,
+        "measured_tiles": 125304832,
+        "measured_seconds": 45.009791999997105,
+        "tiles_per_second": 2783946.0355650624,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1459589499094.3354,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.4595894990943354,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 26.09178638458252,
+        "mean_gpu_w": 13.066242933273315,
+        "mean_gpu_active_ratio": 0.9995628039945256,
+        "mean_gpu_mhz": 1397.9545454545455,
+        "max_gpu_average_c": 91.491943359375,
+        "max_cpu_average_c": 85.73513793945312,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "e9321c9774c49647c09412ecea6b591f952477d5e4349838f8d68a4e49c505ee"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "auto-control-b",
+      "phase_started_utc": "2026-10-30T16:07:04.529001+00:00",
+      "phase_ended_utc": "2026-10-30T16:07:59.294042+00:00",
+      "phase_seconds": 54.76483808300691,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_monotonic": 210434.922319083,
+        "measure_start_unix_ns": 1793376433773484000,
+        "measure_end_monotonic": 210479.938084375,
+        "measured_tiles": 125435904,
+        "measured_seconds": 45.01576529198792,
+        "tiles_per_second": 2786488.3155130004,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 1460922385963.68,
+        "warmup_seconds_requested": 9.0,
+        "scope": "offline returned scans including grid preparation; no pool proof or network"
+      },
+      "local_ths": 1.46092238596368,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 44,
+        "mean_sys_w": 25.95799038626931,
+        "mean_gpu_w": 13.034740556370128,
+        "mean_gpu_active_ratio": 0.9988115971738641,
+        "mean_gpu_mhz": 1397.9318181818182,
+        "max_gpu_average_c": 91.08528900146484,
+        "max_cpu_average_c": 84.8515396118164,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "e1ba2b12bab6561bb17ab973d6a772908581e87a531c6ce3e38d8082d5b7ab43"
+    },
+    {
+      "plan": "tuning-v1",
+      "name": "cert3-control-b",
+      "phase_started_utc": "2026-10-30T16:07:59.297893+00:00",
+      "phase_ended_utc": "2026-10-30T16:10:10.290925+00:00",
+      "phase_seconds": 130.99246450001374,
+      "status": "complete",
+      "valid_for_comparison": true,
+      "benchmark": {
+        "measure_start_unix_ns": 1793376489754907000,
+        "measured_seconds": 120.02308829099638,
+        "measured_tiles": 89096192,
+        "tiles_per_second": 742325.4414516146,
+        "difficulty_factor": 524288,
+        "equivalent_hashes_per_second": 389192321047.7841
+      },
+      "local_ths": 0.3891923210477841,
+      "rate_scope": "fresh-work offline benchmark; no pool proof/network",
+      "software_telemetry": {
+        "scope": "samples inside timed measurement window",
+        "sample_count": 119,
+        "mean_sys_w": 20.492872510637557,
+        "mean_gpu_w": 10.783032481409922,
+        "mean_gpu_active_ratio": 0.9816859760204283,
+        "mean_gpu_mhz": 1397,
+        "max_gpu_average_c": 85.13643646240234,
+        "max_cpu_average_c": 82.75575256347656,
+        "max_swap_bytes": 0,
+        "is_wall_power": false
+      },
+      "private_log_sha256": "ed7c0efe925319a482eb00e7103309c67640aab66b4728546f5d343e55f28543"
+    }
+  ],
+  "wall_power": null,
+  "realized_income": null,
+  "pool_rate_from_short_share_counts": null,
+  "headline": {
+    "upstream_ths": 0.4061265980085141,
+    "default_ths": 1.4652270045650584,
+    "upstream_software_w": 20.57546239910704,
+    "default_software_w": 26.106901759651773,
+    "ratio": 3.607808530024771,
+    "gain_percent": 260.7808530024771,
+    "fee_adjusted_capacity_ths": 1.4505747345194078,
+    "fee_adjusted_gain_percent": 257.1730444724524,
+    "nominal_direct_reference_ths": 1.78944,
+    "peak_gpu_tflops": 3.320769725680826,
+    "peak_wall_tflops": 3.257120214085903,
+    "scope": "matched 300-second fresh-work offline comparison; software power; fee adjustment is a capacity model, not measured revenue"
+  },
+  "source_binding": {
+    "captured_utc": "2026-10-30T16:44:17.529637+00:00",
+    "scope": "read-only source and build identity",
+    "sources": {
+      "release": {
+        "head": "4e01cf91ae492d4ce9b262d32a80774ec941e0fc",
+        "tracked_changes": [],
+        "sha256": {
+          "pearl_m_miner/cli.py": "f51f80dbf710615ea72c3f31edd3e8a4cad1380ccf481ac94a1642e7f7698130",
+          "pearl_m_miner/worker.py": "f9e8ff83717ba46deba4580130d7694d5ea21f0f6bc223a4cc4c7b5539f0392b",
+          "pearl_m_miner/devfee.py": "740e1d27685b4bca3b74dac9a63bb22b53e9550aad7eac43b00e8c505a8f0cdc",
+          "pearl_metal_miner/miner.py": "e4a270374dff1cec10133aad4e3d39457c386d222503f953ad404d70f752e093",
+          "pearl_metal_miner/benchmark.py": "8fb922bec209df6eb74807de06b9d1fbfc594fd208d2aa3f5c56d08f397a13db",
+          "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+          "tools/prefix_s_miner/libprefix.dylib": "d8962d09709d2ad4f542a54fce1c0c8ccc217c6e3dc497f845295770a67b684d",
+          "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+          "build/libpearlmetal.dylib": "742127bb7f945a8891623d2b00064f907c3780c0af05b44a32c933e64b6c9b5d"
+        }
+      },
+      "upstream": {
+        "head": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+        "tracked_changes": [],
+        "sha256": {
+          "pearl_metal_miner/miner.py": "a59f4e62ea2548597515954585ede07f5d7134304aa3b7f6debeb3c6a702cd29",
+          "pearl_metal_miner/benchmark.py": "73a09bc9b59008bebd225a9208d1dd13bffa2b50c9c846a8af6f60a33024711a",
+          "build/libpearlmetal.dylib": "c5240d7e3f77b49ed2822035fd13e99b58c3b3fe42d1ba79d112bd10a6ce4505"
+        }
+      },
+      "upstream-cert3": {
+        "head": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+        "tracked_changes": [
+          "pearl_metal_miner/benchmark.py",
+          "pearl_metal_miner/host.py",
+          "pearl_metal_miner/miner.py",
+          "pearl_metal_miner/reference.py",
+          "pearl_metal_miner/selftest.py",
+          "pearl_metal_miner/stratum/dialect.py",
+          "pearl_metal_miner/stratum/luckypool.py"
+        ],
+        "sha256": {
+          "pearl_metal_miner/miner.py": "e85de6f74b9e96b44f54113ff15c15fb5f23a2e68dfc02be957ce676db6c9641",
+          "pearl_metal_miner/benchmark.py": "920e9569dba56b7cfd751c626a5e4b7d426b85703210e068b905bc7e5158e803",
+          "build/libpearlmetal.dylib": "c5240d7e3f77b49ed2822035fd13e99b58c3b3fe42d1ba79d112bd10a6ce4505"
+        }
+      }
+    },
+    "build_provenance": {
+      "schema": "pearl-m-source-build-v1",
+      "pearl_commit": "3c84be9fb4b2b279967ad3f9f74e67fb8c9cce30",
+      "python": "3.12.2",
+      "macos": "27.0",
+      "sdk": "27.0",
+      "versions": {
+        "numpy": "2.5.4",
+        "blake3": "1.0.11",
+        "maturin": "1.16.0"
+      },
+      "sha256": {
+        "build/libpearlmetal.dylib": "742127bb7f945a8891623d2b00064f907c3780c0af05b44a32c933e64b6c9b5d",
+        "tools/prefix_s_miner/libprefix.dylib": "d8962d09709d2ad4f542a54fce1c0c8ccc217c6e3dc497f845295770a67b684d",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "tools/prefix_sparse_host/zero_b_factory.py": "942eb91277b6bb0d44c1593136f1dc59985e9e082f7921499d4e5dab038e7fe3",
+        "tools/merkle_overlay/overlay_probe.py": "6b896db1e7c26c34aa07cb8fdf36b74476675a490c078086c143a849bc604c7a",
+        "tools/merkle_overlay/build/libm1merkleprobe_c.dylib": "4b735de961bc8faf7a641e83f91bb1185f0728f1d19193a6c36d92b32659ce92"
+      }
+    },
+    "release_offline_gate": {
+      "schema": "pearl-m-offline-gate-v1",
+      "identity": {
+        "platform": "macOS 27.0",
+        "chip": "Apple M2",
+        "machine": "arm64",
+        "sha256": {
+          "build/libpearlmetal.dylib": "742127bb7f945a8891623d2b00064f907c3780c0af05b44a32c933e64b6c9b5d",
+          "tools/prefix_s_miner/libprefix.dylib": "d8962d09709d2ad4f542a54fce1c0c8ccc217c6e3dc497f845295770a67b684d",
+          "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+          "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+          "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+          "tools/prefix_sparse_host/zero_b_factory.py": "942eb91277b6bb0d44c1593136f1dc59985e9e082f7921499d4e5dab038e7fe3",
+          "tools/prefix_sparse_host/build/libprefixsparse.dylib": "d938c7c2da676d0b1922969313b96efcd2da70e54bb701db093878cb4bcbe33d",
+          "tools/merkle_overlay/overlay_probe.py": "6b896db1e7c26c34aa07cb8fdf36b74476675a490c078086c143a849bc604c7a",
+          "tools/merkle_overlay/build/libm1merkleprobe_c.dylib": "4b735de961bc8faf7a641e83f91bb1185f0728f1d19193a6c36d92b32659ce92",
+          "pearl_metal_miner/host.py": "9dd041dab9294d6069fde2dfac42bc8f4768d146977b47b4d0afb8e840de4aca",
+          "pearl_metal_miner/reference.py": "428424662e375d6bd948667c25d6db4303003bb776699b7dc2139f8368da45e8",
+          "pearl_metal_miner/metal_capi.py": "1063eb286406be159e64a2c2078b42c8be34223de45cfeac11346a96b979bfd4",
+          "tools/prefix_s_miner/check_sparse_native.py": "469a571e811b9343db3e8f9fd1bc59b8e2522c2637221df44519b07c2244241b",
+          "PINNED_PEARL_COMMIT.txt": "e47174bedf6222a8feba310a05c24f085bfe42fba83f25bd30f3ac08c6dae40e"
+        }
+      },
+      "official_proof_checks": 28,
+      "completed_utc": "2026-10-30T15:46:14.249699+00:00",
+      "scope": "offline arithmetic/proof correctness; not pool acceptance or income"
+    },
+    "proof_checkout_commit": "3c84be9fb4b2b279967ad3f9f74e67fb8c9cce30",
+    "proof_extension_sha256": {
+      "pearl_mining/pearl_mining.abi3.so": "b842b0b80692ae878d3cb963dd5961905a85772543c3edd5f6a6cdf3f5be374f"
+    },
+    "cert3_receipt": {
+      "upstream_commit": "3d4cc7dadbd1de98ba20e9beb162806a0e70266b",
+      "native_source_sha256": {
+        "csrc/metal/pearl_metal.h": "d265b828cbe4d51a99551f7e9623a140c9d3ecaa47d4c99e872527e6cf933bc7",
+        "csrc/metal/kernels_embedded.h": "b3377f00db9150f1fc8a202860831ac56bc2ccf429350e6c3aa5ee3cd6c7f05d",
+        "csrc/metal/pearl_metal.mm": "af9bcae3b11ca1e859b51209b546b3b01e5691a0751ed02262b437107819d1b0",
+        "csrc/metal/kernels/pearl_kernels.metal": "f44e98b8a0e66176375d60d9c52998d1a1adb413dc4a16031d65b2155b70d1f8"
+      },
+      "patched_files_sha256": {
+        "pearl_metal_miner/miner.py": "e85de6f74b9e96b44f54113ff15c15fb5f23a2e68dfc02be957ce676db6c9641",
+        "pearl_metal_miner/benchmark.py": "920e9569dba56b7cfd751c626a5e4b7d426b85703210e068b905bc7e5158e803",
+        "pearl_metal_miner/stratum/luckypool.py": "b1392d7a6bd458c4adfebad840287efcc3150386ef36a9f918ff09f9e93a907d",
+        "pearl_metal_miner/stratum/dialect.py": "4acac5f96b72814cad55c9b645e4df42ab7b4cd3b5ac4968ecc63074fe6a67cf",
+        "pearl_metal_miner/reference.py": "47c69856184fd617c3aea3129255b5d3fb71872c8a8f5cb9e5613ebe74d79bc5",
+        "pearl_metal_miner/host.py": "81c13a1a94872b15c05914596ce013836d60127d1d8c5f4c9de73ff2795d9aa4",
+        "pearl_metal_miner/selftest.py": "08fca24f1cbd7fb05e9082e505961f9c98f5236270c1a14b34f35ec1f498bd75"
+      },
+      "scope": "cert3 seed/proof/session compatibility and benchmark JSON; upstream GPU kernels unchanged"
+    }
+  },
+  "pool_trials": {
+    "schema": "pearl-m2-pool-validation-v1",
+    "status": "complete",
+    "captured_utc": "2026-10-30T16:54:23.790831+00:00",
+    "pool": "LuckyPool",
+    "host": "pearl-cpu-eu1.luckypool.io",
+    "port": 3370,
+    "payout": "same owner-controlled native PRL address for both trials; omitted",
+    "trials": [
+      {
+        "label": "Pearl M-Miner Alpha 3",
+        "requested_seconds": 600,
+        "started_utc": "2026-10-30T16:34:04.590086+00:00",
+        "ended_utc": "2026-10-30T16:44:05.027678+00:00",
+        "process_seconds": 600.434183040983,
+        "exit_code": 0,
+        "submitted_after_local_verification": 3,
+        "accepted": 3,
+        "rejected": 0,
+        "pending_at_stop": 0,
+        "local_verify_failures": 0,
+        "default_dev_percent": 1,
+        "final_session": {
+          "completed_reported_tiles": 1187119104,
+          "displayed_elapsed": "0:09:59",
+          "rounded_average_tiles_per_second": 1979000.0,
+          "rounded_local_ths": 1.037565952,
+          "grids": 1139,
+          "scope": "final cumulative session average rounded by each miner; not pool-effective hashrate; upstream stale-boundary conventions may differ"
+        },
+        "events": [
+          {
+            "submission_id": 11,
+            "job_id": "a6238ffa_26000",
+            "verdict": "accepted",
+            "pool_reply": {
+              "error": null,
+              "id": 11,
+              "result": true
+            },
+            "locally_verified_submission": true,
+            "submitted_local_log_time": "12:38:49",
+            "reply_local_log_time": "12:38:49"
+          },
+          {
+            "submission_id": 12,
+            "job_id": "30d04b7b_26000",
+            "verdict": "accepted",
+            "pool_reply": {
+              "error": null,
+              "id": 12,
+              "result": true
+            },
+            "locally_verified_submission": true,
+            "submitted_local_log_time": "12:41:40",
+            "reply_local_log_time": "12:41:41"
+          },
+          {
+            "submission_id": 13,
+            "job_id": "30d04b7b_26000",
+            "verdict": "accepted",
+            "pool_reply": {
+              "error": null,
+              "id": 13,
+              "result": true
+            },
+            "locally_verified_submission": true,
+            "submitted_local_log_time": "12:42:23",
+            "reply_local_log_time": "12:42:23"
+          }
+        ],
+        "native_cleanup": [
+          {
+            "engines": [
+              {
+                "prepares": 1139,
+                "prepare_wall_s": 19.00166630400001,
+                "upload_s": 1.6623848120000002,
+                "guard_gpu_s": 7.359751000272809,
+                "scans": 9065,
+                "gpu_s": 415.58732645903365,
+                "scan_wall_s": 423.2644983279993,
+                "completed_tiles": 1188167680,
+                "valid_returned_tiles": 1187119104,
+                "stale_discarded_tiles": 1048576,
+                "overflow_hits": 0,
+                "stale_grid_loads": 0,
+                "duplicate_commitment_loads": 0,
+                "sparse_prepares": 1139,
+                "legacy_prepares": 0,
+                "csr_prepares": 0,
+                "s_prepares": 1139,
+                "device": "Apple M2"
+              }
+            ],
+            "close_errors": []
+          }
+        ],
+        "private_log_sha256": "c96042be0702a6ff1150ebf0576119db9f1ce69725fae41ec0e91a8828aef4d5",
+        "intensity_percent": 80,
+        "software_telemetry": {
+          "scope": "whole phase, including warmup/setup; not matched-window energy",
+          "sample_count": 593,
+          "mean_sys_w": 19.9506808099216,
+          "mean_gpu_w": 9.29201101372254,
+          "mean_gpu_active_ratio": 0.7835909540295399,
+          "mean_gpu_mhz": 1392.9679595278246,
+          "max_gpu_average_c": 85.0753402709961,
+          "max_cpu_average_c": 81.03861236572266,
+          "max_swap_bytes": 0,
+          "is_wall_power": false
+        }
+      },
+      {
+        "label": "Upstream 0.2.4 + cert3 compatibility",
+        "requested_seconds": 600,
+        "started_utc": "2026-10-30T16:44:05.039185+00:00",
+        "ended_utc": "2026-10-30T16:54:05.414894+00:00",
+        "process_seconds": 600.3632507500006,
+        "exit_code": 0,
+        "submitted_after_local_verification": 1,
+        "accepted": 1,
+        "rejected": 0,
+        "pending_at_stop": 0,
+        "local_verify_failures": 0,
+        "default_dev_percent": 0,
+        "final_session": {
+          "completed_reported_tiles": 349437952,
+          "displayed_elapsed": "0:10:00",
+          "rounded_average_tiles_per_second": 582000.0,
+          "rounded_local_ths": 0.305135616,
+          "grids": 337,
+          "scope": "final cumulative session average rounded by each miner; not pool-effective hashrate; upstream stale-boundary conventions may differ"
+        },
+        "events": [
+          {
+            "submission_id": 11,
+            "job_id": "a4703bfd_26000",
+            "verdict": "accepted",
+            "pool_reply": {
+              "error": null,
+              "id": 11,
+              "result": true
+            },
+            "locally_verified_submission": true,
+            "submitted_local_log_time": "12:50:54",
+            "reply_local_log_time": "12:50:55"
+          }
+        ],
+        "native_cleanup": [],
+        "private_log_sha256": "90cb1da9e7e657c793bbf35a8fa98288cf409b849b60515847813ef1aade5897",
+        "intensity_percent": 80,
+        "software_telemetry": {
+          "scope": "whole phase, including warmup/setup; not matched-window energy",
+          "sample_count": 593,
+          "mean_sys_w": 16.374623644412267,
+          "mean_gpu_w": 8.311085234202984,
+          "mean_gpu_active_ratio": 0.7771648725409934,
+          "mean_gpu_mhz": 1393.7217537942665,
+          "max_gpu_average_c": 80.1181411743164,
+          "max_cpu_average_c": 78.25684356689453,
+          "max_swap_bytes": 0,
+          "is_wall_power": false
+        }
+      }
+    ],
+    "public_api_snapshot_sha256": "7f9685d7113b6587dba801f5cf9433628e2cd94aaa3c8a628ec5757bdcff1463",
+    "api_count_checks": [
+      {
+        "label": "Pearl M-Miner Alpha 3",
+        "accepted_shares": 3,
+        "first_connect_utc": "2026-10-30T16:34:05.140000+00:00",
+        "matches_session_and_count": true
+      },
+      {
+        "label": "Upstream 0.2.4 + cert3 compatibility",
+        "accepted_shares": 1,
+        "first_connect_utc": "2026-10-30T16:44:05.499000+00:00",
+        "matches_session_and_count": true
+      }
+    ],
+    "api_counts_verified": true,
+    "scope": "bounded accepted replies matched to locally verified submissions; not precise pool speed, a full developer-fee cycle or paid income"
+  },
+  "decision": {
+    "runtime_source_changed": false,
+    "default_profile_changed": false,
+    "recommended_live_intensity_percent": 80,
+    "reason": "Retain the fastest tested 32-row kernel. The full-duty live attempt hit the lab 95 C sensor guard; qualify sustained live operation separately at 80% intensity. Do not present the full-duty offline rate as a continuously safe live rate."
+  },
+  "failed_experiment_notes": [
+    {
+      "plan": "kernel-v1",
+      "phase": "pair16-bench",
+      "cause": "Lab coordinator queue.py shadowed the Python standard-library queue module. Renamed the coordinator; preserved the failed attempt and reran as kernel-retry-v2. No candidate speed was obtained from this failure."
+    },
+    {
+      "plan": "live-v1",
+      "phase": "pearl-m-live",
+      "cause": "Full-duty live trial stopped at the independent lab 95 C average-sensor guard after about 119 seconds. Two accepted and zero rejected shares; arithmetic verification did not fail. Preserve the stop and retest both miners at 80% intensity."
+    }
+  ]
+}

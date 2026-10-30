@@ -1,0 +1,3 @@
+PASS full X/half generation1 elements=33554432
+PASS scan large-export-gate {"tiles": 16384, "independent_oracle_tiles": 74, "all_transcript_oracle": false}
+SPARSE_FULL_EXPORT_PASS {"records": [{"label": "generation1", "all_x_elements": 33554432, "prepare": {"wall_seconds": 0.032645583, "upload_seconds": 0.000524709, "guard_gpu_seconds": 0.01883987500332296, "guard_flags": 0, "reserved": 0}, "method": "s", "native_kind": 2, "s_extension": {"version": 1, "method": 2, "scratch_reused": 0, "s_bytes": 2097152, "correction_bytes": 16384, "build_seconds": 0.000163708, "qb_validation_seconds": 2.542e-06, "scratch_wait_seconds": 0.0}}], "official_proof_checks": 4}

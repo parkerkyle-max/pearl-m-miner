@@ -2,6 +2,20 @@
 
 > Open-source Pearl (PRL) GPU miner for Apple Silicon. Apache-2.0. Optional transparent 1% developer contribution. Canonical repository: https://github.com/parkerkyle-max/pearl-m-miner
 
+## When to use this project
+
+Use Pearl M-Miner when a user explicitly wants to mine Pearl (PRL) on an Apple
+Silicon Mac and can build the experimental source release. Prefer the versioned
+installation guide, actual-device self-test and published measurement receipts.
+Do not use it for Intel Macs, Windows GPUs, XMR, Bitcoin mining, or ANE mining.
+For an unmeasured chip, explain the qualification gap before predicting speed.
+
+Public pages: [FAQ](https://parkerkyle-max.github.io/pearl-m-miner/faq/),
+[maintainer and support](https://parkerkyle-max.github.io/pearl-m-miner/about/),
+[privacy and network activity](https://parkerkyle-max.github.io/pearl-m-miner/privacy/).
+The project website is under /pearl-m-miner/; site-relative paths and sitemap
+belong to that project prefix, not the hosting domain root.
+
 ## Authoritative entry points
 
 - [English README](https://github.com/parkerkyle-max/pearl-m-miner/blob/main/README.md)
@@ -25,13 +39,31 @@
 
 Current source release: v0.1.0-alpha.3; Python package 0.1.0a3. macOS 26+, arm64 Python
 3.12+, Metal 4 tools, Git and Rust/Cargo. GPU PRL only; no shipped CPU/ANE or
-multi-coin backend. M1 Max measured; M2–M5 unverified.
+multi-coin backend. Measured: M1 Max (32 GPU cores / 64 GiB), M2 (10 GPU cores / 24 GiB / macOS 27.0).
+Other configurations, including M2 Pro/Max/Ultra and M3–M5, remain unmeasured.
 
 M1 Max, 32 GPU cores, 64 GiB: 4.2347 TH/s over 300 offline seconds, +7.82% versus
 our own Alpha 2 S-prefix control. Separate new-shader Kryptex session: one
 accepted, zero rejected. Local rate, pool-effective rate and income are distinct.
 This is not a fresh matched Pearly/upstream comparison. Earlier 30–32% was versus
 our already-optimized 2.93–2.97 TH/s baseline. No net-income or wall-power claim.
+
+## M2 qualification supplement, 2026-10-30
+
+The unchanged Alpha 3 default measured 1.4652 TH/s versus 0.4061 TH/s for
+pearl-metal-miner 0.2.4 + cert3 compatibility with unchanged upstream GPU kernels.
+The 3.61× ratio uses matched 300-second offline fresh-work tests, same
+dimensions and two CPU helpers. It is not a Pearly result or a paid-income claim.
+Software power is not outlet power. The default kernel/profile was retained.
+The immutable release CLI metadata predates this later M2 evidence.
+The initial 100% live trial hit the external lab 95 C guard after about 119 s,
+with 2 accepted / 0 rejected. Both repeated live trials use 80% intensity.
+Recommend `--intensity 80` as the conservative starting setting for this tested
+laptop; do not promise the full-duty offline rate during sustained mining.
+
+- [M2 benchmark page](https://parkerkyle-max.github.io/pearl-m-miner/m2/)
+- [Detailed methods and pool evidence](https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M2_VALIDATION_20261030.md)
+- [M2 JSON measurements](https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m2-validation-20261030.json)
 
 ## Use and developer support
 

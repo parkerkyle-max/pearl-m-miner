@@ -1,0 +1,86 @@
+{
+  "name": "kernel-retry-v2",
+  "phases": [
+    {
+      "name": "pair16-gate",
+      "args": [
+        "@PY",
+        "@RELEASE/tools/prefix_s_miner/check_sparse_native.py",
+        "--miner-root",
+        "@RELEASE",
+        "--factory-root",
+        "@RELEASE/tools/prefix_sparse_host",
+        "--method",
+        "s",
+        "--library",
+        "@RELEASE/tools/prefix_s_miner/libprefix.dylib",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/ablation/prefix_pair16.metal"
+      ],
+      "timeout": 120
+    },
+    {
+      "name": "pair16-bench",
+      "args": [
+        "@PY",
+        "@ROOT/candidate_benchmark.py",
+        "--source",
+        "@RELEASE",
+        "--library",
+        "@RELEASE/tools/prefix_s_miner/libprefix.dylib",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/ablation/prefix_pair16.metal",
+        "--seconds",
+        "60"
+      ],
+      "timeout": 120
+    },
+    {
+      "name": "pair64-gate",
+      "args": [
+        "@PY",
+        "@RELEASE/tools/prefix_s_miner/check_sparse_native.py",
+        "--miner-root",
+        "@RELEASE",
+        "--factory-root",
+        "@RELEASE/tools/prefix_sparse_host",
+        "--method",
+        "s",
+        "--library",
+        "@RELEASE/tools/prefix_s_miner/libprefix.dylib",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/ablation/prefix_baseline.metal"
+      ],
+      "timeout": 120
+    },
+    {
+      "name": "pair64-bench",
+      "args": [
+        "@PY",
+        "@ROOT/candidate_benchmark.py",
+        "--source",
+        "@RELEASE",
+        "--library",
+        "@RELEASE/tools/prefix_s_miner/libprefix.dylib",
+        "--shader",
+        "@RELEASE/research/2026-10-30/ceiling/ablation/prefix_baseline.metal",
+        "--seconds",
+        "60"
+      ],
+      "timeout": 120
+    },
+    {
+      "name": "pair32-control",
+      "args": [
+        "@PY",
+        "-m",
+        "pearl_m_miner.cli",
+        "benchmark",
+        "--seconds",
+        "60"
+      ],
+      "timeout": 120
+    }
+  ],
+  "path_placeholder_note": "@PY is the tested release virtual environment; @ROOT holds separate checkouts; see README."
+}

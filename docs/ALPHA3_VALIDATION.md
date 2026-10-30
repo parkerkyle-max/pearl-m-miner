@@ -36,3 +36,11 @@ See [the sanitized Alpha 3 live receipt](data/alpha3-live.json). This is actual
 acceptance evidence, not a precise pool-rate measurement, income measurement,
 long-duration stability result or listing approval. The release tag is unchanged;
 this is a later evidence supplement for the same deployed source.
+
+## Subsequent M2 qualification
+
+The unchanged release was freshly built on a 10-core-GPU M2 with 24 GiB memory
+and macOS 27.0. [The M2 supplement](M2_VALIDATION_20261030.md) records the matched
+upstream control, 300-second measurements, tuning non-winners, exactness gates
+and bounded pool trials. This does not change the Alpha 3 tag or qualify all
+M2 variants. Documentation and discovery pages now reflect both tested devices.
