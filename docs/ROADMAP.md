@@ -1,19 +1,39 @@
-# PRL first, then additional algorithms
+# PRL device validation and optimization roadmap
 
-Pearl M-Miner remains the Apple Silicon PRL backend. Further algorithms should
-be separate, explicitly selected backends in a multi-device coordinator rather
-than variations of the PRL proof code. This roadmap is not a compatibility,
-performance or income claim.
+Pearl M-Miner prioritizes verified PRL mining on specific Apple Silicon
+configurations. The [device results matrix](../README.md#device-results) and
+[machine-readable results](device-results.json) distinguish measured devices,
+planned tests and model slots whose availability is not confirmed. This roadmap
+does not promise support, performance, income or a delivery date.
 
-| Stage | Work | Evidence required before claiming support |
+| Priority | Work | Evidence required before claiming support |
 | --- | --- | --- |
-| Understand sustained PRL work | Expose preparation, scan, stale work, task updates and share observations | Consistent local counters; separately correlated pool replies |
-| Improve PRL efficiency | Profile preparation/allocation, GPU dispatch and batch sizes; test one change at a time | Exactness/proof gates, matched baseline/candidate runs, temperatures and power scope |
-| Qualify more M-series devices | Conservative shapes, explicit memory limits and per-device configuration | Exact chip/OS/build, offline correctness, timed fresh work and real pool acceptance |
-| Add CPU XMR experimentally | Integrate a reviewed CPU backend while reserving resources for PRL host work | PRL-only, XMR-only and dual trials; accepted shares, lost PRL work and whole-machine power |
-| Add further algorithms | Separate backend, pool dialect, public payout address and qualification per algorithm | Correctness, lifecycle, thermal/resource and real-pool evidence for each supported route |
+| 1. Complete the released M1–M6 device validation matrix | Obtain access to released models and test their exact GPU-core, memory and OS configurations; retain failures and untested entries | Source-bound build and correctness checks, timed fresh-work benchmarks, bounded pool acceptance and published limitations for each configuration |
+| 2. Optimize each available device in small steps | Once a specific Mac is available, profile its actual bottlenecks and compare one kernel, shape, dispatch or preparation change at a time | Matching baseline/candidate conditions, exactness and proof gates, repeatable full-work gains, thermal observations and separate pool validation; retain the baseline when no gain is established |
+| 3. Validate sustained pool operation and thermal behavior | Extend runs, observe job changes, reconnects, stale work, fee transitions, battery/thermal pauses and recovery | Dated duration and accepted/rejected/pending counts, correlated pool replies, temperature history and clear software-versus-outlet power scope |
+| 4. Improve source installation and build diagnostics | Reproduce setup on additional Macs; clarify compatible SDK/Python/Rust requirements and actionable build/self-test errors | Recorded environment and cache state, reproducible setup steps and actual build/self-test outcomes; distinguish fresh environments from reused toolchains |
+| 5. Make benchmarks reproducible and accept community corrections | Publish commands, timing definitions, baselines and sanitized evidence; reconcile reported discrepancies with the device matrix | Traceable source/version and measurement windows, preserved conflicting results and corrected claims with evidence links |
+| Later experimental work: CPU and additional algorithms | Evaluate a complete CPU PRL path or separately selected coin-specific backends while reserving resources for PRL host work | Per-backend correctness and pool acceptance, PRL-only/CPU-only/combined trials, displaced PRL work and measured whole-machine power |
 
-XMR is a candidate for the CPU stage because [XMRig documents macOS and ARMv8
+The M1–M6 headings organize the test plan; they do not imply that every family
+has released ordinary, Pro, Max and Ultra models. Only released configurations
+enter the hardware qualification queue. Unconfirmed model slots remain labeled
+as such in the matrix. A passing result on one GPU-core count or memory size
+does not qualify every variant with the same chip name.
+
+Optimization decisions are device-specific. Shared Metal APIs or family names
+do not establish identical GPU architectures, resource limits or useful tuning
+parameters across M1–M6. An available device and a repeatable matched test are
+required before claiming an improvement; unsuccessful candidates stay in the
+record and do not replace the measured baseline.
+
+Use the [device result form](https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=device-result.yml)
+for a new build or benchmark result, or the
+[benchmark discrepancy form](https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=benchmark-discrepancy.yml)
+to question an existing number, comparison or description. A concern can be
+reported without a replacement benchmark or a successful local build.
+
+XMR is a longer-term experimental candidate because [XMRig documents macOS and ARMv8
 CPU support](https://xmrig.com/docs/miner), and [Monero describes CPUs as more
 efficient for RandomX mining than GPUs](https://www.getmonero.org/get-started/mining/).
 Those capabilities do not establish a net benefit when run alongside PRL on
@@ -29,8 +49,12 @@ and a 45-second CLI recheck, and the original Kryptex worker has resumed.
 A bounded new Kryptex user session recorded one accepted and zero rejected
 shares, bound to the deployed build and matching gzip submission in the
 [live receipt](data/m1-pair32-live.json). This verifies acceptance, not precise
-pool rate or income. The Alpha 3 release includes this backend. Other M chips need
-their own measurements. Next optimization
+pool rate or income. The Alpha 3 release includes this backend. A later test of
+the unchanged Alpha 3 source on a 10-core-GPU M2 with 24 GiB memory measured
+1.4652 PRL TH/s over 300 offline seconds. Its matched upstream control, bounded
+80%-intensity pool trials and full-duty thermal stop are recorded in the
+[M2 report](M2_VALIDATION_20261030.md). Other configurations need their own
+measurements. Next optimization
 decisions should use the measured matrix
 ceiling, full-work timings and correctness gates in [the M1 Max report](M1_CEILING_20261030.md),
 including unsuccessful controls, rather than advertised TOPS alone.

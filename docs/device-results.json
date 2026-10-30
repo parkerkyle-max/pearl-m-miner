@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-30",
+  "unit": "TH/s",
+  "scope": "Configuration-specific offline PRL protocol throughput; not pooled hashrate or income. Unmeasured rates are null.",
+  "results": {
+    "m1-max-32-64": {
+      "chip": "M1 Max", "gpu_cores": 32, "memory_gib": 64,
+      "release": "v0.1.0-alpha.3", "measured_on": "2026-10-30", "macos": "26.6.1",
+      "rate_ths": 4.2347, "duration_seconds": 300,
+      "comparison": {"baseline": "Pearl M-Miner Alpha 2", "baseline_is_upstream": false, "matched_scope": "M1 Max matched fresh-work 60-second A/B means", "candidate_mean_ths": 4.234368, "baseline_mean_ths": 3.927237, "duration_seconds": 60, "improvement_percent": 7.82},
+      "evidence": ["docs/M1_CEILING_20261030.md", "docs/data/m1-pair32-live.json"],
+      "live": {"accepted": 1, "rejected": 0, "separate_from_offline_test": true}
+    },
+    "m2-10-24": {
+      "chip": "M2", "gpu_cores": 10, "memory_gib": 24,
+      "release": "v0.1.0-alpha.3", "measured_on": "2026-10-30", "macos": "27.0",
+      "rate_ths": 1.465227, "duration_seconds": 300,
+      "comparison": {"baseline": "pearl-metal-miner 0.2.4 + cert3 compatibility", "baseline_is_upstream": true, "matched_scope": "M2 matched fresh-work 300-second control; M8192 N16384 K4096 rank128 region512; two CPU helpers; intensity100", "candidate_mean_ths": 1.465227, "baseline_mean_ths": 0.406127, "duration_seconds": 300, "improvement_percent": 260.8, "ratio": 3.61},
+      "evidence": ["docs/M2_VALIDATION_20261030.md", "docs/data/m2-validation-20261030.json"],
+      "live": {"intensity_percent": 80, "duration_seconds": 600, "accepted": 3, "rejected": 0, "separate_from_offline_test": true, "full_intensity_external_lab_stop_celsius": 95, "external_guard_is_shipped_feature": false}
+    }
+  },
+  "families": [
+    {"name": "M1", "release_source": "https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/", "devices": [
+      {"chip": "M1", "status": "planned", "rate_ths": null},
+      {"chip": "M1 Pro", "status": "planned", "rate_ths": null},
+      {"chip": "M1 Max", "status": "measured", "result": "m1-max-32-64"},
+      {"chip": "M1 Max", "configuration": "other", "status": "planned", "rate_ths": null},
+      {"chip": "M1 Ultra", "status": "planned", "rate_ths": null}
+    ], "unconfirmed_placeholders": []},
+    {"name": "M2", "release_source": "https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/", "devices": [
+      {"chip": "M2", "status": "measured", "result": "m2-10-24"},
+      {"chip": "M2", "configuration": "other", "status": "planned", "rate_ths": null},
+      {"chip": "M2 Pro", "status": "planned", "rate_ths": null},
+      {"chip": "M2 Max", "status": "planned", "rate_ths": null},
+      {"chip": "M2 Ultra", "status": "planned", "rate_ths": null}
+    ], "unconfirmed_placeholders": []},
+    {"name": "M3", "release_source": "https://www.apple.com/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/", "devices": [
+      {"chip": "M3", "status": "planned", "rate_ths": null},
+      {"chip": "M3 Pro", "status": "planned", "rate_ths": null},
+      {"chip": "M3 Max", "status": "planned", "rate_ths": null},
+      {"chip": "M3 Ultra", "status": "planned", "rate_ths": null}
+    ], "unconfirmed_placeholders": []},
+    {"name": "M4", "release_source": "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/", "devices": [
+      {"chip": "M4", "status": "planned", "rate_ths": null},
+      {"chip": "M4 Pro", "status": "planned", "rate_ths": null},
+      {"chip": "M4 Max", "status": "planned", "rate_ths": null}
+    ], "unconfirmed_placeholders": ["M4 Ultra"]},
+    {"name": "M5", "release_source": "https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/", "additional_release_sources": ["https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/", "https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/"], "devices": [
+      {"chip": "M5", "status": "planned", "rate_ths": null},
+      {"chip": "M5 Pro", "status": "planned", "rate_ths": null},
+      {"chip": "M5 Max", "status": "planned", "rate_ths": null},
+      {"chip": "M5 Ultra", "status": "planned", "rate_ths": null}
+    ], "unconfirmed_placeholders": []},
+    {"name": "M6", "release_source": "https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/", "devices": [
+      {"chip": "M6", "status": "planned", "rate_ths": null}
+    ], "unconfirmed_placeholders": ["M6 Pro", "M6 Max", "M6 Ultra"]}
+  ]
+}

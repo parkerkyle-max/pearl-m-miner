@@ -4,7 +4,7 @@
 
 # Pearl M-Miner — Apple Silicon용 Pearl(PRL) 채굴기
 
-M 시리즈 Mac을 위한 오픈 소스 Metal GPU 채굴기입니다. **M1 Max의 300초 오프라인 측정에서 4.2347 TH/s를 기록했으며, 기존 Alpha 2 백엔드보다 7.82% 빨랐습니다.** 별도의 실제 운영 세션에서는 Kryptex가 gzip share를 승인했습니다. 서로 다른 측정 결과이며 수익을 보장하지 않습니다.
+M 시리즈 Mac을 위한 오픈 소스 Metal GPU 채굴기입니다. **M1 Max의 300초 오프라인 측정은 4.2347 TH/s입니다. 별도의 동일 조건 60초 평균 비교에서는 본 프로젝트 Alpha 2 백엔드보다 7.82% 향상됐습니다.** 별도의 실제 운영 세션에서는 Kryptex가 gzip share를 승인했습니다. 서로 다른 측정 결과이며 수익을 보장하지 않습니다.
 
 <!-- m2-intro -->
 M2 실측 추가: **GPU 10코어 / 24 GiB Mac에서 1.4652 TH/s**를 기록했습니다. 동일 조건의 300초 오프라인 비교에서 명시한 상위 GPU 구현의 **3.61배**입니다. [측정 방법, 풀 검증 및 한계](M2_VALIDATION_20261030.md).
@@ -26,7 +26,7 @@ M2 실측 추가: **GPU 10코어 / 24 GiB Mac에서 1.4652 TH/s**를 기록했�
 
 ## 실행 요구 사항
 
-**실험용 소스 릴리스 v0.1.0-alpha.3(패키지 0.1.0a3)**. Apple Silicon, **macOS 26+**, 네이티브 arm64 **Python 3.12+**, Metal 4 Command Line Tools, Git 및 Rust/Cargo가 필요합니다. 실제 측정을 완료한 구성은 M1 Max(GPU 32코어 / 64 GiB)와 M2(GPU 10코어 / 24 GiB)입니다. 시험한 M2 노트북에서는 시간 제한 채굴 명령에 --intensity 80을 추가하고 아래 온도 제한을 확인하세요. 다른 구성과 M3–M5는 각 기기에서 자체 테스트와 풀 검증이 필요합니다. CPU, ANE 및 다른 코인의 채굴은 아직 제공하지 않습니다.
+**실험용 소스 릴리스 v0.1.0-alpha.3(패키지 0.1.0a3)**. Apple Silicon, **macOS 26+**, 네이티브 arm64 **Python 3.12+**, Metal 4 Command Line Tools, Git 및 Rust/Cargo가 필요합니다. 실제 측정을 완료한 구성은 M1 Max(GPU 32코어 / 64 GiB)와 M2(GPU 10코어 / 24 GiB)입니다. 시험한 M2 노트북에서는 시간 제한 채굴 명령에 --intensity 80을 추가하고 아래 온도 제한을 확인하세요. 다른 구성과 M3–M6는 각 기기에서 자체 테스트와 풀 검증이 필요합니다. CPU, ANE 및 다른 코인의 채굴은 아직 제공하지 않습니다.
 
 <a id="part-3"></a>
 
@@ -61,6 +61,87 @@ bootstrap은 고정된 공식 증명 확장 모듈을 빌드하고 저장소 안
 ```
 
 자리표시자를 **본인의 공개 수령 정보**로 바꾸세요. Kryptex는 `krx…` mining ID를, LuckyPool은 네이티브 `prl1…` 주소를 사용합니다. 예제는 10분 후 종료됩니다. 계속 실행하려면 `--time-limit`을 생략하며, **Ctrl+C로 중지**합니다. 기본적으로 배터리 사용 중이거나 macOS의 열 압력이 심각할 때 일시 정지합니다. 이는 고정된 섭씨 온도 기준은 아닙니다. 시드, 개인 키, 지갑 비밀번호는 입력하지 마세요.
+
+<!-- device-results -->
+<a id="device-results"></a>
+<section class="device-matrix">
+<h2>기기 실측 및 테스트 계획</h2>
+<p>각 시리즈를 펼쳐 구체적인 구성을 확인하세요. 결과는 실측으로 표시한 구성에만 적용되며 시리즈 전체를 대표하지 않습니다. 출시됐지만 미측정인 기기는 테스트 계획에 포함되어 기기를 기다리는 상태이며 호환성 검증을 의미하지 않습니다.</p>
+<details class="device-family" id="device-m1">
+<summary><span class="family-name">M1</span> <span class="family-result">M1 Max: +7.82% · 비교 기준 본 프로젝트 Alpha 2（업스트림 아님） · 60 초 · 동일 비교 기준／범위에서 실측한 구성 중 최대 향상률</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M1 기기 실측 및 테스트 계획">
+<table><thead><tr><th scope="col">칩／구체적 구성</th><th scope="col">상태</th><th scope="col">오프라인 로컬 속도</th><th scope="col">비교 기준／향상률</th><th scope="col">근거</th></tr></thead><tbody>
+<tr><th scope="row">M1 · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M1 Pro · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M1 Max · 32 GPU cores / 64 GiB</th><td>해당 구성 실측 · 2026-10-30 · macOS 26.6.1</td><td>4.2347 TH/s · 300 초 · 오프라인</td><td>+7.82% · 비교 기준 본 프로젝트 Alpha 2 백엔드; 업스트림 아님 (60 초 동일 조건 평균: 4.234368 / 3.927237 TH/s)</td><td><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M1_CEILING_20261030.md">방법 및 보고서</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m1-pair32-live.json">검증 기록</a></td></tr>
+<tr><th scope="row">M1 Max · 다른 GPU／메모리 구성</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M1 Ultra · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M1 기기 검증 계획</a> · <a href="https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/">Apple 출시 자료</a></p>
+</details>
+<details class="device-family" id="device-m2">
+<summary><span class="family-name">M2</span> <span class="family-result">M2: +260.8% / 3.61× · 비교 기준 pearl-metal-miner 0.2.4 + cert3 · 300 초 · 동일 비교 기준／범위에서 실측한 구성 중 최대 향상률</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M2 기기 실측 및 테스트 계획">
+<table><thead><tr><th scope="col">칩／구체적 구성</th><th scope="col">상태</th><th scope="col">오프라인 로컬 속도</th><th scope="col">비교 기준／향상률</th><th scope="col">근거</th></tr></thead><tbody>
+<tr><th scope="row">M2 · 10 GPU cores / 24 GiB</th><td>해당 구성 실측 · 2026-10-30 · macOS 27.0</td><td>1.465227 TH/s · 300 초 · 오프라인</td><td>+260.8% / 3.61× · 비교 기준 pearl-metal-miner 0.2.4 + cert3 compatibility (300 초 동일 조건 평균: 1.465227 / 0.406127 TH/s)</td><td><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M2_VALIDATION_20261030.md">방법 및 보고서</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m2-validation-20261030.json">검증 기록</a></td></tr>
+<tr><th scope="row">M2 · 다른 GPU／메모리 구성</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M2 Pro · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M2 Max · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M2 Ultra · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M2 기기 검증 계획</a> · <a href="https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/">Apple 출시 자료</a></p>
+</details>
+<details class="device-family" id="device-m3">
+<summary><span class="family-name">M3</span> <span class="family-result">실측 구성 없음 · 테스트 예정／기기 대기</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M3 기기 실측 및 테스트 계획">
+<table><thead><tr><th scope="col">칩／구체적 구성</th><th scope="col">상태</th><th scope="col">오프라인 로컬 속도</th><th scope="col">비교 기준／향상률</th><th scope="col">근거</th></tr></thead><tbody>
+<tr><th scope="row">M3 · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M3 Pro · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M3 Max · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M3 Ultra · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M3 기기 검증 계획</a> · <a href="https://www.apple.com/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/">Apple 출시 자료</a></p>
+</details>
+<details class="device-family" id="device-m4">
+<summary><span class="family-name">M4</span> <span class="family-result">실측 구성 없음 · 테스트 예정／기기 대기</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M4 기기 실측 및 테스트 계획">
+<table><thead><tr><th scope="col">칩／구체적 구성</th><th scope="col">상태</th><th scope="col">오프라인 로컬 속도</th><th scope="col">비교 기준／향상률</th><th scope="col">근거</th></tr></thead><tbody>
+<tr><th scope="row">M4 · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M4 Pro · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M4 Max · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M4 기기 검증 계획</a> · <a href="https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/">Apple 출시 자료</a></p>
+<p class="device-note">미래 자리표시자일 뿐이며 2026-10-30 기준 Apple 출시 발표가 확인되지 않은 이름: M4 Ultra. 실재 기기 또는 호환성 지원을 의미하지 않습니다.</p>
+</details>
+<details class="device-family" id="device-m5">
+<summary><span class="family-name">M5</span> <span class="family-result">실측 구성 없음 · 테스트 예정／기기 대기</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M5 기기 실측 및 테스트 계획">
+<table><thead><tr><th scope="col">칩／구체적 구성</th><th scope="col">상태</th><th scope="col">오프라인 로컬 속도</th><th scope="col">비교 기준／향상률</th><th scope="col">근거</th></tr></thead><tbody>
+<tr><th scope="row">M5 · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M5 Pro · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M5 Max · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+<tr><th scope="row">M5 Ultra · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M5 기기 검증 계획</a> · <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/">Apple 출시 자료 1</a> · <a href="https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/">Apple 출시 자료 2</a> · <a href="https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/">Apple 출시 자료 3</a></p>
+</details>
+<details class="device-family" id="device-m6">
+<summary><span class="family-name">M6</span> <span class="family-result">실측 구성 없음 · 테스트 예정／기기 대기</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M6 기기 실측 및 테스트 계획">
+<table><thead><tr><th scope="col">칩／구체적 구성</th><th scope="col">상태</th><th scope="col">오프라인 로컬 속도</th><th scope="col">비교 기준／향상률</th><th scope="col">근거</th></tr></thead><tbody>
+<tr><th scope="row">M6 · GPU／메모리 구성 미검증</th><td>테스트 예정／기기 대기</td><td>미측정</td><td>—</td><td>미측정</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M6 기기 검증 계획</a> · <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/">Apple 출시 자료</a></p>
+<p class="device-note">미래 자리표시자일 뿐이며 2026-10-30 기준 Apple 출시 발표가 확인되지 않은 이름: M6 Pro, M6 Max, M6 Ultra. 실재 기기 또는 호환성 지원을 의미하지 않습니다.</p>
+</details>
+<div class="matrix-notes">
+<p>모든 속도는 로컬 오프라인 PRL 프로토콜 처리량이며 풀 해시레이트, 지급 수익 또는 벽면 전력 효율이 아닙니다. M1 Max +7.82%는 본 프로젝트 Alpha 2와 동일 조건 60초 평균(4.234368 대 3.927237 TH/s)을 비교합니다. 별도 300초 실측은 4.2347 TH/s입니다. M2 +260.8%／3.61배는 동일 조건 300초 실측(1.465227 대 0.406127 TH/s)이며, 원본 GPU 커널을 유지한 pearl-metal-miner 0.2.4＋cert3 호환 패치가 기준입니다. 비교 기준이 달라 시리즈 전체의 순위로 해석할 수 없습니다.</p>
+<p>M2 풀 근거는 별도의 강도 80%·600초 테스트에서 수락 3／거절 0입니다. 강도 100% 실채굴은 외부 실험의 95°C 중단 기준에 도달했습니다. 이 섭씨 기준은 내장 기능이나 Apple 손상 한계가 아닙니다. 해당 실측 노트북에서는 --intensity 80을 사용하세요. 적은 셰어 수는 장기 풀 속도나 수익을 입증하지 않습니다.</p>
+</div>
+<p class="matrix-invitation">다른 구성의 Mac이 있나요? 테스트에 참여해 실측을 공유해 주세요. 빌드 또는 자체 테스트 실패도 환영합니다. 정확한 칩, GPU 코어 수, 메모리, macOS, 채굴기 버전, 강도, 명령, 테스트 시간과 민감 정보를 지운 로그를 포함해 주세요. 실패한 검사를 해결한 뒤 채굴하고 지갑 복구 정보는 공개하지 마세요.</p>
+<p class="matrix-feedback"><a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=device-result.yml">기기 실측 기여</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=benchmark-discrepancy.yml">수치가 다른가요? 문제 보고</a></p>
+<div class="matrix-roadmap"><h3>다음 검증 작업</h3><p>일정이나 지원을 보장하지 않는 테스트 우선순위:</p><ol><li>출시된 M1–M6의 구체적 구성별 실기기 검증 확대.</li><li>칩과 구성별 최적화 및 독립 검증.</li><li>장시간 실행, 온도 제어와 안정성 측정.</li><li>설치, 진단과 재현 가능한 자체 테스트 개선.</li><li>커뮤니티 실측 수집 및 재현 가능한 차이 조사.</li></ol><p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">전체 로드맵</a> · <a href="https://parkerkyle-max.github.io/pearl-m-miner/device-results.json">기계 판독용 기기 데이터</a></p></div>
+</section>
+<!-- /device-results -->
 
 <a id="part-5"></a>
 

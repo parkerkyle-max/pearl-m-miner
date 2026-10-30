@@ -7,6 +7,7 @@ import datetime
 from html.parser import HTMLParser
 import json
 import hashlib
+import math
 from pathlib import Path
 import urllib.request
 import urllib.error
@@ -19,11 +20,12 @@ PAGES=['','zh/','ja/','ko/','faq/','about/','privacy/']
 if (ROOT/'docs/data/m2-validation-20261030.json').exists():PAGES.append('m2/')
 class Page(HTMLParser):
     def __init__(self):
-        super().__init__();self.lang=None;self.h1=0;self.title=0;self.canonical=None;self.alternates={};self.links=[];self.meta={};self.schema=[];self.in_schema=False;self.schema_text='';self.text=[]
+        super().__init__();self.lang=None;self.h1=0;self.title=0;self.canonical=None;self.alternates={};self.links=[];self.meta={};self.schema=[];self.in_schema=False;self.schema_text='';self.text=[];self.device_families=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if tag=='html':self.lang=a.get('lang')
         if tag=='h1':self.h1+=1
+        if tag=='details' and 'device-family' in a.get('class','').split():self.device_families.append(a.get('id'))
         if tag=='title':self.title+=1
         if tag=='link' and a.get('rel')=='canonical':self.canonical=a.get('href')
         if tag=='link' and a.get('rel')=='alternate' and a.get('hreflang'):self.alternates[a['hreflang']]=a.get('href')
@@ -53,6 +55,18 @@ def main():
             local=ROOT/'docs'/path
             assert raw==local.read_bytes(),('Deployed content differs',path)
             return raw,dict(response.headers)
+    # Guard the public comparison data independently of the rendered percentages.
+    from build_device_matrix import validate, render
+    device_body,_=read('device-results.json');devices=json.loads(device_body)
+    validate(devices)
+    for result in devices['results'].values():
+        comparison=result['comparison']
+        ratio=comparison['candidate_mean_ths']/comparison['baseline_mean_ths']
+        assert math.isclose((ratio-1)*100,comparison['improvement_percent'],abs_tol=0.03),result['chip']
+        if 'ratio' in comparison:assert math.isclose(ratio,comparison['ratio'],abs_tol=0.005),result['chip']
+    for template in ('device-result.yml','benchmark-discrepancy.yml'):
+        assert (ROOT/'.github/ISSUE_TEMPLATE'/template).is_file(),template
+    css,_=read('site-assets/site.css');assert b'.device-family' in css and b'.matrix-feedback' in css
     for slug in PAGES:
         body,headers=read(slug+'index.html');p=Page();p.feed(body.decode('utf-8'))
         assert p.lang and p.h1==1 and p.title==1 and p.canonical==BASE+slug,slug
@@ -62,6 +76,9 @@ def main():
         assert p.meta.get('og:url')==p.canonical,slug
         if slug in ('','zh/','ja/','ko/'):
             assert p.alternates=={'en':BASE,'zh-CN':BASE+'zh/','ja':BASE+'ja/','ko':BASE+'ko/','x-default':BASE},slug
+            assert p.device_families==[f'device-m{i}' for i in range(1,7)],(slug,p.device_families)
+            assert render(devices,{'':'en','zh/':'zh','ja/':'ja','ko/':'ko'}[slug]) in body.decode('utf-8'),('Stale device matrix',slug)
+            assert all(any('template='+name in url for url in p.links) for name in ('device-result.yml','benchmark-discrepancy.yml')),slug
         for link in p.links:
             target=urllib.parse.urljoin(BASE+slug,link)
             if target.startswith(BASE):

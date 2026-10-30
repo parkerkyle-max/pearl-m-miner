@@ -3,10 +3,91 @@
 <title>Pearl M-Miner — Apple Silicon 的 Pearl（PRL）矿工</title><meta name="description" content="专为 Apple Silicon 优化的开源 PRL 矿工。提供 M1 Max、M2 实测数据、精确证明检查及透明可关闭的 1% 开发者时间设置。"><link rel="canonical" href="https://parkerkyle-max.github.io/pearl-m-miner/zh/"><link rel="alternate" hreflang="en" href="https://parkerkyle-max.github.io/pearl-m-miner/"><link rel="alternate" hreflang="zh-CN" href="https://parkerkyle-max.github.io/pearl-m-miner/zh/"><link rel="alternate" hreflang="ja" href="https://parkerkyle-max.github.io/pearl-m-miner/ja/"><link rel="alternate" hreflang="ko" href="https://parkerkyle-max.github.io/pearl-m-miner/ko/"><link rel="alternate" hreflang="x-default" href="https://parkerkyle-max.github.io/pearl-m-miner/">
 <meta property="og:type" content="website"><meta property="og:title" content="Pearl M-Miner — Apple Silicon 的 Pearl（PRL）矿工"><meta property="og:description" content="专为 Apple Silicon 优化的开源 PRL 矿工。提供 M1 Max、M2 实测数据、精确证明检查及透明可关闭的 1% 开发者时间设置。"><meta property="og:url" content="https://parkerkyle-max.github.io/pearl-m-miner/zh/"><meta property="og:image" content="https://parkerkyle-max.github.io/pearl-m-miner/site-assets/social.png">
 <link rel="stylesheet" href="../site-assets/site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pearl M-Miner", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 26+ / Apple Silicon", "softwareVersion": "0.1.0a3", "license": "https://github.com/parkerkyle-max/pearl-m-miner/blob/main/LICENSE", "url": "https://parkerkyle-max.github.io/pearl-m-miner/zh/", "downloadUrl": "https://github.com/parkerkyle-max/pearl-m-miner/releases/tag/v0.1.0-alpha.3", "description": "专为 Apple Silicon 优化的开源 PRL 矿工。提供 M1 Max、M2 实测数据、精确证明检查及透明可关闭的 1% 开发者时间设置。", "isAccessibleForFree": true, "inLanguage": "zh-CN"}</script><link rel="sitemap" type="application/xml" href="https://parkerkyle-max.github.io/pearl-m-miner/sitemap.xml"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://parkerkyle-max.github.io/pearl-m-miner/site-assets/social.png"></head>
-<body><main><nav aria-label="Language"><a href="https://parkerkyle-max.github.io/pearl-m-miner/" lang="en">English</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/zh/" lang="zh-CN">简体中文</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/ja/" lang="ja">日本語</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/ko/" lang="ko">한국어</a></nav><img class="hero" src="../site-assets/hero.svg" alt="Pearl M-Miner — Apple Silicon Metal GPU"><p class="tag">v0.1.0-alpha.3 · APACHE-2.0 · PRL</p><h1>Pearl M-Miner — Apple Silicon 的 Pearl（PRL）矿工</h1><p>专为 M 系列 Mac 优化的开源 Metal GPU 矿工。M1 Max 在 300 秒离线测试中达到 4.2347 TH/s，相对我们此前 Alpha 2 后端提升 7.82%。 另一场部署后的用户会话收到 Kryptex gzip 份额接受回复。离线速度、矿池份额和收益分别记录，不承诺收益。</p>
+<body><main><nav aria-label="Language"><a href="https://parkerkyle-max.github.io/pearl-m-miner/" lang="en">English</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/zh/" lang="zh-CN">简体中文</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/ja/" lang="ja">日本語</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/ko/" lang="ko">한국어</a></nav><img class="hero" src="../site-assets/hero.svg" alt="Pearl M-Miner — Apple Silicon Metal GPU"><p class="tag">v0.1.0-alpha.3 · APACHE-2.0 · PRL</p><h1>Pearl M-Miner — Apple Silicon 的 Pearl（PRL）矿工</h1><p>专为 M 系列 Mac 优化的开源 Metal GPU 矿工。M1 Max 在 300 秒离线测试中达到 4.2347 TH/s。另一次同条件 60 秒均值对照，相比本项目 Alpha 2 后端提升 7.82%。 另一场部署后的用户会话收到 Kryptex gzip 份额接受回复。离线速度、矿池份额和收益分别记录，不承诺收益。</p>
 <div class="buttons"><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/README.zh-CN.md">构建与验证</a><a href="https://github.com/parkerkyle-max/pearl-m-miner/releases/tag/v0.1.0-alpha.3">GitHub Release</a><a href="https://parkerkyle-max.github.io/pearl-m-miner/miner-manifest.json">JSON</a></div>
-<div class="cards"><div class="card"><div class="big">4.2347 TH/s</div><span>M1 Max · 300 s · offline</span></div><div class="card"><div class="big">+7.82%</div><span>vs our Alpha 2 backend</span></div><div class="card"><div class="big">1% optional</div><span>valid GPU scan time · --dev-fee 0</span></div></div>
-<h2>运行要求</h2><p>实验性源码版 v0.1.0-alpha.3（Python 包版本 0.1.0a3）。 需要 Apple Silicon、macOS 26+、原生 arm64 Python 3.12+、支持 Metal 4 的命令行工具、Git 和 Rust/Cargo。已测配置包括 M1 Max（32 核 GPU／64 GiB）和 M2（10 核 GPU／24 GiB）。测试中的 M2 笔记本请在限时挖矿命令中加入 --intensity 80，并阅读下方温度限制。其他型号及 M3–M5 仍需各自的本机自测与矿池验证。当前没有提供 CPU、ANE 或多币种挖矿。</p><h2>构建与验证</h2><pre><code>git clone --branch v0.1.0-alpha.3 --depth 1 https://github.com/parkerkyle-max/pearl-m-miner.git
+<div class="cards"><div class="card"><div class="big">4.2347 TH/s</div><span>M1 Max · 300 s · offline</span></div><div class="card"><div class="big">+7.82%</div><span>60 s matched means · vs our Alpha 2</span></div><div class="card"><div class="big">1% optional</div><span>valid GPU scan time · --dev-fee 0</span></div></div>
+<!-- device-results -->
+<a id="device-results"></a>
+<section class="device-matrix">
+<h2>设备实测与测试计划</h2>
+<p>展开系列查看具体配置。只有标记为已实测的具体配置有成绩，结果不代表整个芯片系列。已发布但未测的设备列入测试计划、等待设备，不代表已验证兼容。</p>
+<details class="device-family" id="device-m1">
+<summary><span class="family-name">M1</span> <span class="family-result">M1 Max: +7.82% · 对照 本项目 Alpha 2（非上游） · 60 秒 · 仅同基线／范围已测配置的最高增幅</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M1 设备实测与测试计划">
+<table><thead><tr><th scope="col">芯片／具体配置</th><th scope="col">状态</th><th scope="col">离线本地速率</th><th scope="col">对照与增幅</th><th scope="col">证据</th></tr></thead><tbody>
+<tr><th scope="row">M1 · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M1 Pro · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M1 Max · 32 GPU cores / 64 GiB</th><td>该配置已实测 · 2026-10-30 · macOS 26.6.1</td><td>4.2347 TH/s · 300 秒 · 离线</td><td>+7.82% · 对照 本项目 Alpha 2 后端；不是上游 (60 秒 同条件均值: 4.234368 / 3.927237 TH/s)</td><td><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M1_CEILING_20261030.md">方法与报告</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m1-pair32-live.json">原始证据</a></td></tr>
+<tr><th scope="row">M1 Max · 其他 GPU／内存配置</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M1 Ultra · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M1 设备验证计划</a> · <a href="https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/">Apple 发布来源</a></p>
+</details>
+<details class="device-family" id="device-m2">
+<summary><span class="family-name">M2</span> <span class="family-result">M2: +260.8% / 3.61× · 对照 pearl-metal-miner 0.2.4 + cert3 · 300 秒 · 仅同基线／范围已测配置的最高增幅</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M2 设备实测与测试计划">
+<table><thead><tr><th scope="col">芯片／具体配置</th><th scope="col">状态</th><th scope="col">离线本地速率</th><th scope="col">对照与增幅</th><th scope="col">证据</th></tr></thead><tbody>
+<tr><th scope="row">M2 · 10 GPU cores / 24 GiB</th><td>该配置已实测 · 2026-10-30 · macOS 27.0</td><td>1.465227 TH/s · 300 秒 · 离线</td><td>+260.8% / 3.61× · 对照 pearl-metal-miner 0.2.4 + cert3 compatibility (300 秒 同条件均值: 1.465227 / 0.406127 TH/s)</td><td><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M2_VALIDATION_20261030.md">方法与报告</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m2-validation-20261030.json">原始证据</a></td></tr>
+<tr><th scope="row">M2 · 其他 GPU／内存配置</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M2 Pro · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M2 Max · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M2 Ultra · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M2 设备验证计划</a> · <a href="https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/">Apple 发布来源</a></p>
+</details>
+<details class="device-family" id="device-m3">
+<summary><span class="family-name">M3</span> <span class="family-result">暂无实测配置 · 计划测试／等待设备</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M3 设备实测与测试计划">
+<table><thead><tr><th scope="col">芯片／具体配置</th><th scope="col">状态</th><th scope="col">离线本地速率</th><th scope="col">对照与增幅</th><th scope="col">证据</th></tr></thead><tbody>
+<tr><th scope="row">M3 · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M3 Pro · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M3 Max · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M3 Ultra · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M3 设备验证计划</a> · <a href="https://www.apple.com/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/">Apple 发布来源</a></p>
+</details>
+<details class="device-family" id="device-m4">
+<summary><span class="family-name">M4</span> <span class="family-result">暂无实测配置 · 计划测试／等待设备</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M4 设备实测与测试计划">
+<table><thead><tr><th scope="col">芯片／具体配置</th><th scope="col">状态</th><th scope="col">离线本地速率</th><th scope="col">对照与增幅</th><th scope="col">证据</th></tr></thead><tbody>
+<tr><th scope="row">M4 · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M4 Pro · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M4 Max · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M4 设备验证计划</a> · <a href="https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/">Apple 发布来源</a></p>
+<p class="device-note">仅作未来占位，截至 2026-10-30 未确认 Apple 已发布：M4 Ultra。不表示这些设备已经存在或已获兼容支持。</p>
+</details>
+<details class="device-family" id="device-m5">
+<summary><span class="family-name">M5</span> <span class="family-result">暂无实测配置 · 计划测试／等待设备</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M5 设备实测与测试计划">
+<table><thead><tr><th scope="col">芯片／具体配置</th><th scope="col">状态</th><th scope="col">离线本地速率</th><th scope="col">对照与增幅</th><th scope="col">证据</th></tr></thead><tbody>
+<tr><th scope="row">M5 · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M5 Pro · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M5 Max · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+<tr><th scope="row">M5 Ultra · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M5 设备验证计划</a> · <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/">Apple 发布来源 1</a> · <a href="https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/">Apple 发布来源 2</a> · <a href="https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/">Apple 发布来源 3</a></p>
+</details>
+<details class="device-family" id="device-m6">
+<summary><span class="family-name">M6</span> <span class="family-result">暂无实测配置 · 计划测试／等待设备</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M6 设备实测与测试计划">
+<table><thead><tr><th scope="col">芯片／具体配置</th><th scope="col">状态</th><th scope="col">离线本地速率</th><th scope="col">对照与增幅</th><th scope="col">证据</th></tr></thead><tbody>
+<tr><th scope="row">M6 · GPU／内存配置尚未实测</th><td>计划测试／等待设备</td><td>未测</td><td>—</td><td>未测</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M6 设备验证计划</a> · <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/">Apple 发布来源</a></p>
+<p class="device-note">仅作未来占位，截至 2026-10-30 未确认 Apple 已发布：M6 Pro, M6 Max, M6 Ultra。不表示这些设备已经存在或已获兼容支持。</p>
+</details>
+<div class="matrix-notes">
+<p>以上均为本地离线 PRL 协议吞吐，不是矿池算力、到账收益或插座能效。M1 Max 的 +7.82% 来自同条件 60 秒均值（4.234368 对 3.927237 TH/s），对照本项目 Alpha 2；另一次 300 秒长测为 4.2347 TH/s。M2 的 +260.8%／3.61 倍来自同条件 300 秒测试（1.465227 对 0.406127 TH/s），对照 pearl-metal-miner 0.2.4 加 cert3 兼容补丁，保留原 GPU 内核。两种基线不同，不能据此给整个系列排名。</p>
+<p>M2 矿池证据另来自 80% 强度、600 秒试跑：3 接受／0 拒绝。100% 强度实挖曾触发外部试验设置的 95°C 停机线；该摄氏温度线不是矿工内置功能，也不是 Apple 损坏阈值。该已测笔记本请使用 --intensity 80。少量份额不能证明长期矿池速度或收益。</p>
+</div>
+<p class="matrix-invitation">你有其他配置的 Mac 吗？欢迎帮忙测试并贡献实测，构建或自测失败的结果也欢迎。请提供准确芯片、GPU 核数、内存、macOS、矿工版本、强度、命令、测试时长和脱敏日志。自测失败应先解决再挖矿，不要公开钱包恢复资料。</p>
+<p class="matrix-feedback"><a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=device-result.yml">贡献设备实测</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=benchmark-discrepancy.yml">数字有偏差？反馈问题</a></p>
+<div class="matrix-roadmap"><h3>接下来的验证工作</h3><p>以下为测试优先方向，不承诺日期或保证支持：</p><ol><li>扩充已发布 M1–M6 各具体配置的真机覆盖。</li><li>逐芯片、逐配置优化并独立验证。</li><li>补充长时间运行、温控与稳定性测量。</li><li>完善安装、诊断和可重复的本机自测。</li><li>收集社区证据，调查可复现的数据差异。</li></ol><p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">完整路线图</a> · <a href="https://parkerkyle-max.github.io/pearl-m-miner/device-results.json">机器可读设备数据</a></p></div>
+</section>
+<!-- /device-results -->
+
+<h2>运行要求</h2><p>实验性源码版 v0.1.0-alpha.3（Python 包版本 0.1.0a3）。 需要 Apple Silicon、macOS 26+、原生 arm64 Python 3.12+、支持 Metal 4 的命令行工具、Git 和 Rust/Cargo。已测配置包括 M1 Max（32 核 GPU／64 GiB）和 M2（10 核 GPU／24 GiB）。测试中的 M2 笔记本请在限时挖矿命令中加入 --intensity 80，并阅读下方温度限制。其他型号及 M3–M6 仍需各自的本机自测与矿池验证。当前没有提供 CPU、ANE 或多币种挖矿。</p><h2>构建与验证</h2><pre><code>git clone --branch v0.1.0-alpha.3 --depth 1 https://github.com/parkerkyle-max/pearl-m-miner.git
 cd pearl-m-miner
 sh bootstrap.sh
 .venv/bin/pearl-m-miner info --json

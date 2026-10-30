@@ -1,0 +1,55 @@
+name: Benchmark or compatibility correction
+description: Question a published number, comparison, device entry or evidence claim.
+title: "[Benchmark correction] Summary of the concern"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reports of unclear or incorrect claims are welcome, including concerns without a replacement benchmark.
+        You do not need a successful build, a mining run or proof that the claim is wrong before opening this issue.
+        Share what you have and leave unknown or inapplicable details blank.
+        Remove payout identities, local usernames/IPs and unrelated process lists from logs.
+        Never post wallet seeds, private keys, passwords or authentication tokens.
+  - type: textarea
+    id: concern
+    attributes:
+      label: Which number or statement may be wrong?
+      description: Describe the discrepancy, unclear comparison or missing qualification. Quote the published number if useful.
+      placeholder: "The M2 comparison appears to use a different baseline than the label describes."
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Affected page, device row and source
+      description: Link the README, website row, report, release or other source. Include a section or screenshot if available; an approximate location is fine.
+      placeholder: "README device results / M1 Max row / link to the statement"
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware and operating system, if relevant
+      description: Chip, GPU-core count, unified memory, Mac model and macOS version. Leave blank if you are reviewing the published evidence only.
+      placeholder: "M2 / 10 GPU cores / 24 GiB / macOS 27.0"
+  - type: textarea
+    id: versions_baseline
+    attributes:
+      label: Miner versions and comparison baseline, if known
+      description: Release or commit for each miner, compatibility patches, and whether the comparison concerns local throughput, pool shares or another metric.
+      placeholder: "Pearl M-Miner Alpha 3 versus pearl-metal-miner 0.2.4 + cert3; local offline TH/s."
+  - type: textarea
+    id: method
+    attributes:
+      label: Test duration and conditions, if you ran a test
+      description: Commands, warmup and measured duration, dimensions, CPU helpers, intensity, AC/battery state, other workloads and thermal behavior. State whether power is software telemetry, an outlet reading or unmeasured.
+      render: text
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or other supporting material, if available
+      description: Paste sanitized output or link a report. Failed builds, conflicting observations and incomplete logs are useful; new tests are not required.
+      render: text
+  - type: textarea
+    id: requested_correction
+    attributes:
+      label: What would you like clarified or corrected?
+      description: Suggest corrected wording, a missing caveat, a new test or a question for the maintainer. It is fine to say you are unsure of the replacement value.

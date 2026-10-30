@@ -4,7 +4,7 @@
 
 # Pearl M-Miner — Pearl (PRL) mining for Apple Silicon
 
-Open-source Metal GPU mining for M-series Macs. **M1 Max: 4.2347 TH/s in a 300-second offline test, +7.82% versus our previous Alpha 2 backend.** A separate deployed user session produced a verified Kryptex gzip share. These are different measurements, not guaranteed pool speed or income.
+Open-source Metal GPU mining for M-series Macs. **M1 Max: 4.2347 TH/s in a 300-second offline test. A separate matched comparison of 60-second means showed +7.82% versus our Alpha 2 backend.** A separate deployed user session produced a verified Kryptex gzip share. These are different measurements, not guaranteed pool speed or income.
 
 <!-- m2-intro -->
 New M2 evidence: **1.4652 TH/s on a 10-core GPU / 24 GiB Mac**, 3.61× the named upstream GPU control in matched 300-second offline tests. [Methods, pool checks and limits](docs/M2_VALIDATION_20261030.md).
@@ -26,7 +26,7 @@ New M2 evidence: **1.4652 TH/s on a 10-core GPU / 24 GiB Mac**, 3.61× the named
 
 ## Requirements
 
-**Experimental source release v0.1.0-alpha.3 (Python package 0.1.0a3).** Requires Apple Silicon, **macOS 26+**, native arm64 **Python 3.12+**, Metal 4 Command Line Tools, Git and Rust/Cargo. Measured configurations include M1 Max (32 GPU cores / 64 GiB) and M2 (10 GPU cores / 24 GiB). For the tested M2 laptop, add --intensity 80 to the bounded mining command; see the thermal limits below. Other variants and M3–M5 remain experimental: run the local self-test, then validate the pool. CPU, ANE and multi-coin mining are not shipped features.
+**Experimental source release v0.1.0-alpha.3 (Python package 0.1.0a3).** Requires Apple Silicon, **macOS 26+**, native arm64 **Python 3.12+**, Metal 4 Command Line Tools, Git and Rust/Cargo. Measured configurations include M1 Max (32 GPU cores / 64 GiB) and M2 (10 GPU cores / 24 GiB). For the tested M2 laptop, add --intensity 80 to the bounded mining command; see the thermal limits below. Other variants and M3–M6 remain experimental: run the local self-test, then validate the pool. CPU, ANE and multi-coin mining are not shipped features.
 
 <a id="part-3"></a>
 
@@ -61,6 +61,87 @@ The bootstrap builds the pinned official proof extension and creates a local vir
 ```
 
 Replace placeholders with **your own public identity**. Kryptex uses your `krx…` mining ID; LuckyPool uses your native `prl1…` receiving address. The examples stop after ten minutes. Omit `--time-limit` for continuous foreground mining; **Ctrl+C stops the owned worker**. The default battery policy pauses, and serious/critical macOS thermal pressure pauses work. This OS signal is not a calibrated Celsius threshold. Never give the miner a seed, private key or wallet password.
+
+<!-- device-results -->
+<a id="device-results"></a>
+<section class="device-matrix">
+<h2>Device results and testing plans</h2>
+<p>Expand a family to see exact configurations. Results apply only to configurations marked as measured, never an entire chip family. Published, untested devices are planned tests awaiting hardware, not verified compatibility.</p>
+<details class="device-family" id="device-m1">
+<summary><span class="family-name">M1</span> <span class="family-result">M1 Max: +7.82% · vs our Alpha 2 (not upstream) · 60 s · best measured within this comparison group</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M1 Device results and testing plans">
+<table><thead><tr><th scope="col">Chip / configuration</th><th scope="col">Status</th><th scope="col">Offline local rate</th><th scope="col">Comparison / improvement</th><th scope="col">Evidence</th></tr></thead><tbody>
+<tr><th scope="row">M1 · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M1 Pro · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M1 Max · 32 GPU cores / 64 GiB</th><td>Measured configuration · 2026-10-30 · macOS 26.6.1</td><td>4.2347 TH/s · 300 s · offline</td><td>+7.82% · vs our Alpha 2 backend; not upstream (60 s matched means: 4.234368 / 3.927237 TH/s)</td><td><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M1_CEILING_20261030.md">Methods / report</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m1-pair32-live.json">Evidence receipt</a></td></tr>
+<tr><th scope="row">M1 Max · other GPU / memory configurations</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M1 Ultra · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M1 device validation plan</a> · <a href="https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/">Apple release source</a></p>
+</details>
+<details class="device-family" id="device-m2">
+<summary><span class="family-name">M2</span> <span class="family-result">M2: +260.8% / 3.61× · vs pearl-metal-miner 0.2.4 + cert3 · 300 s · best measured within this comparison group</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M2 Device results and testing plans">
+<table><thead><tr><th scope="col">Chip / configuration</th><th scope="col">Status</th><th scope="col">Offline local rate</th><th scope="col">Comparison / improvement</th><th scope="col">Evidence</th></tr></thead><tbody>
+<tr><th scope="row">M2 · 10 GPU cores / 24 GiB</th><td>Measured configuration · 2026-10-30 · macOS 27.0</td><td>1.465227 TH/s · 300 s · offline</td><td>+260.8% / 3.61× · vs pearl-metal-miner 0.2.4 + cert3 compatibility (300 s matched means: 1.465227 / 0.406127 TH/s)</td><td><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/M2_VALIDATION_20261030.md">Methods / report</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/data/m2-validation-20261030.json">Evidence receipt</a></td></tr>
+<tr><th scope="row">M2 · other GPU / memory configurations</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M2 Pro · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M2 Max · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M2 Ultra · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M2 device validation plan</a> · <a href="https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/">Apple release source</a></p>
+</details>
+<details class="device-family" id="device-m3">
+<summary><span class="family-name">M3</span> <span class="family-result">No measured configuration · planned testing / awaiting hardware</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M3 Device results and testing plans">
+<table><thead><tr><th scope="col">Chip / configuration</th><th scope="col">Status</th><th scope="col">Offline local rate</th><th scope="col">Comparison / improvement</th><th scope="col">Evidence</th></tr></thead><tbody>
+<tr><th scope="row">M3 · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M3 Pro · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M3 Max · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M3 Ultra · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M3 device validation plan</a> · <a href="https://www.apple.com/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/">Apple release source</a></p>
+</details>
+<details class="device-family" id="device-m4">
+<summary><span class="family-name">M4</span> <span class="family-result">No measured configuration · planned testing / awaiting hardware</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M4 Device results and testing plans">
+<table><thead><tr><th scope="col">Chip / configuration</th><th scope="col">Status</th><th scope="col">Offline local rate</th><th scope="col">Comparison / improvement</th><th scope="col">Evidence</th></tr></thead><tbody>
+<tr><th scope="row">M4 · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M4 Pro · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M4 Max · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M4 device validation plan</a> · <a href="https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/">Apple release source</a></p>
+<p class="device-note">No Apple release confirmed as of 2026-10-30: M4 Ultra. Unconfirmed planning slots; not product announcements or compatibility claims.</p>
+</details>
+<details class="device-family" id="device-m5">
+<summary><span class="family-name">M5</span> <span class="family-result">No measured configuration · planned testing / awaiting hardware</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M5 Device results and testing plans">
+<table><thead><tr><th scope="col">Chip / configuration</th><th scope="col">Status</th><th scope="col">Offline local rate</th><th scope="col">Comparison / improvement</th><th scope="col">Evidence</th></tr></thead><tbody>
+<tr><th scope="row">M5 · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M5 Pro · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M5 Max · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+<tr><th scope="row">M5 Ultra · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M5 device validation plan</a> · <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/">Apple release source 1</a> · <a href="https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/">Apple release source 2</a> · <a href="https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/">Apple release source 3</a></p>
+</details>
+<details class="device-family" id="device-m6">
+<summary><span class="family-name">M6</span> <span class="family-result">No measured configuration · planned testing / awaiting hardware</span></summary>
+<div class="table-scroll" tabindex="0" role="region" aria-label="M6 Device results and testing plans">
+<table><thead><tr><th scope="col">Chip / configuration</th><th scope="col">Status</th><th scope="col">Offline local rate</th><th scope="col">Comparison / improvement</th><th scope="col">Evidence</th></tr></thead><tbody>
+<tr><th scope="row">M6 · GPU / memory configuration not yet tested</th><td>Planned testing / awaiting hardware</td><td>Not measured</td><td>—</td><td>Not measured</td></tr>
+</tbody></table></div>
+<p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">M6 device validation plan</a> · <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/">Apple release source</a></p>
+<p class="device-note">No Apple release confirmed as of 2026-10-30: M6 Pro, M6 Max, M6 Ultra. Unconfirmed planning slots; not product announcements or compatibility claims.</p>
+</details>
+<div class="matrix-notes">
+<p>All rates are local offline PRL protocol throughput, not pool hashrate, payouts or wall-power efficiency. M1 Max +7.82% uses matched 60-second means (4.234368 vs 3.927237 TH/s) against this project&#x27;s Alpha 2; its separate 300-second rate is 4.2347 TH/s. M2 +260.8% / 3.61× uses matched 300-second runs (1.465227 vs 0.406127 TH/s) against pearl-metal-miner 0.2.4 with cert3 compatibility and unchanged upstream GPU kernels. These baselines differ and cannot rank whole families.</p>
+<p>M2 pool evidence is a separate 600-second test at 80% intensity: 3 accepted / 0 rejected. The 100% live attempt reached an external laboratory 95°C stop guard; that Celsius guard is not a shipped miner feature or an Apple damage threshold. Use --intensity 80 on this tested laptop. Short share counts do not establish sustained pool speed or income.</p>
+</div>
+<p class="matrix-invitation">Have another Mac configuration? Help test it and contribute your result, including failed builds or self-tests. Include the exact chip, GPU cores, memory, macOS, miner version, intensity, command, test duration and sanitized logs. A failed check must be resolved before mining; never publish wallet secrets.</p>
+<p class="matrix-feedback"><a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=device-result.yml">Contribute a device measurement</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=benchmark-discrepancy.yml">Different numbers? Report a problem</a></p>
+<div class="matrix-roadmap"><h3>Next validation work</h3><p>Testing priorities, without promised dates or guaranteed support:</p><ol><li>Expand real-device coverage across released M1–M6 configurations.</li><li>Tune and verify each chip configuration independently.</li><li>Measure longer runs, temperature behavior and stable operation.</li><li>Improve installation, diagnostics and reproducible self-tests.</li><li>Collect community evidence and investigate reproducible discrepancies.</li></ol><p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">Full roadmap</a> · <a href="https://parkerkyle-max.github.io/pearl-m-miner/device-results.json">Machine-readable device data</a></p></div>
+</section>
+<!-- /device-results -->
 
 <a id="part-5"></a>
 
