@@ -1,0 +1,436 @@
+{
+  "schema": "pearl-m-miner-release-validation-v1",
+  "generated_utc": "2026-10-30T07:15:23.604867+00:00",
+  "release_tag": "v0.1.0-alpha.1",
+  "package_version": "0.1.0a1",
+  "hardware": "Apple M1 Max",
+  "scope": "source-release bounded validation; original research and legacy pool probes excluded",
+  "source_binding": {
+    "compared_source_file_count": 45,
+    "stable_source_file_count": 43,
+    "stable_source_fingerprint_sha256": "a67306edbe3850d251992b57b45fefc47668ca6a4668fd4a5f9eafbf4f04634d",
+    "scope": "production source/build inputs common to all receipts; test files excluded; built libraries are not claimed identical to pre-build inputs",
+    "explicit_source_differences": [
+      {
+        "file": "pearl_m_miner/safety.py",
+        "sha256_by_stage": {
+          "bootstrap": "6e1e9fed3134fe4e74318e2ac2db40687a83a9dea6074f0180147ae4cbb9f238",
+          "selftest": "6e1e9fed3134fe4e74318e2ac2db40687a83a9dea6074f0180147ae4cbb9f238",
+          "benchmark": "5c1a85be1c8485dfc22a0d5eaec7fd2005e7ba976b212af9c97b586e3285786f",
+          "fee": "6e1e9fed3134fe4e74318e2ac2db40687a83a9dea6074f0180147ae4cbb9f238",
+          "pool": "5c1a85be1c8485dfc22a0d5eaec7fd2005e7ba976b212af9c97b586e3285786f",
+          "crosspool_fee": "5c1a85be1c8485dfc22a0d5eaec7fd2005e7ba976b212af9c97b586e3285786f"
+        },
+        "explanation": "Added BatteryPoller for the benchmark-only cached battery check. Existing thermal-pressure and valid-scan accounting behavior was unchanged by the reviewed change."
+      },
+      {
+        "file": "pearl_metal_miner/benchmark.py",
+        "sha256_by_stage": {
+          "bootstrap": "8277743963aab995c57e9e68e457c1077aab7f984a365fc043e80852e42af5de",
+          "selftest": "8277743963aab995c57e9e68e457c1077aab7f984a365fc043e80852e42af5de",
+          "benchmark": "8fb922bec209df6eb74807de06b9d1fbfc594fd208d2aa3f5c56d08f397a13db",
+          "fee": "8277743963aab995c57e9e68e457c1077aab7f984a365fc043e80852e42af5de",
+          "pool": "8fb922bec209df6eb74807de06b9d1fbfc594fd208d2aa3f5c56d08f397a13db",
+          "crosspool_fee": "8fb922bec209df6eb74807de06b9d1fbfc594fd208d2aa3f5c56d08f397a13db"
+        },
+        "explanation": "Benchmark battery-state polling was cached and obsolete initialization text removed; a fresh benchmark rerun is reported."
+      }
+    ]
+  },
+  "stages": {
+    "bootstrap": {
+      "receipt": {
+        "artifact": "r3b-fresh-bootstrap.json",
+        "sha256": "5786c8512114639d3c72198940b92aa840b37a12f3d621d2e27b763acb6f9350",
+        "started_utc": "2026-10-30T07:02:49.729330+00:00",
+        "finished_utc": "2026-10-30T07:04:00.924432+00:00",
+        "supervised_seconds": 71.19001575,
+        "exit_code": 0
+      },
+      "result": {
+        "package_version": "0.1.0a1",
+        "virtual_environment": "new repository-local Python environment in controlled setup procedure",
+        "rust_toolchain_and_cargo_build_cache": "reused",
+        "cold_reproducibility_claimed": false,
+        "scope": "source bootstrap and package installation; not a clean-room or empty-cache build"
+      }
+    },
+    "selftest": {
+      "receipt": {
+        "artifact": "r4-release-selftest.json",
+        "sha256": "cb4407019e65bb7989d9e73f243c56a5cce95953725e0bdde35a05655e24af01",
+        "started_utc": "2026-10-30T07:04:10.548493+00:00",
+        "finished_utc": "2026-10-30T07:04:14.775612+00:00",
+        "supervised_seconds": 4.085247458,
+        "exit_code": 0
+      },
+      "result": {
+        "method": "s",
+        "official_proof_checks": 28,
+        "component_records": 9,
+        "local_selftest_receipt_saved": true,
+        "scope": "offline S preparation, small-grid transcripts/digests, exactness/lifecycle and official proofs; not pool acceptance"
+      }
+    },
+    "benchmark": {
+      "receipt": {
+        "artifact": "r5b-release-benchmark60.json",
+        "sha256": "4a0740b6998d46f3503663f78a86fa0e4df8abcef1a3ee19b75b5f2f5cd987a9",
+        "started_utc": "2026-10-30T07:08:59.704803+00:00",
+        "finished_utc": "2026-10-30T07:10:11.025531+00:00",
+        "supervised_seconds": 71.185902166,
+        "exit_code": 0
+      },
+      "result": {
+        "measurement_started_utc": "2026-10-30T07:09:10.276888+00:00",
+        "measurement_finished_utc": "2026-10-30T07:10:10.318126+00:00",
+        "measured_seconds": 60.04123750003055,
+        "measured_tiles": 449839104,
+        "tiles_per_second": 7492169.094612201,
+        "difficulty_factor": 524288,
+        "equivalent_ths": 3.9280543502760414,
+        "warmup_seconds": 10.0,
+        "scope": "fresh-grid offline returned scans including preparation; excludes pool proof/submission/network and developer scheduling",
+        "engine_validation": {
+          "all_prepares_method_s": true,
+          "close_errors": [],
+          "engines": [
+            {
+              "prepares": 63,
+              "s_prepares": 63,
+              "scans": 1002,
+              "completed_tiles": 525336576,
+              "valid_returned_tiles": 525336576,
+              "stale_discarded_tiles": 0
+            }
+          ]
+        }
+      }
+    },
+    "fee": {
+      "receipt": {
+        "artifact": "r6-release-fee-diagnostic.json",
+        "sha256": "88662bc91ce8fa568c63b5b0d54f37ac1deff8dbfdad8cda4c29abc31828384c",
+        "started_utc": "2026-10-30T07:05:43.608113+00:00",
+        "finished_utc": "2026-10-30T07:08:44.824958+00:00",
+        "supervised_seconds": 181.085639459,
+        "exit_code": 0
+      },
+      "result": {
+        "accelerated": true,
+        "fee_percent": 1,
+        "diagnostic_cycle_active_seconds": 60.0,
+        "production_cycle_active_seconds": 3600,
+        "sessions": [
+          {
+            "role": "user",
+            "active_scan_seconds": 59.446101268,
+            "reaped": true
+          },
+          {
+            "role": "dev",
+            "active_scan_seconds": 0.626247791,
+            "reaped": true
+          },
+          {
+            "role": "user",
+            "active_scan_seconds": 61.999041715,
+            "reaped": true
+          },
+          {
+            "role": "dev",
+            "active_scan_seconds": 0.624036623,
+            "reaped": true
+          },
+          {
+            "role": "user",
+            "active_scan_seconds": 48.762019276,
+            "reaped": true
+          }
+        ],
+        "user_active_seconds": 170.207162259,
+        "developer_active_seconds": 1.250284414,
+        "positive_activity_user_dev_user": true,
+        "all_workers_reaped_in_order": true,
+        "distinct_payout_identities_observed": false,
+        "observed_pool_reply_counts_by_role": {
+          "user": {
+            "accepted": 3,
+            "rejected": 0
+          },
+          "dev": {
+            "accepted": 0,
+            "rejected": 0
+          }
+        },
+        "production_hour_cycle_validated": false,
+        "developer_payout_api_credit_verified": false,
+        "scope": "accelerated routing, positive valid scan activity and clean sequential lifecycle; not a full normal cycle or proof of default developer payout credit",
+        "engine_validation": {
+          "all_prepares_method_s": true,
+          "close_errors": [],
+          "engines": [
+            {
+              "prepares": 54,
+              "s_prepares": 54,
+              "scans": 862,
+              "completed_tiles": 451936256,
+              "valid_returned_tiles": 451936256,
+              "stale_discarded_tiles": 0
+            },
+            {
+              "prepares": 1,
+              "s_prepares": 1,
+              "scans": 9,
+              "completed_tiles": 4718592,
+              "valid_returned_tiles": 4718592,
+              "stale_discarded_tiles": 0
+            },
+            {
+              "prepares": 57,
+              "s_prepares": 57,
+              "scans": 901,
+              "completed_tiles": 472383488,
+              "valid_returned_tiles": 471334912,
+              "stale_discarded_tiles": 1048576
+            },
+            {
+              "prepares": 1,
+              "s_prepares": 1,
+              "scans": 9,
+              "completed_tiles": 4718592,
+              "valid_returned_tiles": 4718592,
+              "stale_discarded_tiles": 0
+            },
+            {
+              "prepares": 45,
+              "s_prepares": 45,
+              "scans": 707,
+              "completed_tiles": 370671616,
+              "valid_returned_tiles": 370671616,
+              "stale_discarded_tiles": 0
+            }
+          ]
+        }
+      }
+    },
+    "pool": {
+      "receipt": {
+        "artifact": "r7-release-luckypool180.json",
+        "sha256": "0d1b5e7998849a374b36c75fdb21c98b96408569f7b6d647d99105bc10d959f9",
+        "started_utc": "2026-10-30T07:12:00.642004+00:00",
+        "finished_utc": "2026-10-30T07:15:01.872942+00:00",
+        "supervised_seconds": 181.093107958,
+        "exit_code": 0
+      },
+      "result": {
+        "pool": "LuckyPool",
+        "default_fee_setting_percent": 1,
+        "accepted": 8,
+        "rejected": 0,
+        "submitted": 8,
+        "pending_verdicts": 0,
+        "pool_api_confirmed": false,
+        "accepted_evidence": "actual pool replies recorded in the release worker log; no API receipt consumed by this generator",
+        "session_display_seconds": 180,
+        "valid_returned_tiles": 1331691520,
+        "display_rate_mtiles_s": 7.398,
+        "display_equivalent_ths": 3.878682624,
+        "rate_precision": "source average rounded to 0.001 million tiles/s; duration display truncated to whole seconds",
+        "grids": 161,
+        "sessions": [
+          {
+            "role": "user",
+            "active_scan_seconds": 175.148298554,
+            "reaped": true
+          }
+        ],
+        "all_workers_reaped_in_order": true,
+        "production_developer_window_exercised": false,
+        "scope": "bounded user-pool acceptance with production default configuration; not long-run income, a normal fee cycle or developer payout validation",
+        "engine_validation": {
+          "all_prepares_method_s": true,
+          "close_errors": [],
+          "engines": [
+            {
+              "prepares": 161,
+              "s_prepares": 161,
+              "scans": 2543,
+              "completed_tiles": 1333264384,
+              "valid_returned_tiles": 1331691520,
+              "stale_discarded_tiles": 1572864
+            }
+          ]
+        }
+      }
+    }
+  },
+  "crosspool_fee": {
+    "receipt": {
+      "artifact": "r6b-release-crosspool-diagnostic.json",
+      "sha256": "6e83234bca6186b920145cbc593d9a21b87568f815570f138ee380041d0de5f6",
+      "started_utc": "2026-10-30T07:10:14.025842+00:00",
+      "finished_utc": "2026-10-30T07:11:54.838210+00:00",
+      "supervised_seconds": 100.672063042,
+      "exit_code": 0
+    },
+    "result": {
+      "accelerated": true,
+      "fee_percent": 1,
+      "diagnostic_cycle_active_seconds": 60.0,
+      "production_cycle_active_seconds": 3600,
+      "sessions": [
+        {
+          "role": "user",
+          "active_scan_seconds": 59.440736958,
+          "reaped": true
+        },
+        {
+          "role": "dev",
+          "active_scan_seconds": 0.626353418,
+          "reaped": true
+        },
+        {
+          "role": "user",
+          "active_scan_seconds": 36.200162541,
+          "reaped": true
+        }
+      ],
+      "user_active_seconds": 95.640899499,
+      "developer_active_seconds": 0.626353418,
+      "positive_activity_user_dev_user": true,
+      "all_workers_reaped_in_order": true,
+      "distinct_payout_identities_observed": true,
+      "observed_pool_reply_counts_by_role": {
+        "user": {
+          "accepted": 0,
+          "rejected": 0
+        },
+        "dev": {
+          "accepted": 0,
+          "rejected": 0
+        }
+      },
+      "production_hour_cycle_validated": false,
+      "developer_payout_api_credit_verified": false,
+      "scope": "accelerated distinct-identity Kryptex/LuckyPool/Kryptex routing, actual connection/auth/cert-v3 and ordered cleanup; not production-hour or developer payout credit validation",
+      "engine_validation": {
+        "all_prepares_method_s": true,
+        "close_errors": [],
+        "engines": [
+          {
+            "prepares": 55,
+            "s_prepares": 55,
+            "scans": 863,
+            "completed_tiles": 452460544,
+            "valid_returned_tiles": 451936256,
+            "stale_discarded_tiles": 524288
+          },
+          {
+            "prepares": 1,
+            "s_prepares": 1,
+            "scans": 9,
+            "completed_tiles": 4718592,
+            "valid_returned_tiles": 4718592,
+            "stale_discarded_tiles": 0
+          },
+          {
+            "prepares": 33,
+            "s_prepares": 33,
+            "scans": 526,
+            "completed_tiles": 275775488,
+            "valid_returned_tiles": 275251200,
+            "stale_discarded_tiles": 524288
+          }
+        ]
+      },
+      "route_sequence": [
+        "kryptex",
+        "luckypool",
+        "kryptex"
+      ],
+      "route_sessions": [
+        {
+          "role": "user",
+          "pool": "kryptex",
+          "host": "prl-us.kryptex.network",
+          "port": 7048,
+          "active_scan_seconds": 59.440736958,
+          "authorization_accepted": true,
+          "certificate_v3_observed": true,
+          "reaped": true
+        },
+        {
+          "role": "dev",
+          "pool": "luckypool",
+          "host": "pearl-cpu-eu1.luckypool.io",
+          "port": 3370,
+          "active_scan_seconds": 0.626353418,
+          "authorization_accepted": true,
+          "certificate_v3_observed": true,
+          "reaped": true
+        },
+        {
+          "role": "user",
+          "pool": "kryptex",
+          "host": "prl-us.kryptex.network",
+          "port": 7048,
+          "active_scan_seconds": 36.200162541,
+          "authorization_accepted": true,
+          "certificate_v3_observed": true,
+          "reaped": true
+        }
+      ],
+      "distinct_identity_and_actual_host_binding_verified": true
+    }
+  },
+  "superseded_benchmark": {
+    "receipt": {
+      "artifact": "r5-release-benchmark60.json",
+      "sha256": "3cafdf2af7d93e406cd5572ccce08a5aae0c06f23d234214d9f403e604ec56a5",
+      "started_utc": "2026-10-30T07:04:20.030593+00:00",
+      "finished_utc": "2026-10-30T07:05:31.309508+00:00",
+      "supervised_seconds": 71.144612291,
+      "exit_code": 0
+    },
+    "result": {
+      "measurement_started_utc": "2026-10-30T07:04:30.580485+00:00",
+      "measurement_finished_utc": "2026-10-30T07:05:30.640446+00:00",
+      "measured_seconds": 60.0599605422467,
+      "measured_tiles": 384827392,
+      "tiles_per_second": 6407386.6936577335,
+      "difficulty_factor": 524288,
+      "equivalent_ths": 3.359315954844426,
+      "warmup_seconds": 10.0,
+      "scope": "fresh-grid offline returned scans including preparation; excludes pool proof/submission/network and developer scheduling",
+      "engine_validation": {
+        "all_prepares_method_s": true,
+        "close_errors": [],
+        "engines": [
+          {
+            "prepares": 54,
+            "s_prepares": 54,
+            "scans": 857,
+            "completed_tiles": 449314816,
+            "valid_returned_tiles": 449314816,
+            "stale_discarded_tiles": 0
+          }
+        ]
+      }
+    },
+    "reason": "benchmark-only battery polling overhead; retained earlier measurement"
+  },
+  "independent_pool_api": {
+    "captured_utc": "2026-10-30T07:15:34.4561367Z",
+    "pool": "LuckyPool",
+    "accepted_shares": 8,
+    "matches_trial_log": true,
+    "original_receipt_sha256": "c8f04b4aa2b3b0cec16c5e1efdf2cb847eb65722b2942b655dc1ba8ec453d43e",
+    "scope": "exact worker acceptance count, not dashboard speed or income"
+  },
+  "cpu_tests": {
+    "passed": 48,
+    "original_receipt_sha256": "c7b4ab653d51b7fad4f5f2d687e66f90d0ff4cb11e98c9d0b519d5d2d9f58ea7",
+    "scope": "CPU correctness and lifecycle tests; no native Metal inference"
+  }
+}

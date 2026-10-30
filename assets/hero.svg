@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+  <title id="title">Pearl M-Miner — Metal GPU mining for Apple Silicon</title>
+  <desc id="desc">An open source experimental Pearl miner. Measured on M1 Max, with transparent optional developer support.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111b35"/><stop offset="1" stop-color="#080b15"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#46dce4"/><stop offset=".55" stop-color="#8c80ff"/><stop offset="1" stop-color="#e5bc64"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#7366db" stop-opacity=".23"/><stop offset="1" stop-color="#7366db" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1440" height="520" rx="24" fill="url(#bg)"/>
+  <circle cx="1165" cy="235" r="290" fill="url(#glow)"/>
+  <g stroke="#657da8" stroke-opacity=".12" fill="none"><path d="M930 0v520m100 0V0m100 0v520m100 0V0m100 0v520M900 90h540M900 190h540M900 290h540M900 390h540"/></g>
+  <text x="68" y="77" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#e5bc64">PEARL · APPLE SILICON · OPEN SOURCE</text>
+  <text x="64" y="172" font-family="Arial,sans-serif" font-size="73" font-weight="700" fill="#f1f5ff">Pearl M-Miner</text>
+  <text x="68" y="226" font-family="Arial,sans-serif" font-size="29" fill="#b3c2dc">Metal GPU mining, built around the M.</text>
+  <text x="68" y="278" font-family="Arial,sans-serif" font-size="21" fill="#8fa3c4">Exact work. Real pool shares. Clearly named baselines.</text>
+  <g transform="translate(70 340)" font-family="Arial,sans-serif">
+    <rect width="230" height="100" rx="13" fill="#14223a"/><text x="20" y="40" font-size="29" font-weight="700" fill="#40d7e3">3.87 TH/s</text><text x="20" y="72" font-size="16" fill="#a8b6cf">M1 Max · 180 s research run</text>
+    <rect x="247" width="230" height="100" rx="13" fill="#14223a"/><text x="267" y="40" font-size="29" font-weight="700" fill="#b99aff">Apache-2.0</text><text x="267" y="72" font-size="16" fill="#a8b6cf">Source + reproducible evidence</text>
+    <rect x="494" width="230" height="100" rx="13" fill="#14223a"/><text x="514" y="40" font-size="29" font-weight="700" fill="#e5bc64">1% optional</text><text x="514" y="72" font-size="16" fill="#a8b6cf">Transparent developer support</text>
+  </g>
+  <g transform="translate(1000 115)" fill="none" stroke="url(#brand)" stroke-width="23" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 225V15l105 125L220 15v210"/>
+    <path d="M55 225V120l60 70 60-70v105" opacity=".55"/>
+  </g>
+  <text x="1115" y="403" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#a8b6cf">EXPERIMENTAL</text>
+  <text x="70" y="482" font-family="Arial,sans-serif" font-size="14" fill="#7c8fae">M1 Max measured. Other M-series devices are experimental targets. No income guarantee.</text>
+</svg>

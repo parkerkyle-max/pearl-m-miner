@@ -1,0 +1,5 @@
+pip==26.2.2
+setuptools==80.9.0
+maturin==1.16.0
+numpy==2.5.4
+blake3==1.0.11

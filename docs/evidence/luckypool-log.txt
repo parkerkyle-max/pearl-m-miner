@@ -1,0 +1,9 @@
+[02:38:31] share ACCEPTED (job 60ca94c7_26000) — {"error":null,"id":11,"result":true}
+[02:38:31] share ACCEPTED (job 60ca94c7_26000) — {"error":null,"id":12,"result":true}
+[02:39:12] share ACCEPTED (job 21ac8207_26000) — {"error":null,"id":13,"result":true}
+[02:39:37] share ACCEPTED (job 1e6bea6a_26000) — {"error":null,"id":14,"result":true}
+[02:39:43] share ACCEPTED (job a0430625_26000) — {"error":null,"id":15,"result":true}
+[02:39:58] share ACCEPTED (job a0430625_26000) — {"error":null,"id":16,"result":true}
+[02:40:34] share ACCEPTED (job a0430625_26000) — {"error":null,"id":17,"result":true}
+[02:40:46] session: 1328545792 tiles in 0:03:00 (7.380M tiles/s average), 163 grids
+[02:40:46] session: shares 7 accepted, 0 rejected, 7 submitted

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Pearl M-Miner icon">
+  <defs><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#46dce4"/><stop offset=".55" stop-color="#8c80ff"/><stop offset="1" stop-color="#e5bc64"/></linearGradient></defs>
+  <rect width="256" height="256" rx="48" fill="#0b1020"/>
+  <g fill="none" stroke="url(#m)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M48 202V54l80 90 80-90v148"/><path d="M81 202v-81l47 54 47-54v81" opacity=".5"/></g>
+</svg>

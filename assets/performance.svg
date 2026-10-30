@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1008pt" height="496.8pt" viewBox="0 0 1008 496.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T02:51:56.627003</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Pearl M-Miner evidence chart</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 496.8 
+L 1008 496.8 
+L 1008 0 
+L 0 0 
+z
+" style="fill: #0b1020"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 65.52 377.568 
+L 471.898378 377.568 
+L 471.898378 144.072 
+L 65.52 144.072 
+z
+" style="fill: #0b1020"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 65.52 377.568 
+L 65.52 144.072 
+" clip-path="url(#p7fba756890)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="65.52" y="389.426281" transform="rotate(-0 65.52 389.426281)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 156.840984 377.568 
+L 156.840984 144.072 
+" clip-path="url(#p7fba756890)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="156.840984" y="389.426281" transform="rotate(-0 156.840984 389.426281)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 248.161968 377.568 
+L 248.161968 144.072 
+" clip-path="url(#p7fba756890)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="248.161968" y="389.426281" transform="rotate(-0 248.161968 389.426281)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 339.482952 377.568 
+L 339.482952 144.072 
+" clip-path="url(#p7fba756890)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="339.482952" y="389.426281" transform="rotate(-0 339.482952 389.426281)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 430.803936 377.568 
+L 430.803936 144.072 
+" clip-path="url(#p7fba756890)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="430.803936" y="389.426281" transform="rotate(-0 430.803936 389.426281)">4</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="fill: #9baccc; font: 12px 'DejaVu Sans'; text-anchor: middle" x="268.709189" y="412.832063" transform="rotate(-0 268.709189 412.832063)">Logged protocol-equivalent rate (TH/s)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="patch_3">
+    <path d="M 65.52 215.250619 
+L 164.132944 215.250619 
+L 164.132944 185.875316 
+L 65.52 185.875316 
+z
+" clip-path="url(#p7fba756890)" style="fill: #526986"/>
+   </g>
+   <g id="text_7">
+    <text style="fill: #ecf2ff; font: 12px 'DejaVu Sans'; text-anchor: start" x="65.52" y="177.730594" transform="rotate(-0 65.52 177.730594)">Upstream + cert-v3 patch</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #ecf2ff; font: 700 12px 'DejaVu Sans'; text-anchor: start" x="170.525413" y="203.874218" transform="rotate(-0 170.525413 203.874218)">1.080</text>
+   </g>
+   <g id="patch_4">
+    <path d="M 65.52 290.57191 
+L 339.482952 290.57191 
+L 339.482952 261.196606 
+L 65.52 261.196606 
+z
+" clip-path="url(#p7fba756890)" style="fill: #a78bfa"/>
+   </g>
+   <g id="text_9">
+    <text style="fill: #ecf2ff; font: 12px 'DejaVu Sans'; text-anchor: start" x="65.52" y="253.051885" transform="rotate(-0 65.52 253.051885)">Pearly 1.0.3</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #ecf2ff; font: 700 12px 'DejaVu Sans'; text-anchor: start" x="345.875421" y="279.195508" transform="rotate(-0 345.875421 279.195508)">3.000</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 65.52 365.8932 
+L 418.863301 365.8932 
+L 418.863301 336.517897 
+L 65.52 336.517897 
+z
+" clip-path="url(#p7fba756890)" style="fill: #40d7e3"/>
+   </g>
+   <g id="text_11">
+    <text style="fill: #ecf2ff; font: 12px 'DejaVu Sans'; text-anchor: start" x="65.52" y="328.373175" transform="rotate(-0 65.52 328.373175)">Pearl M-Miner S</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #ecf2ff; font: 700 12px 'DejaVu Sans'; text-anchor: start" x="425.255769" y="354.516798" transform="rotate(-0 425.255769 354.516798)">3.869</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #e5bc64; font: 700 11px 'DejaVu Sans'; text-anchor: start" x="65.52" y="90.36792" transform="rotate(-0 65.52 90.36792)">HISTORICAL CONTEXT</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #a8b6cf; font: 11px 'DejaVu Sans'" transform="translate(65.52 122.289346)">600 s earlier windows vs 180 s latest</text>
+    <text style="fill: #a8b6cf; font: 11px 'DejaVu Sans'" transform="translate(65.52 137.114424)">Not a fresh matched cross-miner A/B</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_6">
+    <path d="M 561.301622 377.568 
+L 967.68 377.568 
+L 967.68 144.072 
+L 561.301622 144.072 
+z
+" style="fill: #0b1020"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 561.301622 377.568 
+L 561.301622 144.072 
+" clip-path="url(#p8a588d5872)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12"/>
+     <g id="text_15">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="561.301622" y="389.426281" transform="rotate(-0 561.301622 389.426281)">0</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 652.622606 377.568 
+L 652.622606 144.072 
+" clip-path="url(#p8a588d5872)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14"/>
+     <g id="text_16">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="652.622606" y="389.426281" transform="rotate(-0 652.622606 389.426281)">1</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_15">
+      <path d="M 743.943589 377.568 
+L 743.943589 144.072 
+" clip-path="url(#p8a588d5872)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16"/>
+     <g id="text_17">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="743.943589" y="389.426281" transform="rotate(-0 743.943589 389.426281)">2</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_17">
+      <path d="M 835.264573 377.568 
+L 835.264573 144.072 
+" clip-path="url(#p8a588d5872)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18"/>
+     <g id="text_18">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="835.264573" y="389.426281" transform="rotate(-0 835.264573 389.426281)">3</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_19">
+      <path d="M 926.585557 377.568 
+L 926.585557 144.072 
+" clip-path="url(#p8a588d5872)" style="fill: none; stroke: #24324a; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20"/>
+     <g id="text_19">
+      <text style="fill: #9baccc; font: 11px 'DejaVu Sans'; text-anchor: middle" x="926.585557" y="389.426281" transform="rotate(-0 926.585557 389.426281)">4</text>
+     </g>
+    </g>
+    <g id="text_20">
+     <text style="fill: #9baccc; font: 12px 'DejaVu Sans'; text-anchor: middle" x="764.490811" y="412.832063" transform="rotate(-0 764.490811 412.832063)">Logged protocol-equivalent rate (TH/s)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4"/>
+   <g id="patch_7">
+    <path d="M 561.301622 215.250619 
+L 832.246031 215.250619 
+L 832.246031 185.875316 
+L 561.301622 185.875316 
+z
+" clip-path="url(#p8a588d5872)" style="fill: #526986"/>
+   </g>
+   <g id="text_21">
+    <text style="fill: #ecf2ff; font: 12px 'DejaVu Sans'; text-anchor: start" x="561.301622" y="177.730594" transform="rotate(-0 561.301622 177.730594)">Our optimized baseline (before)</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #ecf2ff; font: 700 12px 'DejaVu Sans'; text-anchor: start" x="838.638499" y="203.874218" transform="rotate(-0 838.638499 203.874218)">2.967</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 561.301622 290.57191 
+L 829.181807 290.57191 
+L 829.181807 261.196606 
+L 561.301622 261.196606 
+z
+" clip-path="url(#p8a588d5872)" style="fill: #a78bfa"/>
+   </g>
+   <g id="text_23">
+    <text style="fill: #ecf2ff; font: 12px 'DejaVu Sans'; text-anchor: start" x="561.301622" y="253.051885" transform="rotate(-0 561.301622 253.051885)">Our optimized baseline (after)</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #ecf2ff; font: 700 12px 'DejaVu Sans'; text-anchor: start" x="835.574276" y="279.195508" transform="rotate(-0 835.574276 279.195508)">2.933</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 561.301622 365.8932 
+L 914.644922 365.8932 
+L 914.644922 336.517897 
+L 561.301622 336.517897 
+z
+" clip-path="url(#p8a588d5872)" style="fill: #40d7e3"/>
+   </g>
+   <g id="text_25">
+    <text style="fill: #ecf2ff; font: 12px 'DejaVu Sans'; text-anchor: start" x="561.301622" y="328.373175" transform="rotate(-0 561.301622 328.373175)">Pearl M-Miner S</text>
+   </g>
+   <g id="text_26">
+    <text style="fill: #ecf2ff; font: 700 12px 'DejaVu Sans'; text-anchor: start" x="921.037391" y="354.516798" transform="rotate(-0 921.037391 354.516798)">3.869</text>
+   </g>
+   <g id="text_27">
+    <text style="fill: #e5bc64; font: 700 11px 'DejaVu Sans'; text-anchor: start" x="561.301622" y="90.36792" transform="rotate(-0 561.301622 90.36792)">LATEST OPTIMIZATION</text>
+   </g>
+   <g id="text_28">
+    <text style="fill: #a8b6cf; font: 11px 'DejaVu Sans'" transform="translate(561.301622 122.289346)">Same Mac and pool; sequential 180 s trials</text>
+    <text style="fill: #a8b6cf; font: 11px 'DejaVu Sans'" transform="translate(561.301622 137.114424)">+30.4–31.9% vs our optimized baseline</text>
+   </g>
+  </g>
+  <g id="text_29">
+   <text style="fill: #f2f6ff; font: 700 25px 'DejaVu Sans'; text-anchor: start" x="65.52" y="29.808" transform="rotate(-0 65.52 29.808)">One M1 Max. The baseline matters.</text>
+  </g>
+  <g id="text_30">
+   <text style="fill: #a8b6cf; font: 12px 'DejaVu Sans'; text-anchor: start" x="65.52" y="52.164" transform="rotate(-0 65.52 52.164)">32-core GPU · 64 GiB · macOS 26.6.1 · research backend measurements</text>
+  </g>
+  <g id="text_31">
+   <text style="fill: #e5bc64; font: 700 13px 'DejaVu Sans'; text-anchor: start" x="65.52" y="437.184" transform="rotate(-0 65.52 437.184)">3.58× historical upstream-based logged rate  ≠  30–32% latest-stage improvement</text>
+  </g>
+  <g id="text_32">
+   <text style="fill: #9baccc; font: 10.5px 'DejaVu Sans'" transform="translate(65.52 463.047159)">Printed scan rates are not pool payouts. Historical sampling differs; short trials do not prove long-run income.</text>
+   <text style="fill: #9baccc; font: 10.5px 'DejaVu Sans'" transform="translate(65.52 478.794042)">Latest 180 s: 7 accepted / 0 rejected, independently matched by the pool API. Release fee schedule was not active.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7fba756890">
+   <rect x="65.52" y="144.072" width="406.378378" height="233.496"/>
+  </clipPath>
+  <clipPath id="p8a588d5872">
+   <rect x="561.301622" y="144.072" width="406.378378" height="233.496"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pearl-m-miner"
+version = "0.1.0a1"
+description = "Experimental PRL mining for Apple Silicon with an optional transparent developer fee"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = ["numpy==2.5.4", "blake3==1.0.11"]
+
+[project.scripts]
+pearl-m-miner = "pearl_m_miner.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pearl_m_miner*", "pearl_metal_miner*"]

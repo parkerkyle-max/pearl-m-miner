@@ -1,0 +1,17 @@
+.venv/
+.deps/
+build/
+**/build/
+*.dylib
+*.so
+*.pyc
+__pycache__/
+*.egg-info/
+csrc/metal/kernels_embedded.h
+config.toml
+wallet*.json
+burner_wallet.json
+*.log
+*.jsonl
+.DS_Store
+dist/
