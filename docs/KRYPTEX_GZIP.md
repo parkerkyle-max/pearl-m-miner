@@ -52,3 +52,8 @@ The public [JSON receipt](data/gzip-validation.json) records exact times, hashes
 The default difficulty is 2,097,152, corresponding to approximately 9.007e15 work units under Kryptex's published formula. At 3.9 TH/s, the expected interval is approximately 38.5 minutes. Finding a share is random; a short zero-share window does not by itself diagnose a transport failure. Higher difficulty is intended for much larger workers; this release leaves the password empty to retain the pool default. Lower developer-test difficulty requires confirmation from Kryptex.
 
 This update does not change the optional 1% developer contribution or Apache-2.0 license. Pool approval, listing and integration are separate from implementing and testing the protocol.
+
+
+Alpha 3 later produced a separately attributed accepted gzip share at
+2026-10-30 10:04:27 UTC. See [its runtime-bound receipt](data/alpha3-live.json)
+and [validation scope](ALPHA3_VALIDATION.md#subsequent-alpha-3-live-acceptance).

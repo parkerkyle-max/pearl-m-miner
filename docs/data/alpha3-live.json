@@ -1,0 +1,115 @@
+{
+  "schema": "pearl-m-alpha3-live-v1",
+  "captured_utc": "2026-10-30T10:05:20.844369+00:00",
+  "guardian_started_utc": "2026-10-30T09:56:41.535877+00:00",
+  "guardian_alive": true,
+  "miner_processes": 2,
+  "worker": "m1max-pearl-m",
+  "user_pool": "Kryptex",
+  "shader_sha256": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+  "all_runtime_fingerprints_match_qualified_build": true,
+  "production_config_unchanged": true,
+  "user_observations": [
+    {
+      "role": "user",
+      "session": "f2283d3e758e4dfeaea53a607e5a609b",
+      "gzip_v2_negotiated": true,
+      "accepted_replies": 1,
+      "accepted_validated": [
+        {
+          "job": "429ef22e_2097152",
+          "reply": {
+            "id": 11,
+            "result": true,
+            "error": null
+          }
+        }
+      ],
+      "rejected_replies": 0,
+      "last_telemetry": {
+        "schema": "pearl-m-telemetry-v1",
+        "coin": "PRL",
+        "algorithm": "PearlHash",
+        "uptime_seconds": 510.4450109587051,
+        "local_rate": {
+          "basis": "protocol_equivalent_work_per_wall_second",
+          "rolling_window_seconds": 60,
+          "rolling_tiles_per_second": 8039082.666666667,
+          "session_tiles_per_second": 8022830.77932094,
+          "protocol_work_per_tile": 524288,
+          "rolling_hs": 4214794573141.3335,
+          "session_hs": 4206273903628.617,
+          "rolling_ths": 4.214794573141334,
+          "session_ths": 4.206273903628617
+        },
+        "pool_effective_hs": null,
+        "shares": {
+          "submitted": 1,
+          "accepted": 1,
+          "rejected": 0,
+          "pending": 0
+        },
+        "jobs": {
+          "received_notifications": 11,
+          "adopted_updates": 11,
+          "last_received_age_seconds": 19.36076245782897,
+          "last_adopted_age_seconds": 19.360755915753543
+        },
+        "native": {
+          "cumulative": {
+            "prepares": 494,
+            "prepare_wall_s": 7.153766092000009,
+            "upload_s": 0.7536915380000001,
+            "guard_gpu_s": 2.056394795421511,
+            "scans": 7821,
+            "gpu_s": 496.68844012450427,
+            "scan_wall_s": 499.84899962699996,
+            "completed_tiles": 4100456448,
+            "valid_returned_tiles": 4095213568,
+            "stale_discarded_tiles": 5242880,
+            "overflow_hits": 0,
+            "stale_grid_loads": 0,
+            "duplicate_commitment_loads": 0,
+            "sparse_prepares": 494,
+            "legacy_prepares": 0,
+            "csr_prepares": 0,
+            "s_prepares": 494
+          },
+          "delta": {
+            "prepares": 29,
+            "prepare_wall_s": 0.43013587500000217,
+            "upload_s": 0.0438496260000002,
+            "guard_gpu_s": 0.12389850057661533,
+            "scans": 459,
+            "gpu_s": 29.15511541813612,
+            "scan_wall_s": 29.3399669209997,
+            "completed_tiles": 240648192,
+            "valid_returned_tiles": 240123904,
+            "stale_discarded_tiles": 524288,
+            "overflow_hits": 0,
+            "stale_grid_loads": 0,
+            "duplicate_commitment_loads": 0,
+            "sparse_prepares": 29,
+            "legacy_prepares": 0,
+            "csr_prepares": 0,
+            "s_prepares": 29
+          },
+          "delta_window_seconds": 30.024378249887377,
+          "counter_resets": [],
+          "timings_overlap": true
+        },
+        "session": "f2283d3e758e4dfeaea53a607e5a609b"
+      },
+      "events": [
+        "[05:56:41] [stratum] kryptex proof encoding negotiated: gzip-v2",
+        "[05:56:41] pool authorization accepted",
+        "[06:04:27] [stratum] kryptex submit 11: gzip proof raw_bytes=276161 gzip_bytes=2554 compression_ms=0.970",
+        "[06:04:27] share found at tile (2376,46912) \u2192 verified locally \u2192 submitted (msg 11) on job 429ef22e_2097152",
+        "[06:04:27] share ACCEPTED (job 429ef22e_2097152) \u2014 {\"id\":11,\"result\":true,\"error\":null}"
+      ]
+    }
+  ],
+  "accepted_user_shares": 1,
+  "private_snapshot_sha256": "b56a441263cb9068be3bfcecad300a282f35176f07684890f10358d4666c13cf",
+  "scope": "New deployed shader and user sessions only; developer shares excluded; short live window is not precise pool hashrate or income."
+}

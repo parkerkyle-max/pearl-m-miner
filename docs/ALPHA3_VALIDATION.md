@@ -21,3 +21,18 @@ observation of pool acceptance; it does not measure precise pool speed or income
 Public documentation includes English, Chinese, Japanese and Korean README files,
 an offline capability manifest and static multilingual pages. Search/AI indexing
 and pool listing are external decisions, not release validation results.
+
+## Subsequent Alpha 3 live acceptance
+
+After the version update, the new Kryptex user session received a matching
+successful reply at **2026-10-30 10:04:27 UTC**. The 10:05:20 UTC snapshot
+recorded **1 accepted / 0 rejected**, with runtime file hashes matched to the
+qualified Alpha 3 deployment and the production configuration unchanged.
+The proof passed the local official verifier, then the 276161-byte payload
+was gzip-compressed to 2554 bytes. Submission ID 11 and the job ID match the
+pool's `result: true` reply. Developer sessions are excluded.
+
+See [the sanitized Alpha 3 live receipt](data/alpha3-live.json). This is actual
+acceptance evidence, not a precise pool-rate measurement, income measurement,
+long-duration stability result or listing approval. The release tag is unchanged;
+this is a later evidence supplement for the same deployed source.
