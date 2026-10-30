@@ -18,6 +18,7 @@ import time
 from dataclasses import dataclass, field
 
 _RAW = bool(os.environ.get("PRL_RAW"))
+_CURRENT_SOCKET = object()
 
 
 HEADER_BYTES = 76  # IncompleteBlockHeader wire form; every dialect sends this
@@ -60,6 +61,19 @@ class Dialect:
 
     name = "abstract"
     miner_chooses_params = True
+
+    def for_session(self):
+        """Stateless dialects may reuse themselves; stateful ones return fresh state."""
+        return self
+
+    def protocol_status(self):
+        return None
+
+    def submission_note(self):
+        return None
+
+    def submission_guard(self):
+        return None
 
     def handshake_lines(self, address: str, worker: str) -> list[dict]:
         raise NotImplementedError
@@ -113,39 +127,64 @@ class PoolConnection:
         # leaves recv blocked forever and the miner sweeping into the void.
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
         with self._session_lock:
+            dialect = self.dialect.for_session()
+            self.dialect = dialect
             self._sock = sock
             self.generation += 1
             self.dead.clear()
             self.last_rx = time.monotonic()  # restart the watchdog's session clock
-        for msg in self.dialect.handshake_lines(self.address, self.worker):
-            self.send(msg)
-        t = threading.Thread(target=self._reader, args=(sock,), daemon=True)
+        for msg in dialect.handshake_lines(self.address, self.worker):
+            self.send(msg, expected_socket=sock)
+        t = threading.Thread(target=self._reader, args=(sock, dialect), daemon=True)
         t.start()
 
-    def send(self, msg: dict):
+    def _send_locked(self, msg: dict, sock: socket.socket | None, authorization_guard=None) -> bool:
+        """Send to the captured session only; caller holds the send lock."""
         raw = json.dumps(msg, separators=(",", ":")).encode() + b"\n"
         if _RAW:
             self.log(f"[raw>] {raw[:300]!r}{' …' if len(raw) > 300 else ''} ({len(raw)} B)")
+        with self._session_lock:
+            if sock is None or sock is not self._sock or self.dead.is_set():
+                return False
+        if authorization_guard is not None and not authorization_guard():
+            return False
+        try:
+            sock.sendall(raw)
+            return True
+        except OSError as e:
+            if _RAW:
+                self.log(f"[raw>] send failed: {e}")
+            with self._session_lock:
+                if sock is self._sock:
+                    self.dead.set()
+            return False
+
+    def send(self, msg: dict, *, expected_socket=_CURRENT_SOCKET) -> bool:
         with self._lock:
             with self._session_lock:
-                sock = self._sock
-                if sock is None:  # closed under us; nothing to send on
-                    self.dead.set()
-                    return
-            try:
-                sock.sendall(raw)
-            except OSError as e:
-                if _RAW:
-                    self.log(f"[raw>] send failed: {e}")
-                with self._session_lock:
-                    if sock is self._sock:
-                        self.dead.set()
+                sock = self._sock if expected_socket is _CURRENT_SOCKET else expected_socket
+            return self._send_locked(msg, sock)
 
-    def submit(self, job_id: str, proof_b64: str) -> int:
-        self._msg_id += 1
-        self.send(self.dialect.submit_line(self._msg_id, self.address, self.worker,
-                                           job_id, proof_b64))
-        return self._msg_id
+    def submit(self, job_id: str, proof_b64: str) -> int | None:
+        with self._lock:
+            with self._session_lock:
+                sock, dialect = self._sock, self.dialect
+                if sock is None or self.dead.is_set():
+                    return None
+            # Compression may overlap reconnect. The old encoding must never
+            # be sent to a new socket, even if the new session is authorized.
+            self._msg_id += 1
+            msg_id = self._msg_id
+            message = dialect.submit_line(msg_id, self.address, self.worker,
+                                          job_id, proof_b64)
+            note = dialect.submission_note()
+            guard = dialect.submission_guard()
+            if not self._send_locked(message, sock, guard):
+                self.log("[stratum] submission dropped: connection or authorization changed, or send failed")
+                return None
+            if note:
+                self.log(f"[stratum] {dialect.name} submit {msg_id}: {note}")
+            return msg_id
 
     def close(self):
         """Deliberate local stop. The protocol has no goodbye — closing the
@@ -168,7 +207,7 @@ class PoolConnection:
             except OSError:
                 pass
 
-    def _reader(self, sock: socket.socket):
+    def _reader(self, sock: socket.socket, dialect: Dialect):
         buf = b""
         try:
             while True:
@@ -188,7 +227,9 @@ class PoolConnection:
                     if _RAW:
                         self.log(f"[raw<] {line.decode(errors='replace')[:400]}")
                     try:
-                        event = self.dialect.parse(line.decode(errors="replace"))
+                        before = dialect.protocol_status()
+                        event = dialect.parse(line.decode(errors="replace"))
+                        after = dialect.protocol_status()
                     except Exception as e:  # noqa: BLE001 — log, never kill the reader
                         self.log(f"[stratum] parse error: {e} on {line[:200]!r}")
                         continue
@@ -202,6 +243,8 @@ class PoolConnection:
                             if isinstance(event, Job):
                                 event.session_generation = self.generation
                             self.events.put(event)
+                        if after is not None and after != before:
+                            self.log(f"[stratum] {dialect.name} proof encoding negotiated: {after}")
         except OSError:
             pass
         finally:

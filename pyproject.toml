@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pearl-m-miner"
-version = "0.1.0a1"
+version = "0.1.0a2"
 description = "Experimental PRL mining for Apple Silicon with an optional transparent developer fee"
 requires-python = ">=3.12"
 license = "Apache-2.0"

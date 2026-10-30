@@ -1,0 +1,4 @@
+[03:31:36] [stratum] kryptex proof encoding negotiated: gzip-v2
+[03:31:36] pool authorization accepted
+[03:34:35] session: 1341128704 tiles in 0:03:00 (7.450M tiles/s average), 162 grids
+[03:34:35] session: shares 0 accepted, 0 rejected, 0 submitted

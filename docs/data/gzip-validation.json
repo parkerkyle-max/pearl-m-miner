@@ -1,0 +1,90 @@
+{
+  "schema": "pearl-m-miner-gzip-validation-v1",
+  "version": "0.1.0a2",
+  "hardware": "Apple M1 Max, 64 GiB",
+  "references": {
+    "gzip": "https://gist.github.com/maxmalysh/eaaf4332dbc5ca99d0a78f24a733fffe",
+    "difficulty": "https://gist.github.com/maxmalysh/f4c29f532e650a114b317e234f1393fb"
+  },
+  "cpu_tests": 66,
+  "protocol_tests": 18,
+  "official_proof_gate_checks": 28,
+  "production_dimension_offline_proofs": {
+    "passed": true,
+    "m": 16384,
+    "n": 65536,
+    "k": 4096,
+    "rank": 128,
+    "cert_version": 3,
+    "results": [
+      {
+        "row": 0,
+        "column": 0,
+        "raw_bytes": 276161,
+        "gzip_bytes": 2481,
+        "raw_base64_bytes": 368216,
+        "gzip_base64_bytes": 3308,
+        "compression_ratio": 111.31035872632003,
+        "encoding_ms": 1.6801250167191029,
+        "original_sha256": "dcfa9a86b861aec6638385cda6d91e6a9812ed70bc41df6690a36405a899a74c",
+        "restored_sha256": "dcfa9a86b861aec6638385cda6d91e6a9812ed70bc41df6690a36405a899a74c",
+        "original_official_verified": true,
+        "recovered_official_verified": true
+      },
+      {
+        "row": 31,
+        "column": 65472,
+        "raw_bytes": 276161,
+        "gzip_bytes": 2548,
+        "raw_base64_bytes": 368216,
+        "gzip_base64_bytes": 3400,
+        "compression_ratio": 108.38343799058084,
+        "encoding_ms": 1.7473753541707993,
+        "original_sha256": "293d0bc32eb5938309774d906aa7f765636eb50360be82ac4ec81f6a81bfe9d1",
+        "restored_sha256": "293d0bc32eb5938309774d906aa7f765636eb50360be82ac4ec81f6a81bfe9d1",
+        "original_official_verified": true,
+        "recovered_official_verified": true
+      },
+      {
+        "row": 16320,
+        "column": 65472,
+        "raw_bytes": 276161,
+        "gzip_bytes": 2557,
+        "raw_base64_bytes": 368216,
+        "gzip_base64_bytes": 3412,
+        "compression_ratio": 108.00195541650372,
+        "encoding_ms": 1.6270424239337444,
+        "original_sha256": "dd3b7c9776c3c6ce17a3806773eed04c2233a20b35691dc93b2046b874ebf070",
+        "restored_sha256": "dd3b7c9776c3c6ce17a3806773eed04c2233a20b35691dc93b2046b874ebf070",
+        "original_official_verified": true,
+        "recovered_official_verified": true
+      }
+    ],
+    "pool_submissions": 0,
+    "scope": "offline synthetic easy header; real production-dimension proof bytes; no pool acceptance claim"
+  },
+  "kryptex_trial": {
+    "started_utc": "2026-10-30T07:31:35.643289+00:00",
+    "finished_utc": "2026-10-30T07:34:36.819152+00:00",
+    "supervised_seconds": 181.04497741699998,
+    "gzip_v2_negotiated": true,
+    "authorized": true,
+    "accepted": 0,
+    "rejected": 0,
+    "submitted": 0,
+    "local_protocol_ths_from_rounded_log": 3.9059456
+  },
+  "source_sha256": {
+    "pearl_metal_miner/stratum/kryptex.py": "a18821ee76cf82a3a174ab5cf69ad00ed9db13c475db945858f981b2f5d0bbaa",
+    "pearl_metal_miner/stratum/dialect.py": "16ef6dbf7bd8a641958d52e84881e74a31eea0e06870adb1b56f0cf58839904e",
+    "pearl_metal_miner/miner.py": "05da05776281243adec4c88389addc61f5c9c5cec3fb2013e103cb22fa5ab9ce",
+    "tools/check_gzip_proof.py": "9eaf97ccb5a51361618ad6d5146e6e4cb58a765eab8deb7c937024229c0624e9"
+  },
+  "original_receipts_sha256": {
+    "g2-selftest.json": "ecb336e4f3b87ee9fd97592c8b7ea938fc6b9c8cfd060c255a6ecd76485fb0c2",
+    "g3-gzip-realproof.json": "6f3167137b247a2d9641acf360a1b78d3ecdbe36d761b6d967bcf3dc2acb533e",
+    "g4-kryptex-v2-180.json": "6afd6def8eede274073a28acf4500581786a937cb98ccdd43c4427a134ab3a94",
+    "cpu-tests-final.json": "3190fc28adf61899eba394ac89da05b476c6b42059d92d6d7b9f39612eb1b288"
+  },
+  "scope": "official offline proof roundtrip and bounded live negotiation; share acceptance only as counted above; no income claim"
+}

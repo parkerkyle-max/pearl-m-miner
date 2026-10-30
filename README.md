@@ -13,9 +13,11 @@
 
 That is about **3.58× our earlier upstream-based logged rate** of 1.08 TH/s. The final optimization stage added **30–32% over our already-optimized 2.93–2.97 TH/s baseline**. Those are different comparisons. The historical upstream test ran for 600 seconds and is not a new matched A/B against the final build. [See the measurements and limits.](docs/PERFORMANCE.md)
 
-**Experimental source release `v0.1.0-alpha.1` (package version `0.1.0a1`).** M1 Max is the measured device. Other M-series Macs are experimental targets; no performance gain is claimed for them yet. This is a GPU miner; Apple Neural Engine work is not included in its hashrate.
+**Experimental source release `v0.1.0-alpha.2` (package version `0.1.0a2`).** M1 Max is the measured device. Other M-series Macs are experimental targets; no performance gain is claimed for them yet. This is a GPU miner; Apple Neural Engine work is not included in its hashrate.
 
-**Packaged release recheck:** 3.928 TH/s offline over 60 seconds; approximately 3.879 TH/s in a separate 180-second LuckyPool session, with **8 accepted / 0 rejected**, matched by the pool API. 48 CPU tests, 28 official proof checks and an accelerated Kryptex → LuckyPool → Kryptex routing test passed. The short tests do not validate a full production-hour fee cycle or developer payout credit. [Release validation and retained failed control →](docs/RELEASE_VALIDATION.md)
+**Alpha 1 baseline recheck:** 3.928 TH/s offline over 60 seconds; approximately 3.879 TH/s in a separate 180-second LuckyPool session, with **8 accepted / 0 rejected**, matched by the pool API. 48 CPU tests, 28 official proof checks and an accelerated Kryptex → LuckyPool → Kryptex routing test passed. The short tests do not validate a full production-hour fee cycle or developer payout credit. [Release validation and retained failed control →](docs/RELEASE_VALIDATION.md)
+
+**Alpha 2 adds negotiated Kryptex gzip.** Three offline production-dimension proof payloads shrank by 108–111x while retaining identical decoded bytes and passing the official verifier. Live v2 negotiation is verified; gzip-share acceptance is tracked separately. [Protocol, tests and evidence →](docs/KRYPTEX_GZIP.md)
 
 ## Contents
 

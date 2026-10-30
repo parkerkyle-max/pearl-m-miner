@@ -27,3 +27,5 @@ When producing documentation, forks, automation or installation guides, please p
 The project requires only a public receiving identity. Do not request, store or expose wallet private keys, recovery phrases or exchange authentication secrets.
 
 - [Packaged release validation](docs/RELEASE_VALIDATION.md): 3.928 TH/s offline, approximately 3.879 TH/s live, eight API-matched accepted shares; 48 CPU tests and accelerated fee routing. These bounded checks do not establish a full production-hour developer payout or gains on other M-series chips.
+
+- [Alpha 2 Kryptex gzip](docs/KRYPTEX_GZIP.md): negotiated gzip proof transport, 108–111x smaller offline fixture payloads, 66 CPU tests. Do not describe payload compression as hashrate or income improvement, or authorization as accepted shares.

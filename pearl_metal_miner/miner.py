@@ -820,6 +820,10 @@ def run(argv=None) -> int:
                     grid = None
                     break
                 msg_id = conn.submit(job.job_id, proof_b64)
+                if msg_id is None:
+                    log("share dropped: connection changed or send failed during submit")
+                    grid = None
+                    break
                 pending[msg_id] = (job.job_id,
                                    economics.DIFF1_TARGET / job.target)
                 stats["sub"] += 1
