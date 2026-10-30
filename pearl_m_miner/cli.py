@@ -33,6 +33,24 @@ def build_parser():
     info.add_argument('--json', action='store_true', help='stable machine-readable public metadata')
     sub.add_parser('doctor', help='check platform and built artifacts; no mining')
     sub.add_parser('self-test', help='offline S preparation, transcript and official-proof gates')
+    compare = sub.add_parser('compare', allow_abbrev=False,
+        help='opt-in offline A/B test against pinned pearl-metal-miner; no upload')
+    compare.add_argument('--against', choices=('pearl-metal-miner',), default='pearl-metal-miner')
+    compare.add_argument('--seconds', type=bounded_int(60,600), default=60)
+    compare.add_argument('--rounds', type=bounded_int(2,6), default=2)
+    compare.add_argument('--cooldown', type=bounded_int(10,300), default=30)
+    compare.add_argument('--m', type=bounded_int(64,16384,64), default=8192)
+    compare.add_argument('--n', type=bounded_int(64,65536,64), default=16384)
+    compare.add_argument('--cpu-threads', type=bounded_int(1,64), default=2)
+    compare.add_argument('--region-rows', type=bounded_int(32,8192,32), default=512)
+    compare.add_argument('--output', help='new report directory; must not already exist')
+    compare.add_argument('--plan', action='store_true', help='print the plan without native work or file writes')
+    compare.add_argument('--yes', action='store_true', help='explicitly accept the GPU test without an interactive prompt')
+    share = sub.add_parser('share-report', allow_abbrev=False, help='review a comparison report; sharing is explicit')
+    share.add_argument('report', help='path to report.json')
+    action = share.add_mutually_exclusive_group()
+    action.add_argument('--open', action='store_true', help='open an unsubmitted GitHub issue draft')
+    action.add_argument('--submit', action='store_true', help='publish sanitized evidence using your authenticated GitHub CLI')
     for name in ('mine', 'benchmark'):
         q = sub.add_parser(name, allow_abbrev=False)
         q.add_argument('--profile', choices=('auto','conservative','max'), default='auto',
@@ -120,6 +138,12 @@ def main(argv=None):
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
+        if args.command == 'compare':
+            from .comparison import execute
+            return execute(args, ROOT, preflight=preflight)
+        if args.command == 'share-report':
+            from .comparison_share import share
+            return share(args.report, open_browser=args.open, submit=args.submit)
         if args.command == 'info':
             from .discovery import manifest
             value = manifest()

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0a4.dev1 — community comparison preview (unreleased)
+
+- Adds an opt-in `compare` command and pinned pearl-metal-miner 0.2.4 + cert3 control. It checks correctness before and after alternating timed runs, records every run and reports the median comparison. Normal mining does not start community testing.
+- Writes local reports with source/build identities and bounded hardware details. `share-report` previews locally; browser drafts and GitHub CLI submission require separate explicit options. Community reports remain self-reported until reviewed.
+- Adds four-language contributor entry points, testing instructions and a dated comparison-candidate survey. Historical Alpha 3 measurements and the release tag are unchanged.
+- CPU supervisor, failure, cleanup and report-sharing checks are covered. Full native build and integrated comparison acceptance on Apple Silicon remain pending; this preview establishes no new performance result.
+
 ## 2026-10-30 — M2 qualification and documentation supplement
 
 - Builds the unchanged Alpha 3 source on a 10-core-GPU M2 / 24 GiB / macOS 27.0 and records source-bound proof gates and bounded same-pool trials.

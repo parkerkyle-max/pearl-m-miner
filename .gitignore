@@ -1,4 +1,6 @@
 .venv/
+.test-venv/
+pearl-comparison-*/
 .deps/
 build/
 **/build/

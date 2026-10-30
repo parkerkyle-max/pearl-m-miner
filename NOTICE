@@ -7,6 +7,14 @@ with Pearl Research Labs or Apple. Original attribution follows unmodified.
 Statements about the original project describe that original project.
 
 Additional vendored component in this derivative:
+  pearl-metal-miner 0.2.4 reference source at commit
+  3d4cc7dadbd1de98ba20e9beb162806a0e70266b, retained under
+  comparators/pearl-metal-miner/upstream/ with its Apache-2.0 LICENSE and
+  original NOTICE. The separately disclosed cert3 compatibility patch changes
+  Python protocol integration only; the pinned native host and GPU sources are
+  unchanged. This added control is independent of the historical statements
+  quoted in the original NOTICE below.
+
   BLAKE3 reference C code, from https://github.com/BLAKE3-team/BLAKE3
   The upstream license alternatives are preserved under
   tools/merkle_overlay/c_vendor/LICENSE_A2, LICENSE_A2LLVM and LICENSE_CC0.

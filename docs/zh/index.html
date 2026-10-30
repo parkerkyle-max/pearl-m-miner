@@ -83,7 +83,9 @@
 </div>
 <p class="matrix-invitation">你有其他配置的 Mac 吗？欢迎帮忙测试并贡献实测，构建或自测失败的结果也欢迎。请提供准确芯片、GPU 核数、内存、macOS、矿工版本、强度、命令、测试时长和脱敏日志。自测失败应先解决再挖矿，不要公开钱包恢复资料。</p>
 <p class="matrix-feedback"><a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=device-result.yml">贡献设备实测</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=benchmark-discrepancy.yml">数字有偏差？反馈问题</a></p>
-<div class="matrix-roadmap"><h3>接下来的验证工作</h3><p>以下为测试优先方向，不承诺日期或保证支持：</p><ol><li>扩充已发布 M1–M6 各具体配置的真机覆盖。</li><li>逐芯片、逐配置优化并独立验证。</li><li>补充长时间运行、温控与稳定性测量。</li><li>完善安装、诊断和可重复的本机自测。</li><li>收集社区证据，调查可复现的数据差异。</li></ol><p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">完整路线图</a> · <a href="https://parkerkyle-max.github.io/pearl-m-miner/device-results.json">机器可读设备数据</a></p></div>
+<div id="community-testing" class="matrix-roadmap community-testing"><h3>愿意帮忙测试你的 Mac 吗？</h3><p>实验对比工具位于 main 开发预览版（0.1.0a4.dev1），Alpha 3 发布标签不含此命令。请另建目录克隆 main 并运行 sh bootstrap.sh，完整步骤见指南。</p><pre><code>.venv/bin/pearl-m-miner compare --plan
+.venv/bin/pearl-m-miner compare --against pearl-metal-miner --output ./my-comparison</code></pre><p>先看计划，再确认开始：每轮 60 秒，每个后端两轮，顺序 A/B/B/A；每轮前冷却 30 秒，另需编译、预热和正确性检查。对照固定版本 pearl-metal-miner 0.2.4 加 cert3 兼容补丁，测量离线新工作准备与扫描。不使用钱包、矿池或自动上传。更慢与失败的结果也欢迎，报告需审核后才可能进入设备表。</p><p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/COMMUNITY_TESTING.md">安装、对比与分享前复核指南</a> · <a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/COMPARATORS.md">对照项目调查与比较限制</a></p></div>
+<div class="matrix-roadmap"><h3>接下来的验证工作</h3><p>以下为测试优先方向，不承诺日期或保证支持：</p><ol><li>扩充已发布 M1–M6 各具体配置的真机覆盖。</li><li>逐芯片、逐配置优化并独立验证。</li><li>补充长时间运行、温控与稳定性测量。</li><li>完善安装、诊断和可重复的本机自测。</li><li>收集并审核社区 A/B 实测，包括更慢和失败的结果，调查数据差异。</li></ol><p><a href="https://github.com/parkerkyle-max/pearl-m-miner/blob/main/docs/ROADMAP.md">完整路线图</a> · <a href="https://parkerkyle-max.github.io/pearl-m-miner/device-results.json">机器可读设备数据</a></p></div>
 </section>
 <!-- /device-results -->
 

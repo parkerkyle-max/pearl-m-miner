@@ -1,0 +1,2 @@
+upstream/** -text
+upstream-cert3-compat.patch -text -whitespace

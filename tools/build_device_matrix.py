@@ -28,8 +28,12 @@ COPY = {
         "footnote": "All rates are local offline PRL protocol throughput, not pool hashrate, payouts or wall-power efficiency. M1 Max +7.82% uses matched 60-second means (4.234368 vs 3.927237 TH/s) against this project's Alpha 2; its separate 300-second rate is 4.2347 TH/s. M2 +260.8% / 3.61× uses matched 300-second runs (1.465227 vs 0.406127 TH/s) against pearl-metal-miner 0.2.4 with cert3 compatibility and unchanged upstream GPU kernels. These baselines differ and cannot rank whole families.",
         "thermal": "M2 pool evidence is a separate 600-second test at 80% intensity: 3 accepted / 0 rejected. The 100% live attempt reached an external laboratory 95°C stop guard; that Celsius guard is not a shipped miner feature or an Apple damage threshold. Use --intensity 80 on this tested laptop. Short share counts do not establish sustained pool speed or income.",
         "roadmap": "Next validation work", "roadmap_intro": "Testing priorities, without promised dates or guaranteed support:",
-        "steps": ["Expand real-device coverage across released M1–M6 configurations.", "Tune and verify each chip configuration independently.", "Measure longer runs, temperature behavior and stable operation.", "Improve installation, diagnostics and reproducible self-tests.", "Collect community evidence and investigate reproducible discrepancies."],
+        "steps": ["Expand real-device coverage across released M1–M6 configurations.", "Tune and verify each chip configuration independently.", "Measure longer runs, temperature behavior and stable operation.", "Improve installation, diagnostics and reproducible self-tests.", "Collect reviewed community A/B results, including slower runs and failures, and investigate discrepancies."],
         "invitation": "Have another Mac configuration? Help test it and contribute your result, including failed builds or self-tests. Include the exact chip, GPU cores, memory, macOS, miner version, intensity, command, test duration and sanitized logs. A failed check must be resolved before mining; never publish wallet secrets.",
+        "testing_title": "Want to help test your Mac?",
+        "testing_preview": "Experimental comparison tool in the main development preview (0.1.0a4.dev1), not the Alpha 3 release. Start from a new main checkout and run sh bootstrap.sh; the guide has the complete steps.",
+        "testing_scope": "Inspect the plan first. The test asks before starting: 60 seconds per run, two runs per backend in A/B/B/A order, with 30-second cooldowns plus build, warmup and correctness checks. It compares offline fresh preparation and scans against pinned pearl-metal-miner 0.2.4 + cert3 compatibility. No wallet, pool or automatic upload. Slower and failed results are welcome; reports need review before publication in the matrix.",
+        "testing_guide": "Install, compare and review before sharing", "comparators": "Comparator research and limits",
         "full_plan": "Full roadmap", "feedback": "Different numbers? Report a problem", "submit": "Contribute a device measurement", "data": "Machine-readable device data",
     },
     "zh": {
@@ -44,8 +48,12 @@ COPY = {
         "footnote": "以上均为本地离线 PRL 协议吞吐，不是矿池算力、到账收益或插座能效。M1 Max 的 +7.82% 来自同条件 60 秒均值（4.234368 对 3.927237 TH/s），对照本项目 Alpha 2；另一次 300 秒长测为 4.2347 TH/s。M2 的 +260.8%／3.61 倍来自同条件 300 秒测试（1.465227 对 0.406127 TH/s），对照 pearl-metal-miner 0.2.4 加 cert3 兼容补丁，保留原 GPU 内核。两种基线不同，不能据此给整个系列排名。",
         "thermal": "M2 矿池证据另来自 80% 强度、600 秒试跑：3 接受／0 拒绝。100% 强度实挖曾触发外部试验设置的 95°C 停机线；该摄氏温度线不是矿工内置功能，也不是 Apple 损坏阈值。该已测笔记本请使用 --intensity 80。少量份额不能证明长期矿池速度或收益。",
         "roadmap": "接下来的验证工作", "roadmap_intro": "以下为测试优先方向，不承诺日期或保证支持：",
-        "steps": ["扩充已发布 M1–M6 各具体配置的真机覆盖。", "逐芯片、逐配置优化并独立验证。", "补充长时间运行、温控与稳定性测量。", "完善安装、诊断和可重复的本机自测。", "收集社区证据，调查可复现的数据差异。"],
+        "steps": ["扩充已发布 M1–M6 各具体配置的真机覆盖。", "逐芯片、逐配置优化并独立验证。", "补充长时间运行、温控与稳定性测量。", "完善安装、诊断和可重复的本机自测。", "收集并审核社区 A/B 实测，包括更慢和失败的结果，调查数据差异。"],
         "invitation": "你有其他配置的 Mac 吗？欢迎帮忙测试并贡献实测，构建或自测失败的结果也欢迎。请提供准确芯片、GPU 核数、内存、macOS、矿工版本、强度、命令、测试时长和脱敏日志。自测失败应先解决再挖矿，不要公开钱包恢复资料。",
+        "testing_title": "愿意帮忙测试你的 Mac 吗？",
+        "testing_preview": "实验对比工具位于 main 开发预览版（0.1.0a4.dev1），Alpha 3 发布标签不含此命令。请另建目录克隆 main 并运行 sh bootstrap.sh，完整步骤见指南。",
+        "testing_scope": "先看计划，再确认开始：每轮 60 秒，每个后端两轮，顺序 A/B/B/A；每轮前冷却 30 秒，另需编译、预热和正确性检查。对照固定版本 pearl-metal-miner 0.2.4 加 cert3 兼容补丁，测量离线新工作准备与扫描。不使用钱包、矿池或自动上传。更慢与失败的结果也欢迎，报告需审核后才可能进入设备表。",
+        "testing_guide": "安装、对比与分享前复核指南", "comparators": "对照项目调查与比较限制",
         "full_plan": "完整路线图", "feedback": "数字有偏差？反馈问题", "submit": "贡献设备实测", "data": "机器可读设备数据",
     },
     "ja": {
@@ -60,8 +68,12 @@ COPY = {
         "footnote": "速度はローカル・オフラインの PRL プロトコル処理量であり、プール速度、報酬、コンセント電力効率ではありません。M1 Max の +7.82% は本プロジェクトの Alpha 2 を対照とした同条件60秒平均（4.234368 対 3.927237 TH/s）です。別の300秒実測は4.2347 TH/s。M2 の +260.8%／3.61倍は同条件300秒（1.465227 対 0.406127 TH/s）で、元の GPU カーネルを維持した pearl-metal-miner 0.2.4＋cert3 互換修正が対照です。異なる基準でシリーズ全体を順位付けできません。",
         "thermal": "M2 のプール検証は別の80%強度・600秒試験で、受理3／拒否0。100%強度では外部試験の95°C停止基準に達しました。この温度基準は製品内蔵機能でも Apple の損傷限界でもありません。この実測ノートでは --intensity 80 を使用してください。少数のシェアは長期速度や収益を保証しません。",
         "roadmap": "今後の検証", "roadmap_intro": "日程や対応を確約しない検証優先項目：",
-        "steps": ["発売済み M1–M6 の個別構成で実機検証を拡大。", "チップ・構成ごとの最適化と独立した検証。", "長時間運転、温度制御と安定性の測定。", "インストール、診断と再現可能なセルフテストの改善。", "コミュニティの実測収集と再現可能な差異の調査。"],
+        "steps": ["発売済み M1–M6 の個別構成で実機検証を拡大。", "チップ・構成ごとの最適化と独立した検証。", "長時間運転、温度制御と安定性の測定。", "インストール、診断と再現可能なセルフテストの改善。", "遅い結果や失敗も含め、コミュニティの A/B 実測を審査し、差異を調査。"],
         "invitation": "別の構成の Mac をお持ちですか？実機検証への協力を歓迎します。ビルドやセルフテストの失敗も有用な結果です。正確なチップ、GPU コア数、メモリ、macOS、マイナーバージョン、強度、コマンド、測定時間と匿名化ログを添えてください。失敗を解消してから採掘し、ウォレットの秘密情報は公開しないでください。",
+        "testing_title": "お使いの Mac の検証に協力しませんか？",
+        "testing_preview": "実験的な比較ツールは main 開発プレビュー（0.1.0a4.dev1）に含まれます。Alpha 3 リリースにはありません。新しいディレクトリに main を取得し、sh bootstrap.sh を実行してください。詳しい手順はガイドを参照してください。",
+        "testing_scope": "まず計画を確認します。開始には確認が必要です。各60秒をバックエンドごとに2回、A/B/B/A 順で測定し、各回の前に30秒冷却します。ビルド、ウォームアップ、正当性検査の時間も必要です。固定版 pearl-metal-miner 0.2.4＋cert3 互換修正とのオフライン新規準備・走査比較です。ウォレット、プール、自動アップロードは使いません。遅い結果や失敗も歓迎します。表への掲載には審査が必要です。",
+        "testing_guide": "導入・比較・共有前の確認ガイド", "comparators": "比較対象の調査と制約",
         "full_plan": "ロードマップ全文", "feedback": "数値が違いますか？問題を報告", "submit": "デバイス実測に貢献", "data": "機械可読デバイスデータ",
     },
     "ko": {
@@ -76,8 +88,12 @@ COPY = {
         "footnote": "모든 속도는 로컬 오프라인 PRL 프로토콜 처리량이며 풀 해시레이트, 지급 수익 또는 벽면 전력 효율이 아닙니다. M1 Max +7.82%는 본 프로젝트 Alpha 2와 동일 조건 60초 평균(4.234368 대 3.927237 TH/s)을 비교합니다. 별도 300초 실측은 4.2347 TH/s입니다. M2 +260.8%／3.61배는 동일 조건 300초 실측(1.465227 대 0.406127 TH/s)이며, 원본 GPU 커널을 유지한 pearl-metal-miner 0.2.4＋cert3 호환 패치가 기준입니다. 비교 기준이 달라 시리즈 전체의 순위로 해석할 수 없습니다.",
         "thermal": "M2 풀 근거는 별도의 강도 80%·600초 테스트에서 수락 3／거절 0입니다. 강도 100% 실채굴은 외부 실험의 95°C 중단 기준에 도달했습니다. 이 섭씨 기준은 내장 기능이나 Apple 손상 한계가 아닙니다. 해당 실측 노트북에서는 --intensity 80을 사용하세요. 적은 셰어 수는 장기 풀 속도나 수익을 입증하지 않습니다.",
         "roadmap": "다음 검증 작업", "roadmap_intro": "일정이나 지원을 보장하지 않는 테스트 우선순위:",
-        "steps": ["출시된 M1–M6의 구체적 구성별 실기기 검증 확대.", "칩과 구성별 최적화 및 독립 검증.", "장시간 실행, 온도 제어와 안정성 측정.", "설치, 진단과 재현 가능한 자체 테스트 개선.", "커뮤니티 실측 수집 및 재현 가능한 차이 조사."],
+        "steps": ["출시된 M1–M6의 구체적 구성별 실기기 검증 확대.", "칩과 구성별 최적화 및 독립 검증.", "장시간 실행, 온도 제어와 안정성 측정.", "설치, 진단과 재현 가능한 자체 테스트 개선.", "느린 결과와 실패를 포함한 커뮤니티 A/B 실측을 검토하고 차이를 조사."],
         "invitation": "다른 구성의 Mac이 있나요? 테스트에 참여해 실측을 공유해 주세요. 빌드 또는 자체 테스트 실패도 환영합니다. 정확한 칩, GPU 코어 수, 메모리, macOS, 채굴기 버전, 강도, 명령, 테스트 시간과 민감 정보를 지운 로그를 포함해 주세요. 실패한 검사를 해결한 뒤 채굴하고 지갑 복구 정보는 공개하지 마세요.",
+        "testing_title": "내 Mac 테스트에 참여해 주세요",
+        "testing_preview": "실험용 비교 도구는 main 개발 미리보기(0.1.0a4.dev1)에 있습니다. Alpha 3 릴리스에는 없습니다. 새 디렉터리에 main을 복제하고 sh bootstrap.sh를 실행하세요. 전체 단계는 가이드에 있습니다.",
+        "testing_scope": "계획을 먼저 확인하세요. 시작 전 동의를 받은 뒤 각60초, 백엔드마다2회씩 A/B/B/A 순서로 측정하며 매회 전30초 냉각합니다. 빌드, 준비 실행 및 정확성 검사 시간은 별도입니다. 고정된 pearl-metal-miner 0.2.4＋cert3 호환 패치와 오프라인 새 작업 준비 및 스캔을 비교합니다. 지갑, 풀 또는 자동 업로드를 사용하지 않습니다. 느린 결과와 실패도 환영하며 표에 반영하려면 검토가 필요합니다.",
+        "testing_guide": "설치·비교·공유 전 검토 가이드", "comparators": "비교 대상 조사 및 한계",
         "full_plan": "전체 로드맵", "feedback": "수치가 다른가요? 문제 보고", "submit": "기기 실측 기여", "data": "기계 판독용 기기 데이터",
     },
 }
@@ -181,6 +197,13 @@ def render(data, lang):
         '<p class="matrix-feedback">'
         +link(REPO+'/issues/new?template=device-result.yml',t["submit"])+' · '
         +link(REPO+'/issues/new?template=benchmark-discrepancy.yml',t["feedback"])+'</p>',
+        '<div id="community-testing" class="matrix-roadmap community-testing"><h3>'+E(t["testing_title"])+'</h3>'
+        +'<p>'+E(t["testing_preview"])+'</p>'
+        +'<pre><code>.venv/bin/pearl-m-miner compare --plan\n'
+        +'.venv/bin/pearl-m-miner compare --against pearl-metal-miner --output ./my-comparison</code></pre>'
+        +'<p>'+E(t["testing_scope"])+'</p><p>'
+        +link(REPO+'/blob/main/docs/COMMUNITY_TESTING.md',t["testing_guide"])+' · '
+        +link(REPO+'/blob/main/docs/COMPARATORS.md',t["comparators"])+'</p></div>',
         '<div class="matrix-roadmap"><h3>'+E(t["roadmap"])+'</h3><p>'
         +E(t["roadmap_intro"])+'</p><ol>'
         +''.join('<li>'+E(step)+'</li>' for step in t["steps"])+'</ol><p>'

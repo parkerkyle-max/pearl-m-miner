@@ -12,7 +12,7 @@ does not promise support, performance, income or a delivery date.
 | 2. Optimize each available device in small steps | Once a specific Mac is available, profile its actual bottlenecks and compare one kernel, shape, dispatch or preparation change at a time | Matching baseline/candidate conditions, exactness and proof gates, repeatable full-work gains, thermal observations and separate pool validation; retain the baseline when no gain is established |
 | 3. Validate sustained pool operation and thermal behavior | Extend runs, observe job changes, reconnects, stale work, fee transitions, battery/thermal pauses and recovery | Dated duration and accepted/rejected/pending counts, correlated pool replies, temperature history and clear software-versus-outlet power scope |
 | 4. Improve source installation and build diagnostics | Reproduce setup on additional Macs; clarify compatible SDK/Python/Rust requirements and actionable build/self-test errors | Recorded environment and cache state, reproducible setup steps and actual build/self-test outcomes; distinguish fresh environments from reused toolchains |
-| 5. Make benchmarks reproducible and accept community corrections | Publish commands, timing definitions, baselines and sanitized evidence; reconcile reported discrepancies with the device matrix | Traceable source/version and measurement windows, preserved conflicting results and corrected claims with evidence links |
+| 5. Make benchmarks reproducible and accept community comparisons and corrections | Provide an opt-in offline A/B test against pinned pearl-metal-miner with disclosed cert3 compatibility; let participants review and explicitly share successes, slower runs and failures; assess a cert3 adapter for Augustas's miner next | Traceable hardware/source/build identities, matching protocol and measurement windows, passing before/after correctness gates, preserved conflicting results and manual evidence review before updating the device matrix; no ratio for failed or interrupted tests |
 | Later experimental work: CPU and additional algorithms | Evaluate a complete CPU PRL path or separately selected coin-specific backends while reserving resources for PRL host work | Per-backend correctness and pool acceptance, PRL-only/CPU-only/combined trials, displaced PRL work and measured whole-machine power |
 
 The M1–M6 headings organize the test plan; they do not imply that every family
@@ -32,6 +32,16 @@ for a new build or benchmark result, or the
 [benchmark discrepancy form](https://github.com/parkerkyle-max/pearl-m-miner/issues/new?template=benchmark-discrepancy.yml)
 to question an existing number, comparison or description. A concern can be
 reported without a replacement benchmark or a successful local build.
+
+The [community testing guide](COMMUNITY_TESTING.md) documents the experimental
+`compare` and `share-report` commands in the `main` development preview
+(`0.1.0a4.dev1`, not the Alpha 3 release tag). The default test uses offline
+sequential A/B/B/A runs; sharing is a separate, explicit action. Reports are
+self-reported and are not automatically added to the public device matrix.
+Native Mac acceptance of this newly integrated runner remains pending; the
+historical M1 Max and M2 reports do not qualify it on other devices. The
+[comparator survey](COMPARATORS.md) records a dated, limited GitHub stars sample,
+protocol and license constraints, and candidates that are not yet integrated.
 
 XMR is a longer-term experimental candidate because [XMRig documents macOS and ARMv8
 CPU support](https://xmrig.com/docs/miner), and [Monero describes CPUs as more

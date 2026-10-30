@@ -8,7 +8,13 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def main(argv=None):
+def main(argv=None, *, prefix_workers=None):
+    # Ordinary mining keeps its existing two-worker setting. Only an explicit
+    # internal comparison caller may align this helper budget with its control.
+    if prefix_workers is None:
+        prefix_workers = 2
+    elif type(prefix_workers) is not int or not 1 <= prefix_workers <= 64:
+        raise ValueError('prefix_workers must be an integer from 1 to 64')
     rest = list(sys.argv[1:] if argv is None else argv)
     # Never inherit a private wallet/config or experimental selector accidentally.
     for name in list(os.environ):
@@ -19,7 +25,7 @@ def main(argv=None):
         'FUSION_METAL_ZERO_B': '1',
         'FUSION_PREFIX_GPU_PREPARE': '1',
         'FUSION_PREFIX_PREPARE_METHOD': 's',
-        'FUSION_PREFIX_WORKERS': '2',
+        'FUSION_PREFIX_WORKERS': str(prefix_workers),
         'FUSION_PREFIX_LIBRARY': str(ROOT/'tools/prefix_s_miner/libprefix.dylib'),
         'FUSION_PREFIX_SHADER': str(ROOT/'tools/prefix_s_miner/prefix.metal'),
         'FUSION_OVERLAY_ROOT': str(ROOT/'tools/merkle_overlay'),

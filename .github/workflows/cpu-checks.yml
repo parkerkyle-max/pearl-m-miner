@@ -18,6 +18,10 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install numpy==2.5.4 blake3==1.0.11
       - run: python -m compileall -q pearl_m_miner pearl_metal_miner tools tests
+      - name: Verify pinned comparison source and exact compatibility patch
+        run: |
+          python packaging/build_compare_control.py --verify-only
+          python packaging/build_compare_control.py --prepare-only
       - name: Check published benchmark documentation
         run: |
           python tools/build_device_matrix.py --check
