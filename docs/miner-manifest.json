@@ -1,0 +1,65 @@
+{
+  "schema": "pearl-m-miner-info-v1",
+  "name": "Pearl M-Miner",
+  "version": "0.1.0a3",
+  "repository": "https://github.com/parkerkyle-max/pearl-m-miner",
+  "documentation": "https://parkerkyle-max.github.io/pearl-m-miner/",
+  "license": "Apache-2.0",
+  "coin": "PRL",
+  "algorithm": "PearlHash",
+  "certificate_version": 3,
+  "backend": "Apple Silicon Metal GPU",
+  "requirements": {
+    "os": "macOS 26+",
+    "architecture": "arm64",
+    "python": "3.12+",
+    "toolchain": "Metal 4 Command Line Tools, Git, Rust/Cargo"
+  },
+  "measured_hardware": [
+    "Apple M1 Max, 32 GPU cores, 64 GiB"
+  ],
+  "other_m_series": "experimental; local self-test and pool validation required",
+  "cpu_mining": false,
+  "ane_mining": false,
+  "multi_coin": false,
+  "developer_contribution": {
+    "default_percent": 1,
+    "optional": true,
+    "basis": "completed valid GPU scan wall time; excludes stale work and idle time",
+    "disable_option": "--dev-fee 0",
+    "public_address": "prl1pwjessemugthkad9hkttcx2rvenux2q0w0xcah2j0a7zfrycjhz5qhn7apw",
+    "pool": "luckypool",
+    "host": "pearl-cpu-eu1.luckypool.io",
+    "port": 3370,
+    "not_a_percentage_of_income": true
+  },
+  "pools": {
+    "kryptex": {
+      "identity": "your public krx mining ID",
+      "proof_transport": "negotiated gzip-v2"
+    },
+    "luckypool": {
+      "identity": "your public native prl1 address"
+    }
+  },
+  "languages": [
+    "en",
+    "zh-CN",
+    "ja",
+    "ko"
+  ],
+  "safe_sequence": [
+    "info --json",
+    "doctor",
+    "self-test",
+    "benchmark --seconds 60",
+    "mine --pool kryptex --address YOUR_KRX_ID --worker my-mac --time-limit 600"
+  ],
+  "operation": {
+    "starts_mining": false,
+    "network_access": false,
+    "requires_wallet_secret": false,
+    "installs_autostart": false
+  },
+  "income_guarantee": false
+}

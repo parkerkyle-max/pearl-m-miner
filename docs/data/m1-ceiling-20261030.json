@@ -1,0 +1,1812 @@
+{
+  "schema": "m1-ceiling-experiments-v1",
+  "pool_effective_hs": null,
+  "income": null,
+  "wall_power_w": null,
+  "batches": [
+    {
+      "name": "ceiling-20261030-ablation-v1",
+      "resumed": true,
+      "error": null,
+      "trials": [
+        {
+          "name": "build-ablation",
+          "exit": 0,
+          "seconds": 1.5514001669362187
+        },
+        {
+          "name": "baseline-official-gate",
+          "exit": 0,
+          "seconds": 1.5629720841534436,
+          "software_sensor": {
+            "samples": 2,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 13.101935863494873,
+            "gpu_power_w_mean": 0.03432590514421463,
+            "cpu_power_w_mean": 4.578974723815918,
+            "gpu_mhz_mean": 194,
+            "cpu_average_sensor_c_max": 73.40811920166016,
+            "gpu_average_sensor_c_max": 9.199999809265137
+          }
+        },
+        {
+          "name": "baseline-stages",
+          "exit": 0,
+          "seconds": 8.801544374786317,
+          "components": {
+            "combined": {
+              "median_gpu_ms": 68.5421692323871,
+              "mean_gpu_ms": 68.54220659200412
+            },
+            "gemm_and_fold": {
+              "median_gpu_ms": 68.33908858243376,
+              "mean_gpu_ms": 68.34025782882236
+            },
+            "hash_and_target": {
+              "median_gpu_ms": 0.20270567620173097,
+              "mean_gpu_ms": 0.20273696281947196
+            }
+          },
+          "software_sensor": {
+            "samples": 8,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 55.77635860443115,
+            "gpu_power_w_mean": 45.09365952014923,
+            "cpu_power_w_mean": 1.2407071962952614,
+            "gpu_mhz_mean": 1279.5,
+            "cpu_average_sensor_c_max": 71.22406768798828,
+            "gpu_average_sensor_c_max": 84.45454406738281
+          }
+        },
+        {
+          "name": "unroll-official-gate",
+          "exit": 0,
+          "seconds": 1.0580134587362409,
+          "software_sensor": {
+            "samples": 2,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 56.17770957946777,
+            "gpu_power_w_mean": 11.82933616451919,
+            "cpu_power_w_mean": 3.513929396867752,
+            "gpu_mhz_mean": 841.5,
+            "cpu_average_sensor_c_max": 71.16097259521484,
+            "gpu_average_sensor_c_max": 84.506591796875
+          }
+        },
+        {
+          "name": "unroll-large-gate",
+          "exit": 0,
+          "seconds": 1.0369736249558628,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 12.511727333068848,
+            "gpu_power_w_mean": 0.5216875672340393,
+            "cpu_power_w_mean": 4.492281436920166,
+            "gpu_mhz_mean": 815,
+            "cpu_average_sensor_c_max": 71.75617218017578,
+            "gpu_average_sensor_c_max": 67.95499420166016
+          }
+        },
+        {
+          "name": "unroll-no-export-gate",
+          "exit": 0,
+          "seconds": 0.5384985418058932
+        },
+        {
+          "name": "unroll-stages",
+          "exit": 0,
+          "seconds": 8.805060792248696,
+          "components": {
+            "combined": {
+              "median_gpu_ms": 69.24182031070814,
+              "mean_gpu_ms": 69.22486198406357
+            },
+            "gemm_and_fold": {
+              "median_gpu_ms": 69.05774481128901,
+              "mean_gpu_ms": 69.0577066076609
+            },
+            "hash_and_target": {
+              "median_gpu_ms": 0.15201300266198814,
+              "mean_gpu_ms": 0.1520538159335653
+            }
+          },
+          "software_sensor": {
+            "samples": 9,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 54.39080725775825,
+            "gpu_power_w_mean": 42.65581046210395,
+            "cpu_power_w_mean": 1.4455047580930922,
+            "gpu_mhz_mean": 1216.3333333333333,
+            "cpu_average_sensor_c_max": 70.16979217529297,
+            "gpu_average_sensor_c_max": 82.98346710205078
+          }
+        },
+        {
+          "name": "rotate-official-gate",
+          "exit": 0,
+          "seconds": 1.05654550017789,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 62.429203033447266,
+            "gpu_power_w_mean": 0.03153102472424507,
+            "cpu_power_w_mean": 4.467574596405029,
+            "gpu_mhz_mean": 388,
+            "cpu_average_sensor_c_max": 70.2000503540039,
+            "gpu_average_sensor_c_max": 83.14239501953125
+          }
+        },
+        {
+          "name": "rotate-large-gate",
+          "exit": 0,
+          "seconds": 1.03996487474069,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 23.87796974182129,
+            "gpu_power_w_mean": 0.3919360935688019,
+            "cpu_power_w_mean": 5.736510753631592,
+            "gpu_mhz_mean": 652,
+            "cpu_average_sensor_c_max": 70.36284637451172,
+            "gpu_average_sensor_c_max": 67.29774475097656
+          }
+        },
+        {
+          "name": "rotate-no-export-gate",
+          "exit": 0,
+          "seconds": 0.5389370420016348
+        },
+        {
+          "name": "rotate-stages",
+          "exit": 0,
+          "seconds": 8.810938375070691,
+          "components": {
+            "combined": {
+              "median_gpu_ms": 69.2328775767237,
+              "mean_gpu_ms": 69.22331772511825
+            },
+            "gemm_and_fold": {
+              "median_gpu_ms": 69.09467186778784,
+              "mean_gpu_ms": 69.09557814166571
+            },
+            "hash_and_target": {
+              "median_gpu_ms": 0.15200514462776482,
+              "mean_gpu_ms": 0.1520017491808782
+            }
+          },
+          "software_sensor": {
+            "samples": 9,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 52.637328677707245,
+            "gpu_power_w_mean": 41.59302928629849,
+            "cpu_power_w_mean": 1.3720037738482158,
+            "gpu_mhz_mean": 1189.3333333333333,
+            "cpu_average_sensor_c_max": 70.15608215332031,
+            "gpu_average_sensor_c_max": 82.15060424804688
+          }
+        },
+        {
+          "name": "control-a",
+          "exit": 0,
+          "seconds": 70.78413487505168,
+          "local_ths": 3.9274139291672143,
+          "measured_seconds": 60.051028084009886,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.06703421274821,
+            "gpu_power_w_mean": 48.983751678466795,
+            "cpu_power_w_mean": 1.0990244676669438,
+            "gpu_mhz_mean": 1295.45,
+            "cpu_average_sensor_c_max": 73.79690551757812,
+            "gpu_average_sensor_c_max": 87.09237670898438
+          }
+        },
+        {
+          "name": "unroll-b",
+          "exit": 0,
+          "seconds": 70.87078350037336,
+          "local_ths": 3.889729748158091,
+          "measured_seconds": 60.06746895797551,
+          "valid_tiles": 445644800,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.11982434590657,
+            "gpu_power_w_mean": 48.663516489664715,
+            "cpu_power_w_mean": 1.1040061046679814,
+            "gpu_mhz_mean": 1295.4333333333334,
+            "cpu_average_sensor_c_max": 75.31883239746094,
+            "gpu_average_sensor_c_max": 88.60555267333984
+          }
+        },
+        {
+          "name": "control-a2",
+          "exit": 0,
+          "seconds": 70.9294143752195,
+          "local_ths": 3.9271121227887735,
+          "measured_seconds": 60.05564312497154,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.84479399858895,
+            "gpu_power_w_mean": 49.15979191408319,
+            "cpu_power_w_mean": 1.1206432257668446,
+            "gpu_mhz_mean": 1295.4237288135594,
+            "cpu_average_sensor_c_max": 76.14220428466797,
+            "gpu_average_sensor_c_max": 89.17228698730469
+          }
+        },
+        {
+          "name": "rotate-c",
+          "exit": 0,
+          "seconds": 70.48096674960107,
+          "local_ths": 3.8908629144894555,
+          "measured_seconds": 60.0499750408344,
+          "valid_tiles": 445644800,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.347349845756916,
+            "gpu_power_w_mean": 48.66556937007581,
+            "cpu_power_w_mean": 1.1348983079700146,
+            "gpu_mhz_mean": 1295.457627118644,
+            "cpu_average_sensor_c_max": 75.30606842041016,
+            "gpu_average_sensor_c_max": 88.21281433105469
+          }
+        },
+        {
+          "name": "control-a3",
+          "exit": 0,
+          "seconds": 71.01237229211256,
+          "local_ths": 3.9273050690950915,
+          "measured_seconds": 60.0526926247403,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.605252265930176,
+            "gpu_power_w_mean": 49.06984322865804,
+            "cpu_power_w_mean": 1.1263279378414155,
+            "gpu_mhz_mean": 1295.45,
+            "cpu_average_sensor_c_max": 74.40811157226562,
+            "gpu_average_sensor_c_max": 87.12918853759766
+          }
+        }
+      ]
+    },
+    {
+      "name": "ceiling-20261030-pair16-v1",
+      "resumed": true,
+      "error": null,
+      "trials": [
+        {
+          "name": "pair16-official-gate",
+          "exit": 0,
+          "seconds": 1.0355628747493029
+        },
+        {
+          "name": "pair16-large-gate",
+          "exit": 0,
+          "seconds": 1.0383409997448325,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 11.554977416992188,
+            "gpu_power_w_mean": 0.48974353075027466,
+            "cpu_power_w_mean": 5.6812591552734375,
+            "gpu_mhz_mean": 626,
+            "cpu_average_sensor_c_max": 70.59754180908203,
+            "gpu_average_sensor_c_max": 66.50227355957031
+          }
+        },
+        {
+          "name": "pair16-no-export-gate",
+          "exit": 0,
+          "seconds": 0.5399185409769416
+        },
+        {
+          "name": "pair32-control",
+          "exit": 0,
+          "seconds": 70.81516525009647,
+          "local_ths": 4.2347770871357655,
+          "measured_seconds": 60.04142808262259,
+          "valid_tiles": 484966400,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.205444271281614,
+            "gpu_power_w_mean": 50.643882880776616,
+            "cpu_power_w_mean": 1.1058428024841567,
+            "gpu_mhz_mean": 1295.135593220339,
+            "cpu_average_sensor_c_max": 72.48015594482422,
+            "gpu_average_sensor_c_max": 85.5472183227539
+          }
+        },
+        {
+          "name": "pair16-candidate",
+          "exit": 0,
+          "seconds": 70.86910758400336,
+          "local_ths": 4.098136724293217,
+          "measured_seconds": 60.03111737500876,
+          "valid_tiles": 469237760,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 72.1936758009054,
+            "gpu_power_w_mean": 55.60616942583504,
+            "cpu_power_w_mean": 1.1284156067896698,
+            "gpu_mhz_mean": 1295.2881355932204,
+            "cpu_average_sensor_c_max": 76.8118667602539,
+            "gpu_average_sensor_c_max": 92.02972412109375
+          }
+        },
+        {
+          "name": "pair32-control2",
+          "exit": 0,
+          "seconds": 70.91743295826018,
+          "local_ths": 4.234199162131952,
+          "measured_seconds": 60.049623125232756,
+          "valid_tiles": 484966400,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.60178433434438,
+            "gpu_power_w_mean": 50.73279009026996,
+            "cpu_power_w_mean": 1.10556703502849,
+            "gpu_mhz_mean": 1295.1525423728813,
+            "cpu_average_sensor_c_max": 73.26744842529297,
+            "gpu_average_sensor_c_max": 86.63663482666016
+          }
+        }
+      ]
+    },
+    {
+      "name": "ceiling-20261030-pair32-dual-v1",
+      "resumed": true,
+      "error": null,
+      "trials": [
+        {
+          "name": "build-peak",
+          "exit": 0,
+          "seconds": 1.5512734591029584
+        },
+        {
+          "name": "mpp-g256",
+          "exit": 0,
+          "seconds": 20.163049625232816,
+          "peak": {
+            "mode": "mpp",
+            "groups": 256,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 8.646052450576244,
+            "wall_tflops": 8.26587489751301,
+            "measured_seconds": 15.006113333,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 55.62371088663737,
+            "gpu_power_w_mean": 44.52315038045247,
+            "cpu_power_w_mean": 1.7934149503707886,
+            "gpu_mhz_mean": 1294.4,
+            "cpu_average_sensor_c_max": 72.49903106689453,
+            "gpu_average_sensor_c_max": 83.66973876953125
+          }
+        },
+        {
+          "name": "mpp-g512",
+          "exit": 0,
+          "seconds": 21.6920407502912,
+          "peak": {
+            "mode": "mpp",
+            "groups": 512,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 8.881398020362507,
+            "wall_tflops": 8.690492499691471,
+            "measured_seconds": 15.024120417,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 57.809210205078124,
+            "gpu_power_w_mean": 46.58823471069336,
+            "cpu_power_w_mean": 1.2617706457773845,
+            "gpu_mhz_mean": 1294.5333333333333,
+            "cpu_average_sensor_c_max": 75.51878356933594,
+            "gpu_average_sensor_c_max": 87.85174560546875
+          }
+        },
+        {
+          "name": "mpp-g1024",
+          "exit": 0,
+          "seconds": 24.303874499630183,
+          "peak": {
+            "mode": "mpp",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 9.001881690238589,
+            "wall_tflops": 8.708977027229885,
+            "measured_seconds": 15.023794792,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 58.59194564819336,
+            "gpu_power_w_mean": 46.23282127380371,
+            "cpu_power_w_mean": 1.3906952619552613,
+            "gpu_mhz_mean": 1294,
+            "cpu_average_sensor_c_max": 77.23409271240234,
+            "gpu_average_sensor_c_max": 89.29747009277344
+          }
+        },
+        {
+          "name": "pair32-official-gate",
+          "exit": 0,
+          "seconds": 1.0499362498521805,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 60.45316696166992,
+            "gpu_power_w_mean": 0.2763335704803467,
+            "cpu_power_w_mean": 5.112494468688965,
+            "gpu_mhz_mean": 388,
+            "cpu_average_sensor_c_max": 77.89600372314453,
+            "gpu_average_sensor_c_max": 74.54883575439453
+          }
+        },
+        {
+          "name": "pair32-large-gate",
+          "exit": 0,
+          "seconds": 1.040000917389989,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 29.25288963317871,
+            "gpu_power_w_mean": 0.5057128071784973,
+            "cpu_power_w_mean": 5.580010890960693,
+            "gpu_mhz_mean": 672,
+            "cpu_average_sensor_c_max": 77.44908142089844,
+            "gpu_average_sensor_c_max": 74.15155029296875
+          }
+        },
+        {
+          "name": "pair32-no-export-gate",
+          "exit": 0,
+          "seconds": 0.5372833339497447
+        },
+        {
+          "name": "control-a",
+          "exit": 0,
+          "seconds": 70.82785516697913,
+          "local_ths": 3.927268051624655,
+          "measured_seconds": 60.05325866676867,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 64.28653801093667,
+            "gpu_power_w_mean": 49.314282756740766,
+            "cpu_power_w_mean": 1.1153240830211315,
+            "gpu_mhz_mean": 1295.406779661017,
+            "cpu_average_sensor_c_max": 79.3143539428711,
+            "gpu_average_sensor_c_max": 93.04645538330078
+          }
+        },
+        {
+          "name": "pair32-b",
+          "exit": 0,
+          "seconds": 70.90712291700765,
+          "local_ths": 4.2339333468839415,
+          "measured_seconds": 60.05339316697791,
+          "valid_tiles": 484966400,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 64.08551665483895,
+            "gpu_power_w_mean": 50.89041499768273,
+            "cpu_power_w_mean": 1.1426544714782199,
+            "gpu_mhz_mean": 1295.135593220339,
+            "cpu_average_sensor_c_max": 76.55130767822266,
+            "gpu_average_sensor_c_max": 89.34367370605469
+          }
+        },
+        {
+          "name": "control-a2",
+          "exit": 0,
+          "seconds": 70.44509866600856,
+          "local_ths": 3.926808586572925,
+          "measured_seconds": 60.060285333078355,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.557328369657874,
+            "gpu_power_w_mean": 49.06234631295931,
+            "cpu_power_w_mean": 1.107592294781895,
+            "gpu_mhz_mean": 1295.457627118644,
+            "cpu_average_sensor_c_max": 74.12142944335938,
+            "gpu_average_sensor_c_max": 87.31742095947266
+          }
+        },
+        {
+          "name": "pair32-b2",
+          "exit": 0,
+          "seconds": 70.46391029190272,
+          "local_ths": 4.234802607655844,
+          "measured_seconds": 60.04106625029817,
+          "valid_tiles": 484966400,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.61465339660644,
+            "gpu_power_w_mean": 50.728216552734374,
+            "cpu_power_w_mean": 1.1188919911781947,
+            "gpu_mhz_mean": 1295.1333333333334,
+            "cpu_average_sensor_c_max": 73.23738098144531,
+            "gpu_average_sensor_c_max": 86.48118591308594
+          }
+        },
+        {
+          "name": "control-a3",
+          "exit": 0,
+          "seconds": 70.5277432501316,
+          "local_ths": 3.9272953466450153,
+          "measured_seconds": 60.05284129176289,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.41552467346192,
+            "gpu_power_w_mean": 49.008050028483076,
+            "cpu_power_w_mean": 1.1211778442064921,
+            "gpu_mhz_mean": 1295.4666666666667,
+            "cpu_average_sensor_c_max": 73.31101989746094,
+            "gpu_average_sensor_c_max": 86.3248062133789
+          }
+        },
+        {
+          "name": "build-cpu",
+          "exit": 0,
+          "seconds": 1.557711707893759,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.8387336730957,
+            "gpu_power_w_mean": 3.8025314807891846,
+            "cpu_power_w_mean": 5.31427526473999,
+            "gpu_mhz_mean": 1293,
+            "cpu_average_sensor_c_max": 74.31851196289062,
+            "gpu_average_sensor_c_max": 86.37065124511719
+          }
+        },
+        {
+          "name": "dual-contention",
+          "exit": 0,
+          "seconds": 85.69433437474072,
+          "accelerate": {
+            "status": "ok",
+            "flop_per_second": 1062159480790.0,
+            "timed_wall_seconds": 85.000137791,
+            "actual_amx_execution_verified": false,
+            "mining_work_verified": false
+          },
+          "local_ths": 3.929096828101563,
+          "measured_seconds": 60.02530720829964,
+          "valid_tiles": 449839104,
+          "dual": {
+            "schema": "m1-accelerate-contention-v1",
+            "pool_submissions": 0,
+            "accelerate_is_mining_work": false,
+            "seconds": 85.40951950009912,
+            "cpu": {
+              "benchmark": "accelerate_exact_sgemm",
+              "status": "ok",
+              "backend": "public Accelerate cblas_sgemm",
+              "actual_amx_execution_verified": false,
+              "mining_work_verified": false,
+              "m": 512,
+              "n": 512,
+              "k": 512,
+              "seed": 305419896,
+              "input_integer_min": -2,
+              "input_integer_max": 2,
+              "partial_sum_absolute_bound": 2048,
+              "float32_exact_integer_bound": 16777216,
+              "oracle_cells_checked_each_time": 262144,
+              "oracle_seconds": 0.067976334,
+              "warmup_iterations": 2,
+              "requested_timed_seconds": 85,
+              "timed_wall_seconds": 85.000137791,
+              "whole_wall_seconds": 85.071179333,
+              "timed_iterations": 336333,
+              "macs_per_iteration": 134217728,
+              "timed_macs": 45141851111400.0,
+              "timed_flops": 90283702222800.0,
+              "mac_per_second": 531079740393,
+              "flop_per_second": 1062159480790.0,
+              "veclib_maximum_threads_requested": "1",
+              "thread_limit_enforcement_verified": false,
+              "first_complete_check": {
+                "mismatches": 0,
+                "nonfinite": 0,
+                "max_abs_error": 0,
+                "matching_cells_checksum": 18044
+              },
+              "last_complete_check": {
+                "mismatches": 0,
+                "nonfinite": 0,
+                "max_abs_error": 0,
+                "matching_cells_checksum": 18044
+              }
+            },
+            "gpu": {
+              "measure_start_monotonic": 2638673.216164333,
+              "measure_start_unix_ns": 1793351334305845000,
+              "measure_end_monotonic": 2638733.241471541,
+              "measured_tiles": 449839104,
+              "measured_seconds": 60.02530720829964,
+              "tiles_per_second": 7494157.4632674465,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3929096828101.563,
+              "warmup_seconds_requested": 10.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            }
+          },
+          "software_sensor": {
+            "samples": 59,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 74.16352689064155,
+            "gpu_power_w_mean": 49.245592860852256,
+            "cpu_power_w_mean": 9.488567901869951,
+            "gpu_mhz_mean": 1295.4237288135594,
+            "cpu_average_sensor_c_max": 83.97102355957031,
+            "gpu_average_sensor_c_max": 90.82113647460938
+          }
+        },
+        {
+          "name": "control-after-dual",
+          "exit": 0,
+          "seconds": 70.67905295919627,
+          "local_ths": 3.927575624117755,
+          "measured_seconds": 60.04855583421886,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.02042179107666,
+            "gpu_power_w_mean": 48.89533780415853,
+            "cpu_power_w_mean": 1.1199840426445007,
+            "gpu_mhz_mean": 1295.4666666666667,
+            "cpu_average_sensor_c_max": 72.35263061523438,
+            "gpu_average_sensor_c_max": 85.3724594116211
+          }
+        }
+      ]
+    },
+    {
+      "name": "ceiling-20261030-peak-sweep-v1",
+      "resumed": true,
+      "error": "RuntimeError: Phase failed: mpp-gate",
+      "trials": [
+        {
+          "name": "build-peak",
+          "exit": 0,
+          "seconds": 1.5512855001725256
+        },
+        {
+          "name": "build-cpu",
+          "exit": 0,
+          "seconds": 1.5708510419353843
+        },
+        {
+          "name": "half-gate",
+          "exit": 0,
+          "seconds": 1.055143916979432,
+          "peak": {
+            "mode": "half",
+            "groups": 64,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          }
+        },
+        {
+          "name": "float-gate",
+          "exit": 0,
+          "seconds": 0.537512915674597,
+          "peak": {
+            "mode": "float",
+            "groups": 64,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          }
+        },
+        {
+          "name": "mpp-gate",
+          "exit": 2,
+          "seconds": 0.5399497500620782
+        }
+      ]
+    },
+    {
+      "name": "ceiling-20261030-peak-sweep-v2",
+      "resumed": true,
+      "error": null,
+      "trials": [
+        {
+          "name": "build-peak",
+          "exit": 0,
+          "seconds": 1.5510437497869134
+        },
+        {
+          "name": "build-cpu",
+          "exit": 0,
+          "seconds": 1.5714115831069648,
+          "software_sensor": {
+            "samples": 2,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 23.88538694381714,
+            "gpu_power_w_mean": 0.0,
+            "cpu_power_w_mean": 4.451019763946533,
+            "gpu_mhz_mean": 0,
+            "cpu_average_sensor_c_max": 69.31279754638672,
+            "gpu_average_sensor_c_max": 9.199999809265137
+          }
+        },
+        {
+          "name": "half-gate",
+          "exit": 0,
+          "seconds": 0.5365502908825874,
+          "peak": {
+            "mode": "half",
+            "groups": 64,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          }
+        },
+        {
+          "name": "float-gate",
+          "exit": 0,
+          "seconds": 0.5255169169977307,
+          "peak": {
+            "mode": "float",
+            "groups": 64,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 10.073596000671387,
+            "gpu_power_w_mean": 0.20283012092113495,
+            "cpu_power_w_mean": 2.3875820636749268,
+            "gpu_mhz_mean": 433,
+            "cpu_average_sensor_c_max": 67.06332397460938,
+            "gpu_average_sensor_c_max": 9.199999809265137
+          }
+        },
+        {
+          "name": "mpp-gate",
+          "exit": 0,
+          "seconds": 1.052805040962994,
+          "peak": {
+            "mode": "mpp",
+            "groups": 16,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 15.206279754638672,
+            "gpu_power_w_mean": 0.8659995794296265,
+            "cpu_power_w_mean": 3.783310651779175,
+            "gpu_mhz_mean": 680,
+            "cpu_average_sensor_c_max": 65.54953002929688,
+            "gpu_average_sensor_c_max": 63.37696075439453
+          }
+        },
+        {
+          "name": "half-s4-c1",
+          "exit": 0,
+          "seconds": 19.12692195829004,
+          "peak": {
+            "mode": "half",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 5.495157161189558,
+            "wall_tflops": 5.415033486667843,
+            "measured_seconds": 15.00016975,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 14,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 32.962363379342214,
+            "gpu_power_w_mean": 24.228703907557897,
+            "cpu_power_w_mean": 1.1468603781291418,
+            "gpu_mhz_mean": 1295.857142857143,
+            "cpu_average_sensor_c_max": 64.30265045166016,
+            "gpu_average_sensor_c_max": 70.39061737060547
+          }
+        },
+        {
+          "name": "half-s4-c4",
+          "exit": 0,
+          "seconds": 20.1569286249578,
+          "peak": {
+            "mode": "half",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": 9.07092338551193,
+            "wall_tflops": 8.832633075492366,
+            "measured_seconds": 15.000187375,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 14,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 38.810032980782644,
+            "gpu_power_w_mean": 33.626351084027974,
+            "cpu_power_w_mean": 1.3840291840689523,
+            "gpu_mhz_mean": 1294.857142857143,
+            "cpu_average_sensor_c_max": 63.63019943237305,
+            "gpu_average_sensor_c_max": 70.69962310791016
+          }
+        },
+        {
+          "name": "half-s4-c8",
+          "exit": 0,
+          "seconds": 21.73078441619873,
+          "peak": {
+            "mode": "half",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 8,
+            "gpu_tflops": 9.660313785920872,
+            "wall_tflops": 9.343424010141355,
+            "measured_seconds": 15.003892833,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 38.83444620768229,
+            "gpu_power_w_mean": 34.393328475952146,
+            "cpu_power_w_mean": 1.456654707590739,
+            "gpu_mhz_mean": 1294.6,
+            "cpu_average_sensor_c_max": 63.97181701660156,
+            "gpu_average_sensor_c_max": 70.87496948242188
+          }
+        },
+        {
+          "name": "half-s2-c4",
+          "exit": 0,
+          "seconds": 19.122064624913037,
+          "peak": {
+            "mode": "half",
+            "groups": 1024,
+            "simdgroups_per_group": 2,
+            "independent_chains": 4,
+            "gpu_tflops": 6.171175624501007,
+            "wall_tflops": 6.065598911424821,
+            "measured_seconds": 15.0000995,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 30.013884353637696,
+            "gpu_power_w_mean": 23.44192581176758,
+            "cpu_power_w_mean": 1.1994354645411174,
+            "gpu_mhz_mean": 1295.8666666666666,
+            "cpu_average_sensor_c_max": 62.375064849853516,
+            "gpu_average_sensor_c_max": 66.97966766357422
+          }
+        },
+        {
+          "name": "half-s8-c4",
+          "exit": 0,
+          "seconds": 21.74054312519729,
+          "peak": {
+            "mode": "half",
+            "groups": 1024,
+            "simdgroups_per_group": 8,
+            "independent_chains": 4,
+            "gpu_tflops": 9.383219751684534,
+            "wall_tflops": 9.17567095759637,
+            "measured_seconds": 15.008584333,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 14,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 39.31010791233608,
+            "gpu_power_w_mean": 34.72798252105713,
+            "cpu_power_w_mean": 1.2270514965057373,
+            "gpu_mhz_mean": 1294.857142857143,
+            "cpu_average_sensor_c_max": 64.41248321533203,
+            "gpu_average_sensor_c_max": 71.72090148925781
+          }
+        },
+        {
+          "name": "float-s4-c1",
+          "exit": 0,
+          "seconds": 19.148204042110592,
+          "peak": {
+            "mode": "float",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 4.945196359701345,
+            "wall_tflops": 4.87970222147991,
+            "measured_seconds": 15.012178792,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 33.113932037353514,
+            "gpu_power_w_mean": 24.51226463317871,
+            "cpu_power_w_mean": 1.1293059508005778,
+            "gpu_mhz_mean": 1295.8666666666666,
+            "cpu_average_sensor_c_max": 63.90331268310547,
+            "gpu_average_sensor_c_max": 70.65007019042969
+          }
+        },
+        {
+          "name": "float-s4-c4",
+          "exit": 0,
+          "seconds": 20.188687082845718,
+          "peak": {
+            "mode": "float",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": 9.155362230093194,
+            "wall_tflops": 8.910759100635229,
+            "measured_seconds": 15.007487041,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 41.48022333780924,
+            "gpu_power_w_mean": 37.79542770385742,
+            "cpu_power_w_mean": 1.3877471844355265,
+            "gpu_mhz_mean": 1295,
+            "cpu_average_sensor_c_max": 67.03121948242188,
+            "gpu_average_sensor_c_max": 75.20939636230469
+          }
+        },
+        {
+          "name": "float-s4-c8",
+          "exit": 0,
+          "seconds": 21.726992916315794,
+          "peak": {
+            "mode": "float",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 8,
+            "gpu_tflops": 8.820749068243678,
+            "wall_tflops": 8.546115806410286,
+            "measured_seconds": 15.004540834,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 41.03358052571615,
+            "gpu_power_w_mean": 36.3310307820638,
+            "cpu_power_w_mean": 1.446656592686971,
+            "gpu_mhz_mean": 1295,
+            "cpu_average_sensor_c_max": 68.38414764404297,
+            "gpu_average_sensor_c_max": 76.29872131347656
+          }
+        },
+        {
+          "name": "float-s2-c4",
+          "exit": 0,
+          "seconds": 19.160503125283867,
+          "peak": {
+            "mode": "float",
+            "groups": 1024,
+            "simdgroups_per_group": 2,
+            "independent_chains": 4,
+            "gpu_tflops": 6.160113912100732,
+            "wall_tflops": 6.053904850885477,
+            "measured_seconds": 15.006372,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 32.17711118062337,
+            "gpu_power_w_mean": 26.14814453125,
+            "cpu_power_w_mean": 1.225604812304179,
+            "gpu_mhz_mean": 1295.8666666666666,
+            "cpu_average_sensor_c_max": 67.18572235107422,
+            "gpu_average_sensor_c_max": 72.53160858154297
+          }
+        },
+        {
+          "name": "float-s8-c4",
+          "exit": 0,
+          "seconds": 21.751234082970768,
+          "peak": {
+            "mode": "float",
+            "groups": 1024,
+            "simdgroups_per_group": 8,
+            "independent_chains": 4,
+            "gpu_tflops": 9.514098219692219,
+            "wall_tflops": 9.300847837286888,
+            "measured_seconds": 15.0134675,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 43.11967086791992,
+            "gpu_power_w_mean": 39.291883850097655,
+            "cpu_power_w_mean": 1.268311341603597,
+            "gpu_mhz_mean": 1295.2666666666667,
+            "cpu_average_sensor_c_max": 69.16046905517578,
+            "gpu_average_sensor_c_max": 77.69519805908203
+          }
+        },
+        {
+          "name": "mpp-g32",
+          "exit": 0,
+          "seconds": 18.633283959235996,
+          "peak": {
+            "mode": "mpp",
+            "groups": 32,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 5.523500564050332,
+            "wall_tflops": 5.447217759993806,
+            "measured_seconds": 15.012467083,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 33.73056208292643,
+            "gpu_power_w_mean": 29.639302317301432,
+            "cpu_power_w_mean": 1.1936664501825969,
+            "gpu_mhz_mean": 1295.8666666666666,
+            "cpu_average_sensor_c_max": 68.28092193603516,
+            "gpu_average_sensor_c_max": 74.29876708984375
+          }
+        },
+        {
+          "name": "mpp-g64",
+          "exit": 0,
+          "seconds": 18.643587333150208,
+          "peak": {
+            "mode": "mpp",
+            "groups": 64,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 6.7768589570982325,
+            "wall_tflops": 6.661518586266074,
+            "measured_seconds": 15.019932292,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 14,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 47.585347584315706,
+            "gpu_power_w_mean": 36.46119853428432,
+            "cpu_power_w_mean": 1.2407644135611398,
+            "gpu_mhz_mean": 1295.857142857143,
+            "cpu_average_sensor_c_max": 70.78263092041016,
+            "gpu_average_sensor_c_max": 79.68640899658203
+          }
+        },
+        {
+          "name": "mpp-g128",
+          "exit": 0,
+          "seconds": 19.15676416736096,
+          "peak": {
+            "mode": "mpp",
+            "groups": 128,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 8.501403701175528,
+            "wall_tflops": 8.391666279422742,
+            "measured_seconds": 15.002274541,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 15,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 56.31489537556966,
+            "gpu_power_w_mean": 45.442134094238284,
+            "cpu_power_w_mean": 1.1932149410247803,
+            "gpu_mhz_mean": 1295.8666666666666,
+            "cpu_average_sensor_c_max": 74.89774322509766,
+            "gpu_average_sensor_c_max": 86.60929107666016
+          }
+        },
+        {
+          "name": "accelerate-one-thread",
+          "exit": 0,
+          "seconds": 45.777658083010465,
+          "accelerate": {
+            "status": "ok",
+            "flop_per_second": 1060892353980.0,
+            "timed_wall_seconds": 45.00001525,
+            "actual_amx_execution_verified": false,
+            "mining_work_verified": false
+          },
+          "software_sensor": {
+            "samples": 46,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 17.52154078690902,
+            "gpu_power_w_mean": 0.8131072679559862,
+            "cpu_power_w_mean": 9.01705556071323,
+            "gpu_mhz_mean": 54.630434782608695,
+            "cpu_average_sensor_c_max": 78.2629165649414,
+            "gpu_average_sensor_c_max": 86.90628814697266
+          }
+        }
+      ]
+    },
+    {
+      "name": "ceiling-20261030-sustained-v1",
+      "resumed": true,
+      "error": null,
+      "trials": [
+        {
+          "name": "build-peak",
+          "exit": 0,
+          "seconds": 1.5527973328717053
+        },
+        {
+          "name": "build-stream",
+          "exit": 0,
+          "seconds": 1.5678360830061138,
+          "software_sensor": {
+            "samples": 2,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 20.29273509979248,
+            "gpu_power_w_mean": 0.0,
+            "cpu_power_w_mean": 4.451412200927734,
+            "gpu_mhz_mean": 0,
+            "cpu_average_sensor_c_max": 70.45742797851562,
+            "gpu_average_sensor_c_max": 9.199999809265137
+          }
+        },
+        {
+          "name": "stream-half-gate",
+          "exit": 0,
+          "seconds": 1.047867167275399,
+          "peak": {
+            "mode": "half",
+            "groups": 4,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+            "executable_sha256": "ae106e169a7fd59b930dd18df2476073e166ccf35c6c9901e1b93bd098ccb5b8"
+          },
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 10.3252592086792,
+            "gpu_power_w_mean": 0.003364281030371785,
+            "cpu_power_w_mean": 2.7565865516662598,
+            "gpu_mhz_mean": 388,
+            "cpu_average_sensor_c_max": 67.97111511230469,
+            "gpu_average_sensor_c_max": 9.199999809265137
+          }
+        },
+        {
+          "name": "stream-float-gate",
+          "exit": 0,
+          "seconds": 0.5395517079159617,
+          "peak": {
+            "mode": "float",
+            "groups": 4,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+            "executable_sha256": "ae106e169a7fd59b930dd18df2476073e166ccf35c6c9901e1b93bd098ccb5b8"
+          }
+        },
+        {
+          "name": "stream-mpp-gate",
+          "exit": 0,
+          "seconds": 0.5390552501194179,
+          "peak": {
+            "mode": "mpp",
+            "groups": 4,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": null,
+            "wall_tflops": null,
+            "measured_seconds": 0,
+            "verify_only": true,
+            "shader_sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+            "executable_sha256": "ae106e169a7fd59b930dd18df2476073e166ccf35c6c9901e1b93bd098ccb5b8"
+          },
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 14.561826705932617,
+            "gpu_power_w_mean": 0.006970638874918222,
+            "cpu_power_w_mean": 1.1124061346054077,
+            "gpu_mhz_mean": 388,
+            "cpu_average_sensor_c_max": 66.67582702636719,
+            "gpu_average_sensor_c_max": 63.889404296875
+          }
+        },
+        {
+          "name": "release-official-gate",
+          "exit": 0,
+          "seconds": 1.0341262496076524,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 5.6106486320495605,
+            "gpu_power_w_mean": 0.027930699288845062,
+            "cpu_power_w_mean": 5.5827178955078125,
+            "gpu_mhz_mean": 419,
+            "cpu_average_sensor_c_max": 66.24930572509766,
+            "gpu_average_sensor_c_max": 63.07667922973633
+          }
+        },
+        {
+          "name": "release-large-gate",
+          "exit": 0,
+          "seconds": 1.053490208927542,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 14.83197021484375,
+            "gpu_power_w_mean": 0.17932209372520447,
+            "cpu_power_w_mean": 5.0599870681762695,
+            "gpu_mhz_mean": 558,
+            "cpu_average_sensor_c_max": 66.9464111328125,
+            "gpu_average_sensor_c_max": 63.025543212890625
+          }
+        },
+        {
+          "name": "release-no-export-gate",
+          "exit": 0,
+          "seconds": 0.5373404580168426,
+          "software_sensor": {
+            "samples": 1,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 13.960806846618652,
+            "gpu_power_w_mean": 0.28363651037216187,
+            "cpu_power_w_mean": 3.4166433811187744,
+            "gpu_mhz_mean": 496,
+            "cpu_average_sensor_c_max": 66.61517333984375,
+            "gpu_average_sensor_c_max": 63.023921966552734
+          }
+        },
+        {
+          "name": "steady-half",
+          "exit": 0,
+          "seconds": 324.3450029999949,
+          "peak": {
+            "mode": "half",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 8,
+            "gpu_tflops": 9.662768430445526,
+            "wall_tflops": 9.297015293662566,
+            "measured_seconds": 300.008769875,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 297,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 39.79301945850103,
+            "gpu_power_w_mean": 34.859254997587364,
+            "cpu_power_w_mean": 1.4612365258663191,
+            "gpu_mhz_mean": 1294.9562289562289,
+            "cpu_average_sensor_c_max": 73.2445068359375,
+            "gpu_average_sensor_c_max": 80.58533477783203
+          }
+        },
+        {
+          "name": "steady-float",
+          "exit": 0,
+          "seconds": 323.8113482496701,
+          "peak": {
+            "mode": "float",
+            "groups": 1024,
+            "simdgroups_per_group": 8,
+            "independent_chains": 4,
+            "gpu_tflops": 9.50295921207963,
+            "wall_tflops": 9.145958670875697,
+            "measured_seconds": 300.004774333,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 296,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 44.19499027406847,
+            "gpu_power_w_mean": 39.389464236594534,
+            "cpu_power_w_mean": 1.479872954455582,
+            "gpu_mhz_mean": 1295.070945945946,
+            "cpu_average_sensor_c_max": 74.55806732177734,
+            "gpu_average_sensor_c_max": 83.09171295166016
+          }
+        },
+        {
+          "name": "steady-mpp",
+          "exit": 0,
+          "seconds": 326.26111745787784,
+          "peak": {
+            "mode": "mpp",
+            "groups": 1024,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 8.979642995927072,
+            "wall_tflops": 8.512096697854943,
+            "measured_seconds": 300.01458925,
+            "verify_only": false,
+            "shader_sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+            "executable_sha256": "474bcb9191b130a27d6e2e71f8d0d9033d8d1baa4e545d44a7845205318f23c4"
+          },
+          "software_sensor": {
+            "samples": 297,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 59.03197942920004,
+            "gpu_power_w_mean": 46.20982112306537,
+            "cpu_power_w_mean": 1.5678429679838495,
+            "gpu_mhz_mean": 1294.8451178451178,
+            "cpu_average_sensor_c_max": 78.54065704345703,
+            "gpu_average_sensor_c_max": 89.91976165771484
+          }
+        },
+        {
+          "name": "stream-half",
+          "exit": 0,
+          "seconds": 36.48274999996647,
+          "peak": {
+            "mode": "half",
+            "groups": 512,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": 2.804534138457052,
+            "wall_tflops": 0.8549718081361412,
+            "measured_seconds": 30.000142709,
+            "verify_only": false,
+            "shader_sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+            "executable_sha256": "ae106e169a7fd59b930dd18df2476073e166ccf35c6c9901e1b93bd098ccb5b8"
+          },
+          "software_sensor": {
+            "samples": 30,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 33.19589665730794,
+            "gpu_power_w_mean": 13.835143121083577,
+            "cpu_power_w_mean": 2.783228611946106,
+            "gpu_mhz_mean": 1294.5666666666666,
+            "cpu_average_sensor_c_max": 67.44488525390625,
+            "gpu_average_sensor_c_max": 69.49494934082031
+          }
+        },
+        {
+          "name": "stream-float",
+          "exit": 0,
+          "seconds": 36.521157667040825,
+          "peak": {
+            "mode": "float",
+            "groups": 512,
+            "simdgroups_per_group": 4,
+            "independent_chains": 4,
+            "gpu_tflops": 1.1010351157477063,
+            "wall_tflops": 0.5797416346217933,
+            "measured_seconds": 30.00038125,
+            "verify_only": false,
+            "shader_sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+            "executable_sha256": "ae106e169a7fd59b930dd18df2476073e166ccf35c6c9901e1b93bd098ccb5b8"
+          },
+          "software_sensor": {
+            "samples": 29,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 40.99033500408304,
+            "gpu_power_w_mean": 13.015735034284921,
+            "cpu_power_w_mean": 2.6224170717699775,
+            "gpu_mhz_mean": 1294.448275862069,
+            "cpu_average_sensor_c_max": 63.92171859741211,
+            "gpu_average_sensor_c_max": 65.72166442871094
+          }
+        },
+        {
+          "name": "stream-mpp",
+          "exit": 0,
+          "seconds": 36.51949462527409,
+          "peak": {
+            "mode": "mpp",
+            "groups": 64,
+            "simdgroups_per_group": 4,
+            "independent_chains": 1,
+            "gpu_tflops": 4.8172630028189625,
+            "wall_tflops": 3.2244661424699403,
+            "measured_seconds": 30.000485083,
+            "verify_only": false,
+            "shader_sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+            "executable_sha256": "ae106e169a7fd59b930dd18df2476073e166ccf35c6c9901e1b93bd098ccb5b8"
+          },
+          "software_sensor": {
+            "samples": 30,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 45.300519180297854,
+            "gpu_power_w_mean": 18.958149464925132,
+            "cpu_power_w_mean": 2.5085925340652464,
+            "gpu_mhz_mean": 1295.8333333333333,
+            "cpu_average_sensor_c_max": 66.3994369506836,
+            "gpu_average_sensor_c_max": 69.77422332763672
+          }
+        },
+        {
+          "name": "miner-baseline-60",
+          "exit": 0,
+          "seconds": 71.01205233298242,
+          "local_ths": 3.9274148529846364,
+          "measured_seconds": 60.0510139586404,
+          "valid_tiles": 449839104,
+          "software_sensor": {
+            "samples": 60,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 63.72188479105632,
+            "gpu_power_w_mean": 49.191284624735516,
+            "cpu_power_w_mean": 1.18702343304952,
+            "gpu_mhz_mean": 1295.4666666666667,
+            "cpu_average_sensor_c_max": 78.7358627319336,
+            "gpu_average_sensor_c_max": 91.70294189453125
+          }
+        },
+        {
+          "name": "miner-pair32-300",
+          "exit": 0,
+          "seconds": 310.6082990001887,
+          "local_ths": 4.234744403888964,
+          "measured_seconds": 300.01472691679373,
+          "valid_tiles": 2423259136,
+          "software_sensor": {
+            "samples": 297,
+            "scope": "software sensors, not outlet power",
+            "sys_power_w_mean": 64.23470790619,
+            "gpu_power_w_mean": 50.89070427377617,
+            "cpu_power_w_mean": 1.1800663647828278,
+            "gpu_mhz_mean": 1295.1346801346801,
+            "cpu_average_sensor_c_max": 77.66880798339844,
+            "gpu_average_sensor_c_max": 90.92720031738281
+          }
+        }
+      ]
+    }
+  ],
+  "device": {
+    "name": "Apple M1 Max",
+    "gpu_cores": 32,
+    "memory_bytes": 68719476736,
+    "macOS": "26.6.1",
+    "AC": true
+  },
+  "work_model": {
+    "protocol_work_per_tile": 524288,
+    "scan_MAC_per_tile": 524288,
+    "scan_FLOP_per_tile": 1048576,
+    "FLOP_per_MAC": 2,
+    "conditional_nominal_TFLOPS": 10.4,
+    "conditional_scan_ceiling_THs": 5.2,
+    "conditional_scan_plus_X_ceiling_THs": 5.189863547758285,
+    "is_universal_algorithm_upper_bound": false
+  },
+  "pair32": {
+    "baseline_mean_local_THs": 3.9272369022400877,
+    "candidate_mean_local_THs": 4.234367977269892,
+    "gain_percent": 7.820538528109111,
+    "sustained_local_THs": 4.234744403888964,
+    "shader_sha256": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+    "deployment_confirmed": true,
+    "live_pool_acceptance_in_this_receipt": 1
+  },
+  "pipeline_metadata": {
+    "inspect-baseline": {
+      "actual_occupancy": null,
+      "device": "Apple M1 Max",
+      "deviceMaxThreadgroupMemoryLength": 32768,
+      "entry_point": "prefix_pair",
+      "gpu_dispatch_performed": false,
+      "kind": "PIPELINE_METADATA_ONLY",
+      "math_mode": "safe",
+      "maxTotalThreadsPerThreadgroup": 576,
+      "metal_language": "4.0",
+      "register_count": null,
+      "shader_sha256": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+      "staticThreadgroupMemoryLength": 16384,
+      "threadExecutionWidth": 32
+    },
+    "inspect-candidate": {
+      "actual_occupancy": null,
+      "device": "Apple M1 Max",
+      "deviceMaxThreadgroupMemoryLength": 32768,
+      "entry_point": "prefix_pair",
+      "gpu_dispatch_performed": false,
+      "kind": "PIPELINE_METADATA_ONLY",
+      "math_mode": "safe",
+      "maxTotalThreadsPerThreadgroup": 768,
+      "metal_language": "4.0",
+      "register_count": null,
+      "shader_sha256": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+      "staticThreadgroupMemoryLength": 8192,
+      "threadExecutionWidth": 32
+    }
+  },
+  "pair16": {
+    "local_ths": 4.098136724293217,
+    "paired_control_ths": 4.234488124633859,
+    "relative_percent": -3.2200208461425683,
+    "adopted": false
+  },
+  "evidence_scope": "offline fresh-grid protocol work vs synthetic arithmetic vs live acceptance are separate; software power is not outlet power",
+  "batch_identity": {
+    "ceiling-20261030-ablation-v1": {
+      "private_record_sha256": "6206d97ee0a75f4b31f2e7c19c3aa033512e5973f25ec5ea8383a75309dacc15",
+      "source_sha256": {
+        "tools/prefix_s_miner/prefix.metal": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+      },
+      "staged_research_sha256": {
+        "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+        "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+        "ablation/prefix_hash_unroll_rotate.metal": "cd3a0401eb4e22e224fe89fe492987f9870cc130d8a13a8da25a55743f050fc9",
+        "ablation/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "ablation/profile_stages.py": "b555d9d32aa812a3a46780e187f59848ff97bd46ae413b48bb8a92e376986c53",
+        "ablation/build.sh": "901ab845bf88baadcfd4737eb2c2effa339d904aab5a0345696079d9062eafae",
+        "ablation/prefix_profile.mm": "db8686e6bb6dc60879b9d011765a083fc3ebd28606679ed6e33e7368da3fe64e",
+        "ablation/manifest.json": "6725ce379e946827cedcb3816602bbbff4a635abafd0b9c5e1f3752eb5f22b2d",
+        "ablation/prefix_baseline.metal": "9f39aa89ae5f4f6a6322a6c88a4864126096d52fa88ff0cba37aac7fd2eb3348",
+        "ablation/prefix_hash_unroll.metal": "042063536ddff731314ecb69074f2680026e0e07d60eb510b3f47749a0f51797",
+        "ablation/prepare.py": "235e335e3fa76be4673bd19b1fc28433517a767e1f0641be0ac86125455d6f97"
+      },
+      "started_utc": "2026-10-30T08:49:02.731434+00:00",
+      "finished_utc": "2026-10-30T08:55:35.041394+00:00"
+    },
+    "ceiling-20261030-pair16-v1": {
+      "private_record_sha256": "a3cb8c99269aea588bb930f5bffd5dd7543cee3cd65a5ec8acab5ee57ed0f44c",
+      "source_sha256": {
+        "tools/prefix_s_miner/prefix.metal": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+      },
+      "staged_research_sha256": {
+        "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+        "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+        "ablation/prefix_hash_unroll_rotate.metal": "cd3a0401eb4e22e224fe89fe492987f9870cc130d8a13a8da25a55743f050fc9",
+        "ablation/inspect_pipeline.mm": "3bb7a6e354ebb13b922441c0f89a8bf66c132d744ce51ca9139eb51e4c521378",
+        "ablation/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "ablation/plan.json": "8d03c7e2df4d535099e400904caed14d7eb9b8900bdcfcbf15b06ee844e78a92",
+        "ablation/check_schedule.py": "f4c140e667fe1b68bfe84bea5b2b89bf7036a8622bb56aeee2b5d727f0f395ae",
+        "ablation/profile_stages.py": "21a772457eda10f59aa4e86cd6426b9d0270215ed2c61d15851ec1801d1422ab",
+        "ablation/build_inspect.sh": "14ddf284b799d418116d27604ff3849e1b1e423a60449c27898088221a00b715",
+        "ablation/prefix_pair32_release.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+        "ablation/prefix_pair16.metal": "949f209dd2757e12704a519ace85e03d52f4edd6e31a54ccc1b2968417b2e83e",
+        "ablation/prefix_pair32.metal": "30431fd59cb9c638a50165f32aa05724bca1dc8462c4d6953caaa835d2324030",
+        "ablation/check_pair16_geometry.py": "158bc3ca6aa3f2631efc0bd13f3b885ad427cc19dbc90d0e11d97704d100c2a1",
+        "ablation/build.sh": "901ab845bf88baadcfd4737eb2c2effa339d904aab5a0345696079d9062eafae",
+        "ablation/prefix_profile.mm": "db8686e6bb6dc60879b9d011765a083fc3ebd28606679ed6e33e7368da3fe64e",
+        "ablation/manifest.json": "5c852269238ca5bfe941045966ecee8ea91e2c3e754862e72f9a8bc5b42b9f31",
+        "ablation/prefix_baseline.metal": "9f39aa89ae5f4f6a6322a6c88a4864126096d52fa88ff0cba37aac7fd2eb3348",
+        "ablation/check_pair32_geometry.py": "04bd7fadf724e98d82df8e3cb6c3edd5d437a88d366c05f4a7d311f0b9c7af37",
+        "ablation/prefix_hash_unroll.metal": "042063536ddff731314ecb69074f2680026e0e07d60eb510b3f47749a0f51797",
+        "ablation/prepare.py": "235e335e3fa76be4673bd19b1fc28433517a767e1f0641be0ac86125455d6f97"
+      },
+      "started_utc": "2026-10-30T09:36:16.438359+00:00",
+      "finished_utc": "2026-10-30T09:39:54.980727+00:00"
+    },
+    "ceiling-20261030-pair32-dual-v1": {
+      "private_record_sha256": "1c828bbe5af3f7f9c7420631557a5c181c33794ea88f5802b23e028bb8b4f90c",
+      "source_sha256": {
+        "tools/prefix_s_miner/prefix.metal": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+      },
+      "staged_research_sha256": {
+        "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+        "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+        "cpu/accelerate_exact.cpp": "9de385adf2360d48e8f3543f36a96b3f846d515eb24312f15d7eec8ed849fbc9",
+        "cpu/dual_probe.py": "c9e759271c0ec4f0909f9602d4dfc7d36f62d574378548baa89e805b9fe5c7cf",
+        "peak/peak.metal": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "peak/peak.mm": "791aa5b13fc70bf82ecbf5a50b486d1613204ffc7f42132efee8b0489f76fe7b",
+        "peak/build.sh": "80c2f4555100bb0b65c522b0aa36e8cffc74fda748aa5643dc3282ad797833f9",
+        "peak/check_counts.py": "d901588254baf7cc5dd0d31647ea5d294020740a31dd65523c234a7e0ba623fe",
+        "peak/cpu-count-audit.json": "31080d8184c637a02246c53f73caf02852a7caae125bd23daf68ef698757c125",
+        "ablation/prefix_hash_unroll_rotate.metal": "cd3a0401eb4e22e224fe89fe492987f9870cc130d8a13a8da25a55743f050fc9",
+        "ablation/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "ablation/plan.json": "8d03c7e2df4d535099e400904caed14d7eb9b8900bdcfcbf15b06ee844e78a92",
+        "ablation/check_schedule.py": "f4c140e667fe1b68bfe84bea5b2b89bf7036a8622bb56aeee2b5d727f0f395ae",
+        "ablation/profile_stages.py": "21a772457eda10f59aa4e86cd6426b9d0270215ed2c61d15851ec1801d1422ab",
+        "ablation/prefix_pair32.metal": "30431fd59cb9c638a50165f32aa05724bca1dc8462c4d6953caaa835d2324030",
+        "ablation/build.sh": "901ab845bf88baadcfd4737eb2c2effa339d904aab5a0345696079d9062eafae",
+        "ablation/prefix_profile.mm": "db8686e6bb6dc60879b9d011765a083fc3ebd28606679ed6e33e7368da3fe64e",
+        "ablation/manifest.json": "5c852269238ca5bfe941045966ecee8ea91e2c3e754862e72f9a8bc5b42b9f31",
+        "ablation/prefix_baseline.metal": "9f39aa89ae5f4f6a6322a6c88a4864126096d52fa88ff0cba37aac7fd2eb3348",
+        "ablation/check_pair32_geometry.py": "04bd7fadf724e98d82df8e3cb6c3edd5d437a88d366c05f4a7d311f0b9c7af37",
+        "ablation/prefix_hash_unroll.metal": "042063536ddff731314ecb69074f2680026e0e07d60eb510b3f47749a0f51797",
+        "ablation/prepare.py": "235e335e3fa76be4673bd19b1fc28433517a767e1f0641be0ac86125455d6f97"
+      },
+      "started_utc": "2026-10-30T09:01:37.510527+00:00",
+      "finished_utc": "2026-10-30T09:11:22.349335+00:00"
+    },
+    "ceiling-20261030-peak-sweep-v1": {
+      "private_record_sha256": "2f64e06623813b7f836d91e4841eb6c91c1373c9831df5e5b5bc95ab80fe88f0",
+      "source_sha256": {
+        "tools/prefix_s_miner/prefix.metal": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+      },
+      "staged_research_sha256": {
+        "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+        "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+        "cpu/accelerate_exact.cpp": "9de385adf2360d48e8f3543f36a96b3f846d515eb24312f15d7eec8ed849fbc9",
+        "peak/peak.metal": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "peak/peak.mm": "791aa5b13fc70bf82ecbf5a50b486d1613204ffc7f42132efee8b0489f76fe7b",
+        "peak/build.sh": "80c2f4555100bb0b65c522b0aa36e8cffc74fda748aa5643dc3282ad797833f9",
+        "peak/check_counts.py": "d901588254baf7cc5dd0d31647ea5d294020740a31dd65523c234a7e0ba623fe",
+        "peak/cpu-count-audit.json": "31080d8184c637a02246c53f73caf02852a7caae125bd23daf68ef698757c125"
+      },
+      "started_utc": "2026-10-30T08:55:52.206285+00:00",
+      "finished_utc": "2026-10-30T08:56:00.813521+00:00"
+    },
+    "ceiling-20261030-peak-sweep-v2": {
+      "private_record_sha256": "19192b3122c2cc3c9f1e8dda5a95662ad800f62bb11346fe8053b36cc50fe453",
+      "source_sha256": {
+        "tools/prefix_s_miner/prefix.metal": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+      },
+      "staged_research_sha256": {
+        "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+        "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+        "cpu/accelerate_exact.cpp": "9de385adf2360d48e8f3543f36a96b3f846d515eb24312f15d7eec8ed849fbc9",
+        "peak/peak.metal": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "peak/peak.mm": "791aa5b13fc70bf82ecbf5a50b486d1613204ffc7f42132efee8b0489f76fe7b",
+        "peak/build.sh": "80c2f4555100bb0b65c522b0aa36e8cffc74fda748aa5643dc3282ad797833f9",
+        "peak/check_counts.py": "d901588254baf7cc5dd0d31647ea5d294020740a31dd65523c234a7e0ba623fe",
+        "peak/cpu-count-audit.json": "31080d8184c637a02246c53f73caf02852a7caae125bd23daf68ef698757c125"
+      },
+      "started_utc": "2026-10-30T08:56:12.606704+00:00",
+      "finished_utc": "2026-10-30T09:01:27.361647+00:00"
+    },
+    "ceiling-20261030-sustained-v1": {
+      "private_record_sha256": "dca5f5e4adfcba4b7712b688057103f14d266c4893ee921014446d002bb90e1b",
+      "source_sha256": {
+        "tools/prefix_s_miner/prefix.metal": "57bda88e3b56a08732e05a291e5960c2a52415973230aa246c332da2625f4c2e",
+        "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+        "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+      },
+      "staged_research_sha256": {
+        "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+        "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+        "peak/peak.metal": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+        "peak/peak.mm": "791aa5b13fc70bf82ecbf5a50b486d1613204ffc7f42132efee8b0489f76fe7b",
+        "peak/build.sh": "80c2f4555100bb0b65c522b0aa36e8cffc74fda748aa5643dc3282ad797833f9",
+        "peak/check_counts.py": "d901588254baf7cc5dd0d31647ea5d294020740a31dd65523c234a7e0ba623fe",
+        "peak/cpu-count-audit.json": "31080d8184c637a02246c53f73caf02852a7caae125bd23daf68ef698757c125",
+        "ablation/prefix_hash_unroll_rotate.metal": "cd3a0401eb4e22e224fe89fe492987f9870cc130d8a13a8da25a55743f050fc9",
+        "ablation/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+        "ablation/plan.json": "8d03c7e2df4d535099e400904caed14d7eb9b8900bdcfcbf15b06ee844e78a92",
+        "ablation/check_schedule.py": "f4c140e667fe1b68bfe84bea5b2b89bf7036a8622bb56aeee2b5d727f0f395ae",
+        "ablation/profile_stages.py": "21a772457eda10f59aa4e86cd6426b9d0270215ed2c61d15851ec1801d1422ab",
+        "ablation/prefix_pair32_release.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+        "ablation/prefix_pair32.metal": "30431fd59cb9c638a50165f32aa05724bca1dc8462c4d6953caaa835d2324030",
+        "ablation/build.sh": "901ab845bf88baadcfd4737eb2c2effa339d904aab5a0345696079d9062eafae",
+        "ablation/prefix_profile.mm": "db8686e6bb6dc60879b9d011765a083fc3ebd28606679ed6e33e7368da3fe64e",
+        "ablation/manifest.json": "5c852269238ca5bfe941045966ecee8ea91e2c3e754862e72f9a8bc5b42b9f31",
+        "ablation/prefix_baseline.metal": "9f39aa89ae5f4f6a6322a6c88a4864126096d52fa88ff0cba37aac7fd2eb3348",
+        "ablation/check_pair32_geometry.py": "04bd7fadf724e98d82df8e3cb6c3edd5d437a88d366c05f4a7d311f0b9c7af37",
+        "ablation/prefix_hash_unroll.metal": "042063536ddff731314ecb69074f2680026e0e07d60eb510b3f47749a0f51797",
+        "ablation/prepare.py": "235e335e3fa76be4673bd19b1fc28433517a767e1f0641be0ac86125455d6f97",
+        "peak_stream/check_stream_counts.py": "0efec3d6dcdcd97dfa9382907c90585254650ac0c343a724ec08d1d28206d685",
+        "peak_stream/peak_stream.mm": "a1e32d5bd6f5e98f7f25a2f56d14692e427917327f05634da013ad12af91dfe9",
+        "peak_stream/build.sh": "8b3e17fa83b805f1c657676cab5659933d7e19df767dcd35179026cb99961098",
+        "peak_stream/peak_stream.metal": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+        "peak_stream/cpu-stream-audit.json": "cec5589efea6f792b63c9196e2898cdf02095562a24c49c93d9d5c106a222cc0"
+      },
+      "started_utc": "2026-10-30T09:11:26.612238+00:00",
+      "finished_utc": "2026-10-30T09:36:03.942607+00:00"
+    }
+  },
+  "qualification": {
+    "official_proof_checks": 28,
+    "production_dimension_proof_checks": 4,
+    "independent_non_export_checks": 512,
+    "deployed_official_selftest_passed": true,
+    "post_deployment_benchmark_THs": 4.2339456238065365
+  }
+}

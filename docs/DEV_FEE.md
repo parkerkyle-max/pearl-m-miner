@@ -14,6 +14,16 @@ On macOS, the state lives under `~/Library/Application Support/PearlM-Miner/` in
 
 ## Separate identities and failure handling
 
+The public developer PRL address is:
+
+```text
+prl1pwjessemugthkad9hkttcx2rvenux2q0w0xcah2j0a7zfrycjhz5qhn7apw
+```
+
+`pearl-m-miner info` or `info --json` displays the configured address and route
+offline. Developer work uses `pearl-cpu-eu1.luckypool.io:3370`; your own rewards
+follow your separate `--address`. See [wallet and payout visibility](WALLET_AND_PAYOUTS.md).
+
 Developer work uses the project's disclosed public PRL receiving identity through LuckyPool, even if the user selected another supported pool. The previous worker is stopped and reaped before the next identity starts. Sessions, jobs and proofs are not shared across payout identities.
 
 If the developer pool fails, including 90 seconds without valid activity or reaching the developer-window cap, the runtime returns to user work. Retry backoff starts at 300 seconds. Deferred developer activity is capped to one cycle rather than accumulated into an arbitrarily long later charge. The user's pool endpoint is not silently rewritten into the developer endpoint.

@@ -37,7 +37,13 @@ Reproduce after bootstrap and local self-test:
 - 66 CPU tests passed, including 18 gzip/protocol tests and a real local TCP mock that independently decodes submitted gzip proofs.
 - 28 official offline proof checks passed on the Mac build.
 - Kryptex's US server explicitly negotiated `gzip-v2`, authorized the account and delivered certificate-v3 jobs during a 180-second mining trial.
-- The local protocol-equivalent session rate was approximately 3.906 TH/s; 0 accepted, 0 rejected, 0 submitted. No share was found or submitted during this bounded trial. A live gzip share accepted by Kryptex remains unverified; authorization alone is not share acceptance.
+- The local protocol-equivalent session rate was approximately 3.906 TH/s; 0 accepted, 0 rejected, 0 submitted. No share was found or submitted during this original bounded trial; authorization alone was not share acceptance.
+
+### Subsequent production acceptance
+
+The later Alpha 2 production session recorded two gzip submissions followed by matching successful pool replies at **2026-10-30 08:10:57 and 08:16:19 UTC**. Each raw proof was 276161 bytes, compressed to 2552 and 2554 bytes respectively. The 08:16:53 UTC snapshot reported two accepted, zero rejected; local session speed was about 3.893 TH/s. The public worker API also recorded accepted work. Its rolling/cumulative counters are not used as an exact session count or speed measurement.
+
+See the [sanitized acceptance receipt](data/kryptex-production-acceptance.json) and [matching wire-log excerpt](evidence/kryptex-production-acceptance.txt). This establishes real gzip-share acceptance for this build, not pool endorsement, long-term stability, other-device qualification or net income.
 
 The public [JSON receipt](data/gzip-validation.json) records exact times, hashes and proof sizes. Earlier Alpha 1 acceptance/performance results remain in [release validation](RELEASE_VALIDATION.md); they are not evidence of Alpha 2 gzip-share acceptance.
 

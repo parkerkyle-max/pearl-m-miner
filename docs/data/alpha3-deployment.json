@@ -1,0 +1,67 @@
+{
+  "schema": "pearl-m-alpha3-deployment-v1",
+  "version": "0.1.0a3",
+  "started_utc": "2026-10-30T09:55:41.341459+00:00",
+  "finished_utc": "2026-10-30T09:56:41.548449+00:00",
+  "trials": [
+    {
+      "name": "alpha3-info",
+      "started_utc": "2026-10-30T09:55:42.539049+00:00",
+      "finished_utc": "2026-10-30T09:55:43.056303+00:00",
+      "exit": 0,
+      "benchmark": []
+    },
+    {
+      "name": "alpha3-cpu-tests",
+      "started_utc": "2026-10-30T09:55:43.059352+00:00",
+      "finished_utc": "2026-10-30T09:55:43.583646+00:00",
+      "exit": 0,
+      "benchmark": []
+    },
+    {
+      "name": "alpha3-official-gate",
+      "started_utc": "2026-10-30T09:55:43.587781+00:00",
+      "finished_utc": "2026-10-30T09:55:44.636165+00:00",
+      "exit": 0,
+      "benchmark": []
+    },
+    {
+      "name": "alpha3-benchmark",
+      "started_utc": "2026-10-30T09:55:44.641900+00:00",
+      "finished_utc": "2026-10-30T09:56:39.422806+00:00",
+      "exit": 0,
+      "benchmark": [
+        {
+          "measure_start_monotonic": 2641492.496695166,
+          "measure_start_unix_ns": 1793354154025467000,
+          "measure_end_monotonic": 2641537.553207541,
+          "measured_tiles": 363855872,
+          "measured_seconds": 45.056512374896556,
+          "tiles_per_second": 8075544.528890877,
+          "difficulty_factor": 524288,
+          "equivalent_hashes_per_second": 4233911089963.14,
+          "warmup_seconds_requested": 9.0,
+          "scope": "offline returned scans including grid preparation; no pool proof or network"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "tools/prefix_s_miner/prefix.metal": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+    "tools/prefix_s_miner/prefix_native.mm": "a7aeb54964ab908941b897cb92979d7b1be512a876b22d261465fcfbfeba42a1",
+    "tools/prefix_s_miner/prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e"
+  },
+  "updated_files_sha256": {
+    "pearl_m_miner/__init__.py": "7f5188ca0100bbad5a968b0227744537b0a6c02d991c3c377ed1dd10c2b44f62",
+    "pearl_m_miner/cli.py": "f51f80dbf710615ea72c3f31edd3e8a4cad1380ccf481ac94a1642e7f7698130",
+    "pearl_m_miner/discovery.py": "fb644b38ebb802db50d7e3582fc96a9548d305eea3e151748ca8a7b11b3f7abe",
+    "pyproject.toml": "0b5894f138d981575320e15d4b9b7f2c10023a936f33fe335c42466a9f3e6b61",
+    "tests/test_discovery.py": "b254633f305017cd2817a9a5ad155015f0c97a3052168b830b8b341ab797bb5d"
+  },
+  "cpu_tests_passed": 79,
+  "official_self_test_passed": true,
+  "production_resumed": true,
+  "production_config_unchanged": true,
+  "guardian_unchanged": true,
+  "scope": "Source update over the previously qualified native build; not a clean bootstrap build. Offline timed work excludes pool/proof/network and is not income. Actual pool observations are separate."
+}

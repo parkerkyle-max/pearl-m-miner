@@ -1,0 +1,156 @@
+--- a/tools/prefix_s_miner/prefix_native.mm
++++ b/tools/prefix_s_miner/prefix_native.mm
+@@ -1,6 +1,7 @@
+ #import <Foundation/Foundation.h>
+ #import <Metal/Metal.h>
+ #include <algorithm>
++#include <atomic>
+ #include <array>
+ #include <chrono>
+ #include <cstdint>
+@@ -52,12 +53,14 @@
+   id<MTLComputePipelineState> s_guard,s_uniform,s_form,s_finish;
+   std::mutex csr_mutex;std::shared_ptr<const CsrSnapshot> csr;
+   std::mutex prepare_mutex;id<MTLBuffer> s_float_scratch;
++  std::atomic<uint32_t> fold_flags{0};
+ };
+ struct Prepared {
+   std::shared_ptr<Context> c;std::mutex mutex;bool closed=false,bound_set=false;
+   uint64_t generation=0,epoch=0;uint32_t m=0,n=0,next_band=0,prepare_kind=0;
+   std::array<uint8_t,32> seed{},bound{};
+   id<MTLBuffer> x,v,key,trans,digests,hits,dummy,debug_raw_x;
++  id<MTLBuffer> fold_counts;
+   PfxPrepareDetail detail{};
+   PfxSDetail s_detail{};
+ };
+@@ -114,6 +117,13 @@
+ API uint32_t pfx_s_detail_size(){return uint32_t(sizeof(PfxSDetail));}
+ API uint32_t pfx_prepare_detail_abi_version(){return 1;}
+ API uint32_t pfx_prepare_detail_size(){return uint32_t(sizeof(PfxPrepareDetail));}
++API int pfx_fold_control(uint64_t h,uint32_t flags,char *err,size_t size){return checked(err,size,[&]{
++  need((flags&~7u)==0u,"fold flags");context(h)->fold_flags.store(flags);
++});}
++API int pfx_fold_counts(uint64_t h,uint64_t g,uint32_t *out,char *err,size_t size){return checked(err,size,[&]{
++  need(out,"fold output");auto p=snapshot(h,g);std::lock_guard<std::mutex>lock(p->mutex);
++  need(!p->closed&&p->fold_counts,"fold scan required");memcpy(out,p->fold_counts.contents,12);
++});}
+ 
+ API int pfx_context_create(const char *source,size_t bytes,uint64_t *handle,char *err,size_t size){
+   return checked(err,size,[&]{
+@@ -434,6 +444,8 @@
+     if(p->bound_set)need(!memcmp(bound,p->bound.data(),32),"target changed without new prepared epoch");
+     else {memcpy(p->bound.data(),bound,32);p->bound_set=true;}
+     auto c=p->c;reserve(c->device,p->trans,uint64_t(tiles)*64);reserve(c->device,p->hits,4+uint64_t(hit_capacity)*8);
++    reserve(c->device,p->fold_counts,12);memset(p->fold_counts.contents,0,12);
++    const uint32_t fold_flags=c->fold_flags.load();
+     if(digests)reserve(c->device,p->digests,digest_bytes);
+     memset(p->hits.contents,0,4);
+     id<MTLCommandBuffer>cb=[c->queue commandBuffer];metal_need(cb,"scan command");
+@@ -441,6 +453,7 @@
+     const uint32_t dims[4]={p->m,p->n,band_lo,n_bands};
+     [e setComputePipelineState:c->pair];[e setBuffer:p->x offset:0 atIndex:0];[e setBuffer:p->v offset:0 atIndex:1];
+     [e setBuffer:p->trans offset:0 atIndex:2];[e setBytes:dims length:16 atIndex:3];
++    [e setBuffer:p->fold_counts offset:0 atIndex:4];[e setBytes:&fold_flags length:4 atIndex:5];
+     [e dispatchThreadgroups:MTLSizeMake(p->n/64,n_bands,16) threadsPerThreadgroup:MTLSizeMake(128,1,1)];[e endEncoding];
+     e=[cb computeCommandEncoder];metal_need(e,"hash encoder");
+     const uint32_t params[4]={tiles,p->n/64,band_lo,hit_capacity},flags=digests?1u:0u;
+--- a/tools/prefix_s_miner/prefix.metal
++++ b/tools/prefix_s_miner/prefix.metal
+@@ -81,8 +81,12 @@
+                         device half *vp [[buffer(1)]],
+                         device uint *transcripts [[buffer(2)]],
+                         constant uint4 &dims [[buffer(3)]],
++                        device atomic_uint *layout_counts [[buffer(4)]],
++                        constant uint &fold_flags [[buffer(5)]],
+                         uint3 group [[threadgroup_position_in_grid]],
+-                        uint tid [[thread_index_in_threadgroup]]) {
++                        uint tid [[thread_index_in_threadgroup]],
++                        uint lane [[thread_index_in_simdgroup]],
++                        uint sg [[simdgroup_index_in_threadgroup]]) {
+   constexpr auto descriptor = matmul2d_descriptor(64, 64, 128, false, true, false,
+       matmul2d_descriptor::mode::multiply_accumulate);
+   using Operand = tensor<device half, extents<int,128,64>, tensor_inline>;
+@@ -97,6 +101,33 @@
+   const uint pair = tid / 4u;
+   const uint first_col = (tid & 3u) * 16u;
+   uint result = 0u;
++  // This guard inspects the SAME accumulator used below. No mapping from a
++  // separate probe or older full-rank pipeline is trusted without this check.
++  threadgroup atomic_uint layout_bad;
++  threadgroup uint partials[64];
++  if (tid == 0u) atomic_store_explicit(&layout_bad,0u,memory_order_relaxed);
++  threadgroup_barrier(mem_flags::mem_threadgroup);
++  bool local_ok = accumulator.get_capacity()==32u && lane<32u && sg<4u;
++  for(uint i=0u;i<accumulator.get_capacity();++i) {
++    if(!accumulator.is_valid_element(i)) {local_ok=false;continue;}
++    const auto xy=accumulator.get_multidimensional_index(i);
++    const uint col=(sg&1u)*8u+(lane&1u)*2u+((lane>>3u)&1u)*4u+
++                   (i&1u)+((i>>1u)&3u)*16u;
++    const uint row=(sg>>1u)*8u+((lane>>1u)&3u)+((lane>>4u)&1u)*4u+(i>>3u)*16u;
++    if(uint(xy[0])!=col || uint(xy[1])!=row)local_ok=false;
++  }
++  // Bit2 injects a guard failure for a same-pipeline fallback test.
++  if(!local_ok || (fold_flags&4u))
++    atomic_store_explicit(&layout_bad,1u,memory_order_relaxed);
++  threadgroup_barrier(mem_flags::mem_threadgroup);
++  const bool mismatch=atomic_load_explicit(&layout_bad,memory_order_relaxed)!=0u;
++  const bool specialized=!mismatch && !(fold_flags&2u);
++  if(tid==0u && (fold_flags&1u)) {
++    atomic_fetch_add_explicit(&layout_counts[specialized?0u:1u],1u,memory_order_relaxed);
++    if(mismatch)atomic_fetch_add_explicit(&layout_counts[2],1u,memory_order_relaxed);
++  }
++  const uint pair0=(sg>>1u)*8u+((lane>>1u)&3u)+((lane>>4u)&1u)*4u;
++  const uint pair1=pair0+16u;
+   for (uint phase = 0u; phase < 2u; ++phase) {
+     for (uint i = 0u; i < accumulator.get_capacity(); ++i)
+       if (accumulator.is_valid_element(i)) accumulator[i] = 0.0f;
+@@ -106,20 +137,36 @@
+     Operand b(vp + ulong(col0) * 128ul,
+               extents<int,128,64>{}, array<int,2>{1,128});
+     operation.run(a,b,accumulator);
+-    accumulator.store(destination);
++    uint folded = 0u;
++    if(specialized) {
++      uint f0=0u,f1=0u;
++      #pragma unroll
++      for(uint i=0u;i<8u;++i) {
++        f0^=as_type<uint>(int(accumulator[i]))^as_type<uint>(int(accumulator[i+16u]));
++        f1^=as_type<uint>(int(accumulator[i+8u]))^as_type<uint>(int(accumulator[i+24u]));
++      }
++      f0^=simd_shuffle_xor(f0,8u);f0^=simd_shuffle_xor(f0,1u);
++      f1^=simd_shuffle_xor(f1,8u);f1^=simd_shuffle_xor(f1,1u);
++      if((lane&9u)==0u) {
++        const uint side=(sg&1u)*32u;
++        partials[side+pair0]=f0;partials[side+pair1]=f1;
++      }
++      threadgroup_barrier(mem_flags::mem_threadgroup);
++      // Exactly tid0..31 own the output rows in the specialized branch.
++      if(tid<32u)folded=partials[tid]^partials[32u+tid];
++    } else {
++      accumulator.store(destination);
++      threadgroup_barrier(mem_flags::mem_threadgroup);
++      for(uint j=0u;j<16u;++j)
++        folded^=as_type<uint>(int(matrix[pair*64u+first_col+j]))^
++                as_type<uint>(int(matrix[(pair+32u)*64u+first_col+j]));
++      folded^=simd_shuffle_xor(folded,2u);folded^=simd_shuffle_xor(folded,1u);
++    }
++    if(phase==0u)result=(folded<<13u)|(folded>>19u);else result^=folded;
+     threadgroup_barrier(mem_flags::mem_threadgroup);
+-    uint folded = 0u;
+-    for (uint j = 0u; j < 16u; ++j)
+-      folded ^= as_type<uint>(int(matrix[pair*64u + first_col+j])) ^
+-                as_type<uint>(int(matrix[(pair+32u)*64u + first_col+j]));
+-    folded ^= simd_shuffle_xor(folded,2u);
+-    folded ^= simd_shuffle_xor(folded,1u);
+-    if (phase == 0u) result = (folded << 13u) | (folded >> 19u);
+-    else result ^= folded;
+-    threadgroup_barrier(mem_flags::mem_threadgroup);
+-  }
+-  if ((tid & 3u) == 0u) {
+-    const ulong row_pair = ulong(group.y)*32ul + pair;
++  }
++  if (specialized ? tid<32u : (tid&3u)==0u) {
++    const ulong row_pair = ulong(group.y)*32ul + (specialized?tid:pair);
+     const ulong tile = row_pair * (dims.y/64u) + group.x;
+     transcripts[tile*16ul + slot] = result;
+   }

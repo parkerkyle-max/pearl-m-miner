@@ -1,0 +1,17 @@
+--- a/tools/prefix_s_miner/prefix_native.mm
++++ b/tools/prefix_s_miner/prefix_native.mm
+@@ -433,7 +433,13 @@
+     for(unsigned i=0;i<4;++i)for(unsigned j=i+1;j<4;++j)need(!overlaps(spans[i],lengths[i],spans[j],lengths[j]),"aliased scan outputs");
+     if(p->bound_set)need(!memcmp(bound,p->bound.data(),32),"target changed without new prepared epoch");
+     else {memcpy(p->bound.data(),bound,32);p->bound_set=true;}
+-    auto c=p->c;reserve(c->device,p->trans,uint64_t(tiles)*64);reserve(c->device,p->hits,4+uint64_t(hit_capacity)*8);
++    auto c=p->c;
++    const auto transcript_mode=trans?MTLStorageModeShared:MTLStorageModePrivate;
++    const auto transcript_options=trans?MTLResourceStorageModeShared:MTLResourceStorageModePrivate;
++    if(!p->trans||p->trans.length<uint64_t(tiles)*64||p->trans.storageMode!=transcript_mode)
++      p->trans=[c->device newBufferWithLength:uint64_t(tiles)*64 options:transcript_options];
++    metal_need(p->trans,"transcript allocation");
++    reserve(c->device,p->hits,4+uint64_t(hit_capacity)*8);
+     if(digests)reserve(c->device,p->digests,digest_bytes);
+     memset(p->hits.contents,0,4);
+     id<MTLCommandBuffer>cb=[c->queue commandBuffer];metal_need(cb,"scan command");

@@ -1,0 +1,498 @@
+{
+  "schema": "pearl-m-optimization-20261030-v1",
+  "device": "Apple M1 Max, 32 GPU cores, 64 GiB",
+  "operating_system": "macOS 26.6.1",
+  "dimensions": {
+    "m": 16384,
+    "n": 65536,
+    "k": 4096,
+    "rank": 128
+  },
+  "measurement_seconds_per_run": 45,
+  "warmup_seconds_per_run": 9,
+  "cpu_helpers": 2,
+  "protocol_work_per_tile": 524288,
+  "baseline_definition": "mean of first three shared-512 controls",
+  "results": [
+    {
+      "candidate": "Current backend, 512 rows",
+      "runs": 3,
+      "mean_local_protocol_ths": 3.9271696077798524,
+      "relative_to_initial_baseline_percent": 0.0,
+      "decision": "Retained"
+    },
+    {
+      "candidate": "GPU-private transcript",
+      "runs": 1,
+      "mean_local_protocol_ths": 3.9274725423663384,
+      "relative_to_initial_baseline_percent": 0.007713814699683574,
+      "decision": "Not adopted; no meaningful gain"
+    },
+    {
+      "candidate": "128-row dispatch",
+      "runs": 1,
+      "mean_local_protocol_ths": 3.8684136972211647,
+      "relative_to_initial_baseline_percent": -1.496138858945395,
+      "decision": "Not adopted; slower"
+    },
+    {
+      "candidate": "2048-row dispatch",
+      "runs": 1,
+      "mean_local_protocol_ths": 3.9319960803851792,
+      "relative_to_initial_baseline_percent": 0.12289952019810535,
+      "decision": "Not adopted; small single-run difference, longer stale-work exposure"
+    },
+    {
+      "candidate": "Register fold, full layout guard",
+      "runs": 2,
+      "mean_local_protocol_ths": 2.944779862633564,
+      "relative_to_initial_baseline_percent": -25.015210527198562,
+      "decision": "Not adopted; slower"
+    },
+    {
+      "candidate": "Register fold, unrolled full guard",
+      "runs": 2,
+      "mean_local_protocol_ths": 3.3511249555155507,
+      "relative_to_initial_baseline_percent": -14.668188792333748,
+      "decision": "Not adopted; slower"
+    },
+    {
+      "candidate": "Current backend + display telemetry",
+      "runs": 1,
+      "mean_local_protocol_ths": 3.927416998121372,
+      "relative_to_initial_baseline_percent": 0.006299456510094892,
+      "decision": "Display update deployed; computational backend unchanged"
+    }
+  ],
+  "evidence": {
+    "captured_utc": "2026-10-30T08:37:58.561948+00:00",
+    "reports": [
+      {
+        "experiment": "optimization-20261030-private",
+        "finished_utc": "2026-10-30T08:26:12.123637+00:00",
+        "resumed": true,
+        "error": null,
+        "files_sha256": {
+          "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+          "libprefix-private.dylib": "f00d17f5614a862d238495299f253b4ff247adf85b9128eea476e21d41ea49e4",
+          "prefix_private.mm": "95d8272ebe913cefffb0f7c22bba696219f5aa4774cf84b81b27c2436902e360",
+          "batch.py": "690a1084a1ee856002758cb7aacf0c47019a66d71bd48f8e30b6a209d1b9b9e8",
+          "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f"
+        },
+        "gates": [
+          {
+            "name": "build-private",
+            "exit": 0
+          },
+          {
+            "name": "private-official-gate",
+            "exit": 0
+          },
+          {
+            "name": "private-production-gate",
+            "exit": 0
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "shared-a",
+            "benchmark": {
+              "measure_start_monotonic": 2635789.049366666,
+              "measure_start_unix_ns": 1793348450210927000,
+              "measure_end_monotonic": 2635834.055941833,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.00657516717911,
+              "tiles_per_second": 7490398.519499915,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927126058991.5713,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 63.201922156594016,
+            "gpu_temperature_c_max": 86.37535095214844,
+            "cpu_temperature_c_max": 73.26382446289062
+          },
+          {
+            "name": "private-b",
+            "benchmark": {
+              "measure_start_monotonic": 2635843.836518833,
+              "measure_start_unix_ns": 1793348504996754000,
+              "measure_end_monotonic": 2635888.8391235,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.00260466709733,
+              "tiles_per_second": 7491059.384091069,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927472542366.3384,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 63.438791188326746,
+            "gpu_temperature_c_max": 87.19519805908203,
+            "cpu_temperature_c_max": 74.0471420288086
+          },
+          {
+            "name": "shared-a2",
+            "benchmark": {
+              "measure_start_monotonic": 2635898.69524525,
+              "measure_start_unix_ns": 1793348559854114000,
+              "measure_end_monotonic": 2635943.698760166,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.00351491570473,
+              "tiles_per_second": 7490907.868673105,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927393104650.885,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 63.60010248819987,
+            "gpu_temperature_c_max": 87.80622100830078,
+            "cpu_temperature_c_max": 74.81867218017578
+          },
+          {
+            "name": "shared-region128",
+            "benchmark": {
+              "measure_start_monotonic": 2635953.525643791,
+              "measure_start_unix_ns": 1793348614683147000,
+              "measure_end_monotonic": 2635998.540259,
+              "measured_tiles": 332136448,
+              "measured_seconds": 45.01461520884186,
+              "tiles_per_second": 7378413.576547937,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3868413697221.1646,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 62.66656782362196,
+            "gpu_temperature_c_max": 87.42951965332031,
+            "cpu_temperature_c_max": 74.58895874023438
+          },
+          {
+            "name": "shared-region2048",
+            "benchmark": {
+              "measure_start_monotonic": 2636008.616704791,
+              "measure_start_unix_ns": 1793348669772834000,
+              "measure_end_monotonic": 2636053.6374445,
+              "measured_tiles": 337641472,
+              "measured_seconds": 45.02073970902711,
+              "tiles_per_second": 7499687.34814678,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3931996080385.179,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 64.13937724720348,
+            "gpu_temperature_c_max": 87.5398941040039,
+            "cpu_temperature_c_max": 74.42686462402344
+          },
+          {
+            "name": "shared-a3",
+            "benchmark": {
+              "measure_start_monotonic": 2636063.353403416,
+              "measure_start_unix_ns": 1793348724508169000,
+              "measure_end_monotonic": 2636108.361541833,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.00813841680065,
+              "tiles_per_second": 7490138.35849209,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3926989659697.101,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 63.5469030900435,
+            "gpu_temperature_c_max": 87.20738983154297,
+            "cpu_temperature_c_max": 74.20542907714844
+          }
+        ]
+      },
+      {
+        "experiment": "optimization-20261030-fold",
+        "finished_utc": "2026-10-30T08:30:05.599090+00:00",
+        "resumed": true,
+        "error": null,
+        "files_sha256": {
+          "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+          "prefix_native.mm": "a5cb069f89b15c41408e0f2033169b6ed8eb075a17c06ecb3d0b3d12d319c7d6",
+          "prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+          "prefix.metal": "2d60fd0079dc2d98b10f12aa5ea28b53fd431443fc53bedbee0781f5be1a0543",
+          "batch.py": "e40f57ee417f3a0dea2f9364d046d8a93188ef775dd0b8805431c1c69e4f2115",
+          "libprefix.dylib": "21db3fbf0e6d34d1bd3c0970ab46c0c8c2d5d0b7f7d0c5d8cffb58c9110fc54f",
+          "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+          "check_register_fold.py": "a5220467a2fb05a2f58a377eefd392b37acd6ada26e1b161dfd4f2bbd41fde59"
+        },
+        "gates": [
+          {
+            "name": "build-fold",
+            "exit": 0
+          },
+          {
+            "name": "fold-layout-gate",
+            "exit": 0
+          },
+          {
+            "name": "fold-official-gate",
+            "exit": 0
+          },
+          {
+            "name": "fold-production-gate",
+            "exit": 0
+          },
+          {
+            "name": "fold-large-official-gate",
+            "exit": 0
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "fold-baseline-a",
+            "benchmark": {
+              "measure_start_monotonic": 2636132.399725041,
+              "measure_start_unix_ns": 1793348793552769000,
+              "measure_end_monotonic": 2636177.403175166,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.003450124990195,
+              "tiles_per_second": 7490918.65320789,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927398758853.058,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 63.0257568359375,
+            "gpu_temperature_c_max": 85.8702392578125,
+            "cpu_temperature_c_max": 73.02085876464844
+          },
+          {
+            "name": "fold-candidate-b",
+            "benchmark": {
+              "measure_start_monotonic": 2636187.211419125,
+              "measure_start_unix_ns": 1793348848363097000,
+              "measure_end_monotonic": 2636232.296975833,
+              "measured_tiles": 253231104,
+              "measured_seconds": 45.08555670781061,
+              "tiles_per_second": 5616679.098389181,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 2944757451136.267,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 53.84524900648329,
+            "gpu_temperature_c_max": 82.13168334960938,
+            "cpu_temperature_c_max": 71.49488830566406
+          },
+          {
+            "name": "fold-baseline-a2",
+            "benchmark": {
+              "measure_start_monotonic": 2636242.007568916,
+              "measure_start_unix_ns": 1793348903157881000,
+              "measure_end_monotonic": 2636287.0215205,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.01395158423111,
+              "tiles_per_second": 7489171.071088457,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3926482522518.8247,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 63.44008305867513,
+            "gpu_temperature_c_max": 88.75150299072266,
+            "cpu_temperature_c_max": 75.28681182861328
+          },
+          {
+            "name": "fold-candidate-b2",
+            "benchmark": {
+              "measure_start_monotonic": 2636296.887035208,
+              "measure_start_unix_ns": 1793348958035980000,
+              "measure_end_monotonic": 2636341.971905666,
+              "measured_tiles": 253231104,
+              "measured_seconds": 45.08487045811489,
+              "tiles_per_second": 5616764.591466638,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 2944802274130.861,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 54.171256171332466,
+            "gpu_temperature_c_max": 84.70491027832031,
+            "cpu_temperature_c_max": 73.73832702636719
+          }
+        ]
+      },
+      {
+        "experiment": "optimization-20261030-fold-unroll",
+        "finished_utc": "2026-10-30T08:37:10.578095+00:00",
+        "resumed": true,
+        "error": null,
+        "files_sha256": {
+          "research_worker.py": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+          "prefix_native.mm": "a5cb069f89b15c41408e0f2033169b6ed8eb075a17c06ecb3d0b3d12d319c7d6",
+          "prefix_adapter.py": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+          "prefix.metal": "d51b0ba01f91c2aa0cb8c4077097618f4a2479dfe9f1b860009cf106c4dfa0f0",
+          "batch.py": "a1988c059cdc81664c60b034000a4cab3a5b921aa463e764ec0161c1661ab4e3",
+          "libprefix.dylib": "708a1c7ea7364a052cfbf474dcfaee1bcf4487445a69b5053235773f0825824f",
+          "check_private_scan.py": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+          "check_register_fold.py": "a5220467a2fb05a2f58a377eefd392b37acd6ada26e1b161dfd4f2bbd41fde59"
+        },
+        "gates": [
+          {
+            "name": "build-fold",
+            "exit": 0
+          },
+          {
+            "name": "fold-layout-gate",
+            "exit": 0
+          },
+          {
+            "name": "fold-official-gate",
+            "exit": 0
+          },
+          {
+            "name": "fold-production-gate",
+            "exit": 0
+          },
+          {
+            "name": "fold-large-official-gate",
+            "exit": 0
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "fold-baseline-a",
+            "benchmark": {
+              "measure_start_monotonic": 2636557.36777275,
+              "measure_start_unix_ns": 1793349218510225000,
+              "measure_end_monotonic": 2636602.37119275,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.003419999964535,
+              "tiles_per_second": 7490923.6675849445,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927401387830.7754,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 63.27706892225478,
+            "gpu_temperature_c_max": 86.12081909179688,
+            "cpu_temperature_c_max": 72.95704650878906
+          },
+          {
+            "name": "fold-candidate-b",
+            "benchmark": {
+              "measure_start_monotonic": 2636612.11936325,
+              "measure_start_unix_ns": 1793349273260451000,
+              "measure_end_monotonic": 2636657.1476485,
+              "measured_tiles": 287834112,
+              "measured_seconds": 45.02828524960205,
+              "tiles_per_second": 6392295.65159921,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3351403902585.6465,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 45,
+            "software_power_w_mean": 55.979207102457686,
+            "gpu_temperature_c_max": 83.20204162597656,
+            "cpu_temperature_c_max": 71.50341796875
+          },
+          {
+            "name": "fold-baseline-a2",
+            "benchmark": {
+              "measure_start_monotonic": 2636666.947872416,
+              "measure_start_unix_ns": 1793349328087601000,
+              "measure_end_monotonic": 2636712.016716041,
+              "measured_tiles": 337641472,
+              "measured_seconds": 45.068843625020236,
+              "tiles_per_second": 7491682.609148559,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927799291785.28,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 63.19160825555975,
+            "gpu_temperature_c_max": 86.7622299194336,
+            "cpu_temperature_c_max": 73.73577117919922
+          },
+          {
+            "name": "fold-candidate-b2",
+            "benchmark": {
+              "measure_start_monotonic": 2636721.800774958,
+              "measure_start_unix_ns": 1793349382939129000,
+              "measure_end_monotonic": 2636766.836557125,
+              "measured_tiles": 287834112,
+              "measured_seconds": 45.03578216722235,
+              "tiles_per_second": 6391231.552973661,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3350846008445.4546,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 56.091159387068316,
+            "gpu_temperature_c_max": 84.02861785888672,
+            "cpu_temperature_c_max": 72.53999328613281
+          }
+        ]
+      },
+      {
+        "experiment": "optimization-20261030-observability",
+        "finished_utc": "2026-10-30T08:31:34.829601+00:00",
+        "resumed": true,
+        "error": null,
+        "files_sha256": {
+          "batch.py": "27ba435be785106afd6d29fda39ae1d766b693e08775e8ce1e7c02837bb3620a"
+        },
+        "gates": [
+          {
+            "name": "mac-cpu-tests",
+            "exit": 0
+          },
+          {
+            "name": "observability-official-gate",
+            "exit": 0
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "observability-benchmark",
+            "benchmark": {
+              "measure_start_monotonic": 2636386.1999045,
+              "measure_start_unix_ns": 1793349047346623000,
+              "measure_end_monotonic": 2636431.203145625,
+              "measured_tiles": 337117184,
+              "measured_seconds": 45.00324112502858,
+              "tiles_per_second": 7490953.441851371,
+              "difficulty_factor": 524288,
+              "equivalent_hashes_per_second": 3927416998121.3716,
+              "warmup_seconds_requested": 9.0,
+              "scope": "offline returned scans including grid preparation; no pool proof or network"
+            },
+            "samples": 44,
+            "software_power_w_mean": 63.75321578979492,
+            "gpu_temperature_c_max": 89.6972885131836,
+            "cpu_temperature_c_max": 76.48441314697266
+          }
+        ]
+      }
+    ],
+    "power_scope": "software sys_power telemetry only; no outlet power readings",
+    "speed_scope": "offline fresh-grid protocol-equivalent work; includes preparation; excludes pool/network/proof production"
+  },
+  "evidence_file_sha256": "0e523b617b9ac6d15f074ac1c348945a8345171065c03ef50848c8621bc1ccb1",
+  "limitations": [
+    "offline fresh-grid rate, not live pool effective rate or revenue",
+    "one physical M1 Max; no gain claimed on M2-M5",
+    "software power only; wall power and net earnings unmeasured",
+    "short windows; sub-percent differences are not established improvements",
+    "candidate correctness gates do not imply candidate real-pool acceptance"
+  ],
+  "production_decision": "keep original shared transcript, original scan kernel, region_rows=512; deploy display-only telemetry"
+}

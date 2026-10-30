@@ -1,0 +1,44 @@
+{
+  "schema": "pearl-m-strata-study-v1",
+  "reference_repository": "https://github.com/Niko1221/Strata",
+  "reference_commit": "870aedd9e1ebe1c91f94da93b59af17729f6c5c0",
+  "experiment": "same serial encoder plus explicit buffer dependency barrier; original independent patch",
+  "trials": [
+    {
+      "name": "control-a",
+      "local_ths": 4.234137262644907,
+      "seconds": 60.050500999670476
+    },
+    {
+      "name": "single-b",
+      "local_ths": 4.23467702374034,
+      "seconds": 60.04284683289006
+    },
+    {
+      "name": "control-a2",
+      "local_ths": 4.234286240012441,
+      "seconds": 60.04838820779696
+    },
+    {
+      "name": "single-b2",
+      "local_ths": 4.233937074717138,
+      "seconds": 60.05334029207006
+    },
+    {
+      "name": "control-a3",
+      "local_ths": 4.233933484968744,
+      "seconds": 60.05339120840654
+    }
+  ],
+  "baseline_mean_ths": 4.234118995875364,
+  "candidate_mean_ths": 4.23430704922874,
+  "relative_percent": 0.004441380923836391,
+  "adopted": false,
+  "official_proof_checks": 28,
+  "large_proof_checks": 4,
+  "independent_scan_checks": 512,
+  "production_resumed": true,
+  "raw_receipt_sha256": "e4a6da2715755dc6a754e4a2e60e5985a6955637b409d99b97de0bd464b497ff",
+  "candidate_sha256": "14e766c6210a98e83537d11b24784cb37fa474bc31dfe1db7ead0f14348bdb58",
+  "scope": "offline fresh-grid work; no pool rate or income claim"
+}

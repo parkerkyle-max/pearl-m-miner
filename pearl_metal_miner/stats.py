@@ -1,9 +1,10 @@
 """Session rate numbers, shared by the heartbeat, the exit summary, and the
-dashboard — one place, so every surface shows the same figures.
+dashboard â€” one place, so every surface shows the same figures.
 
 Display math only: nothing here feeds consensus values, so the kernel rule
-of exact-integer comparisons does not bind; the unit stays tiles/s because
-any conversion to a hashrate would be an invented number.
+of exact-integer comparisons does not bind. This meter retains raw tiles/s;
+callers may convert to local protocol work only with an explicit, applicable
+work-per-tile factor. That conversion is not a pool effective-rate estimate.
 """
 
 from __future__ import annotations
@@ -53,7 +54,7 @@ class RateMeter:
             t = self._now()
             cutoff = t - self.window_s
             # A sample's tiles belong to the burst ENDING at its timestamp, so a
-            # sample at exactly `cutoff` is work done outside (cutoff, t] — drop it.
+            # sample at exactly `cutoff` is work done outside (cutoff, t] â€” drop it.
             while self._samples and self._samples[0][0] <= cutoff:
                 self._win_total -= self._samples.popleft()[1]
             span = min(t - self._t0, self.window_s)

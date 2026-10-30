@@ -77,46 +77,54 @@ kernel void prepare_v(device const signed char *source [[buffer(0)]],
 // This kernel is dispatched only after native validation of every actual
 // integer half conversion and a conservative <=2^24 absolute dot-product sum.
 // Each TG computes one final transcript slot and has no cross-rank dependency.
+// Preserves the complete PRL transcript/hash/target path.
+// Split only the public MPP output tile into two sequential 32-row subblocks.
+// Native geometry remains 128 threads / 4 SIMDgroups / one 64-row band.
 kernel void prefix_pair(device half *xp [[buffer(0)]],
                         device half *vp [[buffer(1)]],
                         device uint *transcripts [[buffer(2)]],
                         constant uint4 &dims [[buffer(3)]],
                         uint3 group [[threadgroup_position_in_grid]],
                         uint tid [[thread_index_in_threadgroup]]) {
-  constexpr auto descriptor = matmul2d_descriptor(64, 64, 128, false, true, false,
+  constexpr auto descriptor = matmul2d_descriptor(32, 64, 128, false, true, false,
       matmul2d_descriptor::mode::multiply_accumulate);
-  using Operand = tensor<device half, extents<int,128,64>, tensor_inline>;
+  using Left = tensor<device half, extents<int,128,32>, tensor_inline>;
+  using Right = tensor<device half, extents<int,128,64>, tensor_inline>;
   matmul2d<descriptor, execution_simdgroups<4>> operation;
-  auto accumulator = operation.get_destination_cooperative_tensor<Operand,Operand,float>();
-  threadgroup float matrix[4096];
-  tensor<threadgroup float, extents<int,64,64>, tensor_inline>
-      destination(matrix, extents<int,64,64>{}, array<int,2>{1,64});
+  auto accumulator = operation.get_destination_cooperative_tensor<Left,Right,float>();
+  threadgroup float matrix[2048];
+  tensor<threadgroup float, extents<int,64,32>, tensor_inline>
+      destination(matrix, extents<int,64,32>{}, array<int,2>{1,64});
   const uint row0 = (dims.z + group.y) * 64u;
   const uint col0 = group.x * 64u;
   const uint slot = group.z;
-  const uint pair = tid / 4u;
-  const uint first_col = (tid & 3u) * 16u;
+  const uint pair = tid / 4u;               // 0..31, one row per four lanes
+  const uint first_col = (tid & 3u) * 16u;  // four nonoverlapping 16-column slices
+  Right b(vp + ulong(col0) * 128ul,
+          extents<int,128,64>{}, array<int,2>{1,128});
   uint result = 0u;
   for (uint phase = 0u; phase < 2u; ++phase) {
-    for (uint i = 0u; i < accumulator.get_capacity(); ++i)
-      if (accumulator.is_valid_element(i)) accumulator[i] = 0.0f;
     const uint prefix = slot + phase * 16u;
-    Operand a(xp + (ulong(prefix) * dims.x + row0) * 128ul,
-              extents<int,128,64>{}, array<int,2>{1,128});
-    Operand b(vp + ulong(col0) * 128ul,
-              extents<int,128,64>{}, array<int,2>{1,128});
-    operation.run(a,b,accumulator);
-    accumulator.store(destination);
-    threadgroup_barrier(mem_flags::mem_threadgroup);
     uint folded = 0u;
-    for (uint j = 0u; j < 16u; ++j)
-      folded ^= as_type<uint>(int(matrix[pair*64u + first_col+j])) ^
-                as_type<uint>(int(matrix[(pair+32u)*64u + first_col+j]));
+    for (uint half_rows = 0u; half_rows < 2u; ++half_rows) {
+      for (uint i = 0u; i < accumulator.get_capacity(); ++i)
+        if (accumulator.is_valid_element(i)) accumulator[i] = 0.0f;
+      Left a(xp + (ulong(prefix) * dims.x + row0 + half_rows * 32u) * 128ul,
+             extents<int,128,32>{}, array<int,2>{1,128});
+      operation.run(a,b,accumulator);
+      accumulator.store(destination);
+      threadgroup_barrier(mem_flags::mem_threadgroup);
+      // XOR the same two rows as the baseline, in two public stores.
+      // XOR is associative; perform the four-lane reduction after both rows.
+      for (uint j = 0u; j < 16u; ++j)
+        folded ^= as_type<uint>(int(matrix[pair*64u + first_col+j]));
+      // All 128 threads must finish reading before any thread reuses matrix.
+      threadgroup_barrier(mem_flags::mem_threadgroup);
+    }
     folded ^= simd_shuffle_xor(folded,2u);
     folded ^= simd_shuffle_xor(folded,1u);
     if (phase == 0u) result = (folded << 13u) | (folded >> 19u);
     else result ^= folded;
-    threadgroup_barrier(mem_flags::mem_threadgroup);
   }
   if ((tid & 3u) == 0u) {
     const ulong row_pair = ulong(group.y)*32ul + pair;

@@ -15,7 +15,7 @@ The optimized backend requires Apple Silicon and macOS 26 or later with a compat
 
 M1 Max research used two CPU helpers. The automatic profile selects M=16384 and N=65536 only on an M1 Max with at least 64 GiB RAM; other devices start at M=8192 and N=16384. Explicit profiles or dimensions may override that choice. The GPU backend uses K=4096 and rank=128; supported bounds and defaults are checked by the CLI/native code. A conservative configuration should be tested before increasing memory use. A local self-test receipt binds the result to key source/library hashes and the OS/device; changing those requires a new self-test before benchmark or mining.
 
-LuckyPool is the pool with recorded accepted M1 Max shares in this research. Other inherited Stratum dialects may be configurable, but the existence of a code path is not a completed per-pool validation. Pool profitability, eligibility, availability, minimum payout and fee rules are external conditions and can change.
+LuckyPool and Kryptex have recorded accepted M1 Max shares. Kryptex uses negotiated gzip-v2, with separate [protocol evidence](KRYPTEX_GZIP.md) and [32-row kernel acceptance](data/m1-pair32-live.json). These bounded tests do not imply an official listing or endorsement. Other inherited Stratum dialects may be configurable, but the existence of a code path is not completed per-pool validation. Pool availability, minimum payout and fee rules are external conditions and can change.
 
 To contribute a new device result, include:
 

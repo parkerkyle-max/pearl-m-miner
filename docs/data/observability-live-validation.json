@@ -1,0 +1,88 @@
+{
+  "schema": "pearl-m-observability-live-v1",
+  "captured_utc": "2026-10-30T08:37:59.803432+00:00",
+  "build": "Alpha 2 plus unreleased display-only telemetry patch",
+  "user_pool": "Kryptex",
+  "gzip_v2_negotiated": true,
+  "user_session_observation": {
+    "schema": "pearl-m-telemetry-v1",
+    "coin": "PRL",
+    "algorithm": "PearlHash",
+    "uptime_seconds": 30.044833207968622,
+    "local_rate": {
+      "basis": "protocol_equivalent_work_per_wall_second",
+      "rolling_window_seconds": 60,
+      "rolling_tiles_per_second": 7346536.999557813,
+      "session_tiles_per_second": 7346535.8175439155,
+      "protocol_work_per_tile": 524288,
+      "rolling_hs": 3851701190424.1665,
+      "session_hs": 3851700570708.4644,
+      "rolling_ths": 3.8517011904241665,
+      "session_ths": 3.851700570708464
+    },
+    "pool_effective_hs": null,
+    "shares": {
+      "submitted": 1,
+      "accepted": 1,
+      "rejected": 0,
+      "pending": 0
+    },
+    "jobs": {
+      "received_notifications": 2,
+      "adopted_updates": 2,
+      "last_received_age_seconds": 22.82034962484613,
+      "last_adopted_age_seconds": 22.820342666935176
+    },
+    "native": {
+      "cumulative": {
+        "prepares": 28,
+        "prepare_wall_s": 0.44070229300000013,
+        "upload_s": 0.041661417000000006,
+        "guard_gpu_s": 0.12346399808302522,
+        "scans": 422,
+        "gpu_s": 28.931894997134805,
+        "scan_wall_s": 29.10842161899999,
+        "completed_tiles": 221249536,
+        "valid_returned_tiles": 220725248,
+        "stale_discarded_tiles": 524288,
+        "overflow_hits": 0,
+        "stale_grid_loads": 0,
+        "duplicate_commitment_loads": 0,
+        "sparse_prepares": 28,
+        "legacy_prepares": 0,
+        "csr_prepares": 0,
+        "s_prepares": 28
+      },
+      "delta": {
+        "prepares": null,
+        "prepare_wall_s": null,
+        "upload_s": null,
+        "guard_gpu_s": null,
+        "scans": null,
+        "gpu_s": null,
+        "scan_wall_s": null,
+        "completed_tiles": null,
+        "valid_returned_tiles": null,
+        "stale_discarded_tiles": null,
+        "overflow_hits": null,
+        "stale_grid_loads": null,
+        "duplicate_commitment_loads": null,
+        "sparse_prepares": null,
+        "legacy_prepares": null,
+        "csr_prepares": null,
+        "s_prepares": null
+      },
+      "delta_window_seconds": null,
+      "counter_resets": [],
+      "timings_overlap": true
+    }
+  },
+  "source_sha256": {
+    "pearl_metal_miner/miner.py": "e4a270374dff1cec10133aad4e3d39457c386d222503f953ad404d70f752e093",
+    "pearl_metal_miner/telemetry.py": "db4233880517074af2b427ee29de6b140791e8d629f1baec307d55752980c44b",
+    "pearl_metal_miner/stats.py": "e5e7610863d46366f714d221f38e2c896773b204b0898da036ee438d076bc116",
+    "tests/test_telemetry.py": "86d80d274055ab767ec158f35c3a85a7cc0757c1f7e2a6d8823fc95c7dcdd12c"
+  },
+  "private_snapshot_sha256": "259e15ed894408aced03647515add8ca0153b42639878ef6f74e350447b351a3",
+  "scope": "live observation and one accepted user gzip share; short window not precise pool speed/income"
+}

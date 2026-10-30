@@ -1,0 +1,32 @@
+{
+  "schema": "pearl-m-kryptex-production-acceptance-v1",
+  "release": "v0.1.0-alpha.2",
+  "captured_utc": "2026-10-30T08:16:53.447019+00:00",
+  "gzip_v2_negotiated": true,
+  "session_accepted": 2,
+  "session_rejected": 0,
+  "local_protocol_ths_from_rounded_log": 3.893362688,
+  "proofs": [
+    {
+      "submitted_utc": "2026-10-30T08:10:57Z",
+      "request_id": 11,
+      "raw_bytes": 276161,
+      "gzip_bytes": 2552,
+      "compression_ms": 1.101,
+      "accepted": true
+    },
+    {
+      "submitted_utc": "2026-10-30T08:16:19Z",
+      "request_id": 12,
+      "raw_bytes": 276161,
+      "gzip_bytes": 2554,
+      "compression_ms": 0.952,
+      "accepted": true
+    }
+  ],
+  "pool_api_records_accepted_work": true,
+  "pool_api_counts_scope": "rolling/cumulative worker counts; not equated with this session",
+  "private_snapshot_sha256": "74929754f4a2b567c2bfb3bb686436407e297b69349e28ca0985951ac229b05d",
+  "public_excerpt_sha256": "9a5e21dc41d6fdea4f2393af65fc0b592921b69e915e4f9d58b5263e144d0719",
+  "scope": "real gzip shares accepted; no precise pool rate, income or long-term qualification claim"
+}

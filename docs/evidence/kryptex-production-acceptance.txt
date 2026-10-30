@@ -1,0 +1,5 @@
+Alpha 2 production snapshot at 2026-10-30T08:16:53.447019Z. Log clock: America/Toronto (UTC-04:00).
+[04:10:57] [stratum] kryptex submit 11: gzip proof raw_bytes=276161 gzip_bytes=2552 compression_ms=1.101
+[04:10:57] share ACCEPTED (job 6e45cd4e_2097152) — {"id":11,"result":true,"error":null}
+[04:16:19] [stratum] kryptex submit 12: gzip proof raw_bytes=276161 gzip_bytes=2554 compression_ms=0.952
+[04:16:19] share ACCEPTED (job d6b41a18_2097152) — {"id":12,"result":true,"error":null}

@@ -1,127 +1,101 @@
-<p align="center"><img src="assets/hero.svg" alt="Pearl M-Miner — Metal GPU mining for Apple Silicon" width="100%"></p>
+<p align="center"><img src="assets/hero.svg" alt="Pearl M-Miner — Apple Silicon Metal GPU" width="100%"></p>
 
-<p align="center">
-  <a href="LICENSE">Apache-2.0</a> ·
-  <a href="docs/README.zh-CN.md">简体中文</a> ·
-  <a href="docs/PERFORMANCE.md">Measured results</a> ·
-  <a href="docs/DEV_FEE.md">Transparent 1% support</a>
-</p>
+[English](README.md) · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [한국어](docs/README.ko.md)
 
-# Pearl M-Miner
+# Pearl M-Miner — Pearl (PRL) mining for Apple Silicon
 
-**An open-source Pearl (PRL) miner optimized for Apple Silicon Metal GPUs.** The M1 Max research backend reached **3.87 TH/s in a 180-second live trial**, with **7 accepted shares, 0 rejected**, independently matched by the pool API.
+Open-source Metal GPU mining for M-series Macs. **M1 Max: 4.2347 TH/s in a 300-second offline test, +7.82% versus our previous Alpha 2 backend.** A separate deployed user session produced a verified Kryptex gzip share. These are different measurements, not guaranteed pool speed or income.
 
-That is about **3.58× our earlier upstream-based logged rate** of 1.08 TH/s. The final optimization stage added **30–32% over our already-optimized 2.93–2.97 TH/s baseline**. Those are different comparisons. The historical upstream test ran for 600 seconds and is not a new matched A/B against the final build. [See the measurements and limits.](docs/PERFORMANCE.md)
+[What you get](#part-1) · [Requirements](#part-2) · [Build and verify](#part-3) · [Start mining](#part-4) · [Measured results](#part-5) · [Developer support and wallet](#part-6) · [For AI assistants and contributors](#part-7)
 
-**Experimental source release `v0.1.0-alpha.2` (package version `0.1.0a2`).** M1 Max is the measured device. Other M-series Macs are experimental targets; no performance gain is claimed for them yet. This is a GPU miner; Apple Neural Engine work is not included in its hashrate.
+<a id="part-1"></a>
 
-**Alpha 1 baseline recheck:** 3.928 TH/s offline over 60 seconds; approximately 3.879 TH/s in a separate 180-second LuckyPool session, with **8 accepted / 0 rejected**, matched by the pool API. 48 CPU tests, 28 official proof checks and an accelerated Kryptex → LuckyPool → Kryptex routing test passed. The short tests do not validate a full production-hour fee cycle or developer payout credit. [Release validation and retained failed control →](docs/RELEASE_VALIDATION.md)
+## What you get
 
-**Alpha 2 adds negotiated Kryptex gzip.** Three offline production-dimension proof payloads shrank by 108–111x while retaining identical decoded bytes and passing the official verifier. Live v2 negotiation is verified; gzip-share acceptance is tracked separately. [Protocol, tests and evidence →](docs/KRYPTEX_GZIP.md)
+- Exact prefix/S-matrix GPU backend, immutable jobs and official proof verification.
+- Kryptex negotiated gzip-v2 and LuckyPool support.
+- Readable local rate, accepted/rejected shares and job freshness.
+- Optional, disclosed **1% of completed valid GPU scan time**.
+- Foreground operation: no background service or autostart installed.
 
-## Contents
+<a id="part-2"></a>
 
-- [What is included](#what-is-included)
-- [Measured performance](#measured-performance)
-- [Build and verify](#build-and-verify)
-- [Start mining](#start-mining)
-- [Developer support](#developer-support)
-- [How it works](#how-it-works)
-- [Compatibility and contributions](#compatibility-and-contributions)
-- [License and attribution](#license-and-attribution)
+## Requirements
 
-## What is included
+**Experimental source release v0.1.0-alpha.3 (Python package 0.1.0a3).** Requires Apple Silicon, **macOS 26+**, native arm64 **Python 3.12+**, Metal 4 Command Line Tools, Git and Rust/Cargo. Only M1 Max has measured qualification. Other M1 variants and M2–M5 are experimental: run the local self-test, then validate the pool. CPU, ANE and multi-coin mining are not shipped features.
 
-| Area | Included |
-| --- | --- |
-| Metal GPU backend | Prefix scans, S-matrix preparation and integer-exact guards |
-| Host preparation | Incremental nonce/Merkle work and immutable job generations |
-| Verification | Independent arithmetic checks, complete small-grid transcripts and official proof verification |
-| CLI | `doctor`, `self-test`, timed `benchmark`, foreground `mine` |
-| Pool work | Research acceptance on LuckyPool; pool-specific validation is tracked separately |
-| Developer support | Disclosed 1% active-scan-time contribution; optional |
-| Evidence | Sanitized JSON/CSV and reproducible charts |
-
-## Measured performance
-
-![M1 Max performance with explicitly named baselines](assets/performance.svg)
-
-| M1 Max measurement | Rate | Scope |
-| --- | ---: | --- |
-| Earlier upstream 0.2.4 + cert-v3 compatibility patch | 1.080 TH/s | Mean printed rate, 600 s historical window |
-| Earlier Pearly 1.0.3 | 3.000 TH/s | Mean printed rate, 600 s historical window |
-| Our already-optimized baseline | 2.933–2.967 TH/s | Two later 180 s live trials |
-| **Final S research backend** | **3.869 TH/s** | **180 s live trial; 7 accepted / 0 rejected** |
-| Final S fresh-grid offline benchmark | 3.931 TH/s | 30 s measurement; no pool submission |
-
-The **30–32% figure is versus our optimized baseline**, not versus upstream or Pearly. We did not rerun Pearly alongside the final backend. Rates use protocol-equivalent work, not advertised TOPS or twice-counted MACs. Short-window accepted shares are not a precise hashrate or an income guarantee. These research runs preceded the release fee schedule. [Definitions, telemetry, source hashes and limitations →](docs/PERFORMANCE.md)
-
-![Recorded LuckyPool research log: seven accepted shares](assets/luckypool-log.png)
-
-*Actual recorded research log, displayed in a log viewer; this is not a live desktop capture. The excerpt preserves seven acceptance replies and two session records. The developer-fee schedule was not active in this run. [Plain-text excerpt](docs/evidence/luckypool-log.txt) · [Viewer](docs/evidence/luckypool-log.html) · [Screenshot provenance](docs/evidence/screenshot-provenance.json).*
+<a id="part-3"></a>
 
 ## Build and verify
 
-You need an Apple Silicon Mac, **macOS 26+**, a native arm64 **Python 3.12+**, Xcode Command Line Tools with a compatible Metal 4 toolchain, Git and Rust/Cargo. The bootstrap builds the pinned official Pearl proof extension locally. It creates a repository-local virtual environment and build outputs; it does not install a background mining service.
-
 ```sh
-git clone https://github.com/parkerkyle-max/pearl-m-miner.git
+git clone --branch v0.1.0-alpha.3 --depth 1 https://github.com/parkerkyle-max/pearl-m-miner.git
 cd pearl-m-miner
 sh bootstrap.sh
-
+.venv/bin/pearl-m-miner info --json
 .venv/bin/pearl-m-miner doctor
 .venv/bin/pearl-m-miner self-test
 .venv/bin/pearl-m-miner benchmark --seconds 60
 ```
 
-If your native Python is named differently, use `PYTHON=python3.12 sh bootstrap.sh`. A failed compile, precision guard or self-test is a stop condition; do not continue mining on that build. The source checkout is installed editable, not as a relocatable precompiled wheel.
+The bootstrap builds the pinned official proof extension and creates a local virtual environment. It does not install mining autostart. If needed, use `PYTHON=python3.12 sh bootstrap.sh`. A failed build, precision guard or self-test must be resolved before mining. `info --json` is offline and portable; `doctor` checks the actual Mac. A changed build/device requires a fresh self-test.
 
-The default `--profile auto` selects M=16384, N=65536 only for an M1 Max with at least 64 GiB RAM. Other devices start at M=8192, N=16384. Two CPU helpers and 512 region rows are the defaults. Explicit `--profile conservative|max` or dimensions can override the grid; a new device can begin smaller:
-
-```sh
-.venv/bin/pearl-m-miner benchmark --m 4096 --n 4096 --seconds 60
-```
-
-Mining and benchmarking require a successful local self-test receipt. Rebuilding key sources/libraries or changing the OS/device invalidates that receipt and requires another self-test. Passing it verifies the offline proof path, not live pool acceptance.
+<a id="part-4"></a>
 
 ## Start mining
 
-Use your own **public native PRL receiving address**. Never put a seed phrase or private key into a command.
+```sh
+.venv/bin/pearl-m-miner mine \
+  --pool kryptex --address YOUR_KRX_MINING_ID \
+  --worker my-mac --time-limit 600
+```
 
 ```sh
 .venv/bin/pearl-m-miner mine \
-  --pool luckypool \
-  --address YOUR_PUBLIC_PRL_ADDRESS \
-  --worker my-mac \
-  --time-limit 600
+  --pool luckypool --address YOUR_PUBLIC_PRL_ADDRESS \
+  --worker my-mac --time-limit 600
 ```
 
-This is a bounded ten-minute run. Omit `--time-limit` for foreground continuous operation after verification. **Ctrl+C stops the owned worker.** No autostart is configured. The default battery policy pauses mining; macOS serious/critical thermal pressure also pauses work. That OS signal is not a calibrated Celsius cutoff.
+Replace placeholders with **your own public identity**. Kryptex uses your `krx…` mining ID; LuckyPool uses your native `prl1…` receiving address. The examples stop after ten minutes. Omit `--time-limit` for continuous foreground mining; **Ctrl+C stops the owned worker**. The default battery policy pauses, and serious/critical macOS thermal pressure pauses work. This OS signal is not a calibrated Celsius threshold. Never give the miner a seed, private key or wallet password.
 
-The selected user pool, worker and developer route are disclosed. `--host` and `--port` can override the user pool endpoint. Kryptex uses a mining identity rather than a native wallet address when configured with its `krx…` account format; its compatibility and acceptance must be verified separately from the LuckyPool evidence above.
+<a id="part-5"></a>
 
-Run `.venv/bin/pearl-m-miner mine --help` for supported options. Mining output is not guaranteed profit: hardware, electricity, network difficulty, price, pool terms and payout thresholds all matter. This repository publishes no verified net-income claim.
+## Measured results
 
-## Developer support
+The old Alpha 2 control mean was **3.9272 TH/s**; two candidate trials averaged **4.2344 TH/s**. The chosen shader sustained **4.2347 TH/s over 300 seconds** and passed 28 official proof checks, four production-size proof checks and 512 independent scan checks. A separate new-build live session recorded **1 accepted / 0 rejected**. Short share counts are not precise hashrate measurements. Wall power and net income were not measured.
 
-The default **1% developer contribution** supports hardware testing, correctness work and maintenance. We ask users, forks and AI-generated integrations to retain it and keep the disclosure visible. **It is voluntary and can be disabled with `--dev-fee 0`.** Apache-2.0 rights are unchanged.
+The earlier **30–32%** improvement was over our already-optimized 2.93–2.97 TH/s baseline. Historical upstream/Pearly figures were measured in different windows; this release is **not** a fresh matched comparison against those miners. No gains on M2–M5 are claimed.
 
-The scheduler counts completed, non-stale GPU scan time: normally 3564 active user seconds followed by 36 active developer seconds. It does not charge compilation, job waiting, disconnection or paused time. This is not exactly 1% of wall time, shares or rewards, and pool fees are separate. Switching requires a new pool session. [Exact semantics and failure behavior →](docs/DEV_FEE.md)
+[Data / 数据 / データ / 데이터](docs/M1_CEILING_20261030.md) · [Live evidence](docs/data/m1-pair32-live.json) · [Historical comparisons](docs/PERFORMANCE.md)
 
-## How it works
+<a id="part-6"></a>
 
-The backend preserves every required Pearl transcript prefix while arranging work for Metal tensor operations. A compact S representation moves preparation away from a slow scatter path, and large intermediate tables stay GPU-private. Fresh nonce commitments produce distinct work; immutable generations keep scan results and proofs tied to the same job.
+## Developer support and wallet
 
-Actual-input guards prove that half storage and float accumulation remain exact for the chosen integers. Inputs that fail those guards are rejected. The leading scan work still scales as `m × n × K`; we do not claim a 32× arithmetic shortcut. [Architecture and verification →](docs/ARCHITECTURE.md)
+We ask users and forks to retain the default 1% contribution: it funds device testing, correctness and maintenance. **It is optional; `--dev-fee 0` disables it.** This is not an Apache-2.0 license condition and not 1% of income. Pool fees are separate. The normal schedule is 3564 valid user scan seconds followed by 36 developer scan seconds; stale, paused and idle time do not add activity. Developer work uses a separate LuckyPool session, including when the user mines at Kryptex.
 
-## Compatibility and contributions
+Public developer PRL receiving address (not your mining identity):
 
-**M1 Max measured; M2–M5 unverified.** Other M1 variants and other M-series chips need their own build, exactness, performance and live-pool checks. An Apple Silicon label alone is not qualification. [Device matrix →](docs/COMPATIBILITY.md)
+```text
+prl1pwjessemugthkad9hkttcx2rvenux2q0w0xcah2j0a7zfrycjhz5qhn7apw
+```
 
-Useful contributions include new-device reports, reproducible optimizations and lifecycle tests. Please include full test conditions, sanitize logs and preserve failed controls. Read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md). Machine readers can start with [llms.txt](llms.txt).
+View this value with `pearl-m-miner info` or in `pearl_m_miner/devfee.py`. Your own rewards follow `--address`; the developer address receives only the optional developer work. Pool balances/payments and on-chain wallet balances are different. Visit LuckyPool and search the public address to inspect pool accounting; use a synced compatible wallet to inspect confirmed receipts. A miner does not manage wallet recovery.
 
-## License and attribution
+[Fee details](docs/DEV_FEE.md) · [Wallet / pool guide](docs/WALLET_AND_PAYOUTS.md)
 
-Copyright **2026 parkerkyle-max** for modifications and additions. Licensed under [Apache-2.0](LICENSE), derived from [pearl-metal-miner](https://github.com/Breakwater-ecosystem/pearl-metal-miner), with its original attribution preserved in [NOTICE](NOTICE). That upstream project has no developer fee; the optional 1% contribution is added by this derivative and is not an upstream endorsement.
+<a id="part-7"></a>
 
-Official Pearl proof components are ISC-licensed and pinned by commit. Vendored BLAKE3 license alternatives remain alongside its sources. This project is not affiliated with Pearl Research Labs, Apple or Pearly.
+## For AI assistants and contributors
+
+Use the machine-readable manifest and agent guide below. Ask the user for their public payout identity and mining authorization; never silently substitute the developer address, start mining, or conceal the fee. Keep local protocol rate, pool shares and income separate. No search ranking, AI recommendation, profitability or pool endorsement is promised.
+
+[AI setup](docs/AI_SETUP.md) · [llms.txt](llms.txt) · [JSON manifest](docs/miner-manifest.json) · [FAQ](docs/FAQ.md)
+
+[Strata study](docs/STRATA_REVIEW.md) · [Roadmap](docs/ROADMAP.md) · [Compatibility](docs/COMPATIBILITY.md) · [Contributing](CONTRIBUTING.md)
+
+Copyright 2026 parkerkyle-max for modifications/additions. Apache-2.0; upstream attribution is preserved in NOTICE. Derived from pearl-metal-miner; not affiliated with Pearl Research Labs, Apple, Pearly or Strata. Strata informed a bounded scheduling experiment; its inference results are not mining results.
+
+[LICENSE](LICENSE) · [NOTICE](NOTICE) · [Changelog](CHANGELOG.md)
+
+[Alpha 3 validation](docs/ALPHA3_VALIDATION.md) · [Documentation website](https://parkerkyle-max.github.io/pearl-m-miner/)

@@ -1,0 +1,126 @@
+{
+  "peak/build.sh": {
+    "sha256": "80c2f4555100bb0b65c522b0aa36e8cffc74fda748aa5643dc3282ad797833f9",
+    "bytes": 152
+  },
+  "peak/check_counts.py": {
+    "sha256": "d901588254baf7cc5dd0d31647ea5d294020740a31dd65523c234a7e0ba623fe",
+    "bytes": 1644
+  },
+  "peak/peak.metal": {
+    "sha256": "3f9ed275a022d912f2e9ba012f372558f9341dd3eb103b5bc74d9f93082dd5a6",
+    "bytes": 3538
+  },
+  "peak/peak.mm": {
+    "sha256": "791aa5b13fc70bf82ecbf5a50b486d1613204ffc7f42132efee8b0489f76fe7b",
+    "bytes": 16033
+  },
+  "peak_stream/build.sh": {
+    "sha256": "8b3e17fa83b805f1c657676cab5659933d7e19df767dcd35179026cb99961098",
+    "bytes": 166
+  },
+  "peak_stream/check_stream_counts.py": {
+    "sha256": "0efec3d6dcdcd97dfa9382907c90585254650ac0c343a724ec08d1d28206d685",
+    "bytes": 2737
+  },
+  "peak_stream/peak_stream.metal": {
+    "sha256": "d57f68d54cc6309ffbbdd1b414076fc2d925ca34634cf703801b3b2a2d471809",
+    "bytes": 3157
+  },
+  "peak_stream/peak_stream.mm": {
+    "sha256": "a1e32d5bd6f5e98f7f25a2f56d14692e427917327f05634da013ad12af91dfe9",
+    "bytes": 16904
+  },
+  "ablation/build.sh": {
+    "sha256": "901ab845bf88baadcfd4737eb2c2effa339d904aab5a0345696079d9062eafae",
+    "bytes": 198
+  },
+  "ablation/prefix_adapter.py": {
+    "sha256": "63a93c7d2d967f74e3887ea875efa9257f9f723dc2325a4e3316fd2ea1c8645e",
+    "bytes": 23131
+  },
+  "ablation/prefix_baseline.metal": {
+    "sha256": "9f39aa89ae5f4f6a6322a6c88a4864126096d52fa88ff0cba37aac7fd2eb3348",
+    "bytes": 12702
+  },
+  "ablation/prefix_hash_unroll.metal": {
+    "sha256": "042063536ddff731314ecb69074f2680026e0e07d60eb510b3f47749a0f51797",
+    "bytes": 14581
+  },
+  "ablation/prefix_hash_unroll_rotate.metal": {
+    "sha256": "cd3a0401eb4e22e224fe89fe492987f9870cc130d8a13a8da25a55743f050fc9",
+    "bytes": 14577
+  },
+  "ablation/prefix_profile.mm": {
+    "sha256": "db8686e6bb6dc60879b9d011765a083fc3ebd28606679ed6e33e7368da3fe64e",
+    "bytes": 38083
+  },
+  "ablation/profile_stages.py": {
+    "sha256": "b555d9d32aa812a3a46780e187f59848ff97bd46ae413b48bb8a92e376986c53",
+    "bytes": 6154
+  },
+  "ablation/prefix_pair32_release.metal": {
+    "sha256": "bde4c27713e9fcd9000ffe412b3269d2b857d9936f4eb88a0fb4127ab409135d",
+    "bytes": 13061
+  },
+  "ablation/check_pair32_geometry.py": {
+    "sha256": "04bd7fadf724e98d82df8e3cb6c3edd5d437a88d366c05f4a7d311f0b9c7af37",
+    "bytes": 3882
+  },
+  "ablation/prefix_pair16.metal": {
+    "sha256": "949f209dd2757e12704a519ace85e03d52f4edd6e31a54ccc1b2968417b2e83e",
+    "bytes": 12988
+  },
+  "ablation/check_pair16_geometry.py": {
+    "sha256": "158bc3ca6aa3f2631efc0bd13f3b885ad427cc19dbc90d0e11d97704d100c2a1",
+    "bytes": 4358
+  },
+  "cpu/accelerate_exact.cpp": {
+    "sha256": "9de385adf2360d48e8f3543f36a96b3f846d515eb24312f15d7eec8ed849fbc9",
+    "bytes": 8150
+  },
+  "research_worker.py": {
+    "sha256": "654cbfec0daac3713a15800769adefa0e915eb2f34220b96999c2bf3a0ad9c45",
+    "bytes": 1772
+  },
+  "check_private_scan.py": {
+    "sha256": "bbc2cd5a95b20ff4030f094b78595c2c275775e4abd70d95cbb1f37bdd970d7f",
+    "bytes": 3335
+  },
+  "peak/README.md": {
+    "sha256": "5df45edda68c5d969c7aab0e3b39b1655b8b9d246040e28d09dc358907b30cc9",
+    "bytes": 6172
+  },
+  "peak_stream/README.md": {
+    "sha256": "6b94b91eedd7baf68cf463842a208a103e800f99b22863164b7bb23ec33e0721",
+    "bytes": 3806
+  },
+  "cpu/README.md": {
+    "sha256": "f3aca83bfaf11d8799a1fecc043edf9122eb1213ec6095c6433fbfec2ae15ad3",
+    "bytes": 2332
+  },
+  "ablation/WORK_MODEL.md": {
+    "sha256": "b1049fca491f80902559afe2e74edcc61cc45175c2a8b8cfbd00b00bf2315bed",
+    "bytes": 4519
+  },
+  "ablation/PAIR32.md": {
+    "sha256": "65160d3f59ffb04da48a9325c9522d851018d4c7cb19753993edb8dc147d7d24",
+    "bytes": 3092
+  },
+  "ablation/PAIR16.md": {
+    "sha256": "535d0e81a7ad67733bc4d77a3ce83f3eb825857b11ac1e225777aa06ee97ead8",
+    "bytes": 2265
+  },
+  "ablation/inspect_pipeline.mm": {
+    "sha256": "3bb7a6e354ebb13b922441c0f89a8bf66c132d744ce51ca9139eb51e4c521378",
+    "bytes": 3787
+  },
+  "ablation/build_inspect.sh": {
+    "sha256": "14ddf284b799d418116d27604ff3849e1b1e423a60449c27898088221a00b715",
+    "bytes": 166
+  },
+  "protocol-audit.md": {
+    "sha256": "73c181c00298d018ce0b4de9556e96e7bddb91e10fcb59fb2241c700da3d291c",
+    "bytes": 6451
+  }
+}

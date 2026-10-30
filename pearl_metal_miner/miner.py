@@ -13,6 +13,7 @@ is why this module sets it at the very top.
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import queue
 import re
@@ -45,6 +46,7 @@ from .dashboard import Dashboard  # noqa: E402
 from .metal_capi import HITS_BUF_BYTES, HITS_CAPACITY, JobShape, Metal  # noqa: E402
 from .notify import Notifier  # noqa: E402
 from .stats import RateMeter, fmt_uptime  # noqa: E402
+from .telemetry import Telemetry  # noqa: E402
 from .stratum.dialect import Job, PoolConnection, ShareResult  # noqa: E402
 from .stratum.kryptex import KryptexDialect  # noqa: E402
 from .stratum.luckypool import LuckyPoolDialect  # noqa: E402
@@ -541,11 +543,12 @@ def run(argv=None) -> int:
     row_cursor = 0
     pending: dict[int, tuple[str, float]] = {}  # submit id -> (job_id, share difficulty)
     stats = {"grids": 0, "sub": 0, "acc": 0, "rej": 0, "disc": 0, "reco": 0,
-             "attempt": 0, "down_since": None, "last_report": time.time(),
+             "attempt": 0, "down_since": None,
              "intensity_now": args.intensity, "last_share_t": None,
              "exp_tiles": None, "on_batt": False, "batt_poll_t": 0.0,
              "batt_warned": False, "acc_diff_sum": 0.0}
     meter = RateMeter()
+    telemetry = Telemetry()
     notifier = Notifier(enabled=not args.no_notify, log=log)
     conn: PoolConnection | None = None
     awake: subprocess.Popen | None = None
@@ -649,6 +652,7 @@ def run(argv=None) -> int:
                         if ev.cert_version not in (1, 2, 3):
                             raise RuntimeError(f"unsupported certificate version {ev.cert_version}; refusing to mine")
                         newest = ev
+                        telemetry.job_received()
                     elif isinstance(ev, ShareResult):
                         auth_id = 2 if args.pool == "luckypool" else 3
                         if ev.msg_id == auth_id:
@@ -671,6 +675,7 @@ def run(argv=None) -> int:
                 pass
             if newest is not None and job_needs_refresh(job, newest):
                 job = newest
+                telemetry.job_adopted()
                 return True
             return False
 
@@ -785,7 +790,9 @@ def run(argv=None) -> int:
                 stats["grids"] += 1
                 row_cursor = 0
                 n_regions = engine.n_regions(args.region_rows)
-                if stats["grids"] == 1 or new_job:
+                # Adoption may occur after the previous sweep. Keep the notice
+                # until this grid is ready; ordinary nonce grids stay quiet.
+                if telemetry.take_job_notice() or stats["grids"] == 1:
                     log(f"job {job.job_id} height={job.height} cert_version={job.cert_version}: grid #{stats['grids']} "
                         f"ready in {time.time() - t0:.2f}s "
                         f"(~2^{bound_int.bit_length() - 1} bound, "
@@ -845,14 +852,22 @@ def run(argv=None) -> int:
             if intensity < 100:
                 time.sleep(t_burst * (100 - intensity) / max(intensity, 1))
 
-            if time.time() - stats["last_report"] > 30:
+            if telemetry.due():
+                rolling, average = meter.rolling(), meter.average()
                 judged = stats["acc"] + stats["rej"]
                 pct = f" ({100 * stats['acc'] / judged:.0f}% accept)" if judged else ""
-                log(f"{meter.rolling() / 1e6:.3f}M tiles/s (60s) | "
-                    f"{meter.average() / 1e6:.3f}M/s session | "
+                log(f"{rolling / 1e6:.3f}M tiles/s (60s) | "
+                    f"{average / 1e6:.3f}M/s session | "
+                    f"{average * factor / 1e12:.3f} TH/s local protocol | "
                     f"shares {stats['acc']} acc / {stats['rej']} rej{pct} | "
                     f"up {fmt_uptime(meter.uptime())}")
-                stats["last_report"] = time.time()
+                report = telemetry.snapshot(rolling_tiles_s=rolling,
+                    session_tiles_s=average, work_per_tile=factor,
+                    uptime_s=meter.uptime(), submitted=stats['sub'],
+                    accepted=stats['acc'], rejected=stats['rej'], pending=len(pending),
+                    native_stats=getattr(engine, 'stats', None))
+                report['session'] = os.environ.get('PEARL_M_SESSION', '')
+                log('PMM_TELEMETRY ' + json.dumps(report, separators=(',', ':'), allow_nan=False))
     except KeyboardInterrupt:
         stop_note = "stopped by user — disconnecting"
     except BrokenPipeError:

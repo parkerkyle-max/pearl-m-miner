@@ -29,6 +29,8 @@ def build_parser():
         description='Experimental PRL miner for Apple Silicon / macOS 26+.')
     p.add_argument('--version', action='version', version=f'Pearl M Miner {__version__}')
     sub = p.add_subparsers(dest='command', required=True)
+    info = sub.add_parser('info', help='offline capabilities and public developer payout; no mining')
+    info.add_argument('--json', action='store_true', help='stable machine-readable public metadata')
     sub.add_parser('doctor', help='check platform and built artifacts; no mining')
     sub.add_parser('self-test', help='offline S preparation, transcript and official-proof gates')
     for name in ('mine', 'benchmark'):
@@ -118,6 +120,22 @@ def main(argv=None):
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
+        if args.command == 'info':
+            from .discovery import manifest
+            value = manifest()
+            if args.json:
+                print(json.dumps(value, indent=2))
+            else:
+                fee = value['developer_contribution']
+                print(f"Pearl M-Miner {value['version']} | PRL | Apple Silicon Metal GPU")
+                print('Requires macOS 26+, native arm64 Python 3.12+, Metal 4 tools and Rust/Cargo.')
+                print('M1 Max measured; other M-series devices are experimental.')
+                print('Optional 1% of completed valid GPU scan time; disable with --dev-fee 0.')
+                print('Developer public PRL address: ' + fee['public_address'])
+                print(f"Developer route: {fee['pool']} {fee['host']}:{fee['port']}")
+                print('Your mining payout uses your separate --address identity. No secrets are needed.')
+                print('This command is offline and does not start mining. Use info --json for metadata.')
+            return 0
         if args.command == 'mine':
             validate_identity(args)
         details = preflight()
